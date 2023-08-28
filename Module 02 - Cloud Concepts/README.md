@@ -73,20 +73,20 @@ If a company offers multiple cloud services under a single UI but do not meet mo
 
 
 ## Landscape of CSPs
-### Tier - 1 (Top Tier)
+### Tier - 1 *(Top Tier)*
 Early to market, wide offering, strong synergies between services, well recognized in the industry
 1. Amazon Web Services (AWS)
 2. Microsoft Azure
 3. Google Cloud Platform (GCP)
 4. Alibaba Cloud
 
-### Tier - 2 (Mid Tier)
+### Tier - 2 *(Mid Tier)*
 Backed by well-known tech companies, slow to innovate and turned to specialization
 1. IBM Cloud
 2. Oracle Cloud
 3. Rackspace (OpenStack)
 
-### Tier - 3 (Light Tier)
+### Tier - 3 *(Light Tier)*
 Virtual Private Servers (VPS) turned to offer core IaaS offering. Simple, cost-effective
 1. Vultr
 2. Digital Ocean

@@ -1,5 +1,33 @@
 # AWS Cloud Practitioner Essentials
 
+# Module 4 : Networking
+
+## Amazon Virtual Private Cloud
+A networking service that you can use to establish boundaries around your AWS resources is **Amazon Virtual Private Cloud (Amazon VPC).**
+
+A VPC, or Virtual Private Cloud, is essentially your own private network in AWS. A VPC 
+allows you to define your private IP range for your AWS resources, and you place things like 
+EC2 instances and ELBs inside of your VPC. Amazon VPC enables you to provision an isolated 
+section of the AWS Cloud. In this isolated section, you can launch resources in a virtual 
+network that you define. These resources can be public facing so they have access to the 
+internet, or private with no internet access, usually for backend services like databases or 
+application servers.
+
+## Internet Gateway
+## Virtual Private Gateway
+## AWS Direct Connect
+## Subnets
+## Network Traffic in a VPC
+## Network Access Control Lists (ACLs)
+## Stateless Packet Filtering
+## Security Groups
+## Stateful Packet Filtering
+## Domain Name System (DNS)
+## Amazon Route 53
+
+
+------------------------------------------------------------------------------------------------
+
 # Module 5 : Storage and Databases
 
 ## Instance Stores and Amazon Elastic Block Store (Amazon EBS)

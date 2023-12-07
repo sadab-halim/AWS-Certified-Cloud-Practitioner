@@ -15,7 +15,6 @@
 - **FSx for Windows**: network file system for windows servers
 - **FSx for Lustre**: high performance computing linux file system
 
-------------------------------------------------------------
 
 ## ELB & ASG
 - **High Availability** vs **Scalability** (vertical and horizontal) vs **Elasticity** vs **Agility** in the Cloud
@@ -32,7 +31,7 @@
 	- Scale EC2 Instances based on the demand on your system, replace unhealthy
 	- Integrated with ELB
 
-------------------------------------------------------------
+
 
 
 ## Amazon S3
@@ -46,7 +45,7 @@
 - **OpsHub** : desktop application to manage Snow Fanuly devices
 - **Storage Gateway**: hybrid solution to extend on-premises storage to S3
 
-------------------------------------------------------------
+
 
 ## Databases & Analytics
 - **Relational Databases - OLTP**: RDS & Aurora (SQL)
@@ -64,7 +63,7 @@
 - **Database Migration**: DMS
 - **Neptune**: Graph Database
 
-------------------------------------------------------------
+
 
 ## Other Compute
 - **Docker**: container technology to run applications
@@ -76,7 +75,7 @@
 - **Barch**: run batch jobs on AWS across managed EC2 instances
 - **Lightsail**: predictable & low pricing for simple application & DB stacks
 
-------------------------------------------------------------
+
 
 ## Lambda
 - Lambda is Serverless, Function as a Serivce, seamless scaling, reactive 
@@ -90,7 +89,7 @@
 	- Run a serverless cron job
 - **API Gateway**: expose Lambda functions as HTTP API
 
-------------------------------------------------------------
+
 
 ## Deployment
 - **CloudFormation** (AWS only):
@@ -103,7 +102,7 @@
 - **Systems Manager** (hybrid): patch, configure and run commands at scale
 - **OpsWorks** (hybrid): managed Chef and Puppet in AWS
 
-------------------------------------------------------------
+
 
 ## Developer
 - **CodeCommit** : store code in private git repository (version controlled)
@@ -115,7 +114,7 @@
 - **Cloud9** : Cloud IDE (Integrated Development Environment) with collab
 - **AWS CDK** : define your cloud infrastructure using a programming language
 
-------------------------------------------------------------
+
 
 ## Global Applications
 - **Global DNS: Route 53**
@@ -136,7 +135,7 @@
 	- Bring AWS resources (compute, database, storage, ..) closer to your users
 	- Good for latency-sensitive applications
 
-------------------------------------------------------------
+
 
 ## Integration
 - **SQS**:
@@ -152,7 +151,7 @@
 - **Kinesis**: real-time data streaming, persistence and analysis
 - **Amazon MQ**: managed message broker for ActiveMQ and Rabbit MQ in the cloud (MQTT, AMQP.. protocols)
 
-------------------------------------------------------------
+
 
 ## Monitoring
 - **CloudWatch**
@@ -167,7 +166,7 @@
 - **AWS Account Health Dashboard**: AWS events that impact your infrastructure 
 - **Amazon CodeGuru**: automated code reviews and application performance recommendations
 	
-------------------------------------------------------------
+
 
 ## VPC
 - **VPC**: Virtual Private Cloud
@@ -186,7 +185,7 @@
 - **Direct Connect**: direct private connection to AWS
 - **Transit Gateway**: connect thousands of VPC and on-premises networks together
 
-------------------------------------------------------------
+
 
 ## Security & Compliance
 - **Shared Responsibility on AWS**
@@ -212,7 +211,7 @@
 	- Register as a seller in the Reserved Instance Marketplace
 - **IAM Access Analyzer**: identify which resources are shared externally
 
-------------------------------------------------------------
+
 
 ## Machine Learning
 - **Rekognition**: face detection, labeling, celebrity recognition
@@ -228,7 +227,6 @@
 - **Personalize**: real-time personalized recommendations
 - **Textract**: detect text and data in documents
 
-------------------------------------------------------------
 
 ## Account Best Practices
 - Opeare multiple accounts using **Organizations**
@@ -244,7 +242,7 @@
 - **If your account is compromised**: change the root password, delete and rotate all password/keys, contact the AWS support
 - Allow uses to create pre-defined stacks defined by admins using **AWS Service Catalog**
 
-------------------------------------------------------------
+
 
 ## Billing and Costing Tools
 - **Compute Optimizer**: recommends resources' configurations to reduce cost
@@ -259,7 +257,7 @@
 - **Cost Anomaly Detection**: detect unusual spends using Machine Learning
 - **Service Quotas**: notify you when you're close to service quota thresold
 
-------------------------------------------------------------
+
 
 ## Advanced Identity
 - **IAM**:
@@ -271,5 +269,5 @@
 - **Directory Services**: integrate Microsoft Active Directory in AWS
 - **IAM Identity Center**: one login for multiple AWS accounts & applications
 
-------------------------------------------------------------
+
 

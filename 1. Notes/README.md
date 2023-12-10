@@ -26,6 +26,10 @@
 # Cloud Computing
 
 ## How does website work
+In computing, a client can be a web browser or desktop application that a person interacts 
+with to make requests to computer servers. A server can be services such as Amazon Elastic 
+Compute Cloud (Amazon EC2), a type of virtual server.
+
 ![Alt text](image-159.png)
 
 ## What is a server composed of?
@@ -58,6 +62,28 @@ need
 - Amazon Web Services owns and maintains the network-connected hardware 
 required for these application services, while you provision and use what you need 
 via a web application
+
+## Deployment Models for Cloud Computing
+The three cloud computning deployment models are cloud-based, on-premises, and hybrid
+
+1. **Cloud-Based Deployment**:
+    - Run all parts of the application in the cloud
+    - Migrate existing applications to the cloud
+    - Design and build new applications in the cloud
+    - For example, a company might create an application consisting of virtual servers, databases, and networking components that are fully based in the cloud.
+
+2. **On-Premises Deployment**:
+    - Deploy resources by using virtualization and resource management tools.
+    - Increase resource utilization by using application management and virtualization technologies.
+    - On-premises deployment is also known as private cloud deployment.
+    - For example, you might have applications that run on technology that is fully kept in your on-premises data center. Though this model is much like legacy IT infrastructure, its incorporation of application management and virtualization technologies helps to increase resource utilization.
+ 
+
+3. **Hybrid Deployment**:
+    - Connect cloud-based resources to on-premises infrastructure.
+    - Integrate cloud-based resources with legacy IT applications.
+    - For example, you have legacy applications that are better maintained on premises, or government regulations require your business to keep certain records on premises.
+
 
 ## Deployment Models of the Cloud
 ### Private Cloud
@@ -182,6 +208,11 @@ AWS has 3 pricing fundamentals, following the pay-as-you-go pricing model
 - AWS Edge Locations / Points of Presence
 
 ## AWS Regions
+- Regions are geographically isolated areas.
+- Inside each Region, we have multiple data centers that have all the compute, storage, and other services you need to run your applications.
+- Each Region can be connected to each other Region through a **high speed fibre network**, controlled by AWS.
+- Each region is isolated from every other region, no data goes in or out of your environment in that region without you explicitly granting permission.
+
 - AWS has Regions all around the world 
 - Names can be us-east-1, eu-west-3… 
 - A region is a cluster of data centers 
@@ -197,6 +228,7 @@ your explicit permission
 - **Pricing**: pricing varies region to region and is transparent in the service pricing page
 
 ## AWS Availability Zones
+- An Availability Zone is a single data center or a group of data centers within a Region.
 - Each region has many availability zones (usually 3, min is 3, max is 6). Example:
 	- ap-southeast-2a
 	- ap-southeast-2b
@@ -209,8 +241,17 @@ networking, and connectivity
     ![Alt text](image-166.png)
 
 ## AWS Points of Presence (Edge Locations)
+- An edge location is a site that Amazon CloudFront uses to store cached copies of your content closer to your customers for faster delivery.
+- Caching copies of data closer to the customers uses the concept of content delivery networks, or CDNs.
+- CDNs are commonly used, and on AWS, we call our CDN Amazon CloudFront.
+- **Amazon CloudFront** is a service that helps deliver data, video, applications, and APIs to customers around the world with low latency and high transfer speeds.
+- Amazon CloudFront uses what are called **Edge locations**, all around the world, to help accelerate communicatio with users, no matter where they are.
+
 - Amazon has 400+ Points of Presence (400+ Edge Locations & 10+ Regional Caches) in 90+ cities across 40+ countries
 - Content is delivered to end users with lower latency
+
+- Edge locations are separate from Regions.
+- AWS Edge Locatinos run a domain name service, or DNS, known as Amazon Route 53, helping direct customers to the correct web locations with reliably low latency.
 
 ## Tour of the AWS Console
 - AWS has Global Services:
@@ -957,6 +998,14 @@ servers** (EC2 Instances) downstream
 - Data lakes & big data analytics 
 - Software delivery 
 - Static websit
+
+## Amazon EBS
+- Amazon Elastic Block Store (Amazon EBS) is a service that provides block-level storage 
+volumes that you can use with Amazon EC2 instances. 
+
+- If you stop or terminate an Amazon EC2 instance, all the data on the attached EBS volume remains available.
+
+
 
 ## Amazon S3 - Buckets
 - Amazon S3 allows people to **store objects (files)** in “*buckets*” (directories)
@@ -1788,6 +1837,10 @@ monitor, and secure APIs
 # Deploying and Managing Infrastructure at Scale
 
 ## What is CloudFormation?
+- AWS CloudFormation is an infrastructure as code tool that allows you to define a wide 
+variety of AWS resources in a declarative way using JSON or YAML text-based documents 
+called CloudFormation templates.
+
 - Amazon CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency, high transfer speeds, all within a
 developer-friendly environment
 
@@ -2396,6 +2449,14 @@ What if you want to send one message to many receivers?
 -------------------------------
 
 # Cloud Monitoring
+## Amazon CloudWatch
+- Amazon CloudWatch is a web service that enables you to monitor and manage various 
+metrics and configure alarm actions based on data from those metrics.
+
+- CloudWatch uses metrics to represent the data points for your resources. 
+- AWS services send metrics to CloudWatch. 
+- CloudWatch then uses these metrics to create graphs automatically that show how performance has changed over time.
+
 ## Amazon CloudWatch Metrics
 - CloudWatch is a monitory and management service built for developers, system operators, sre and it managers.
 
@@ -2448,6 +2509,16 @@ What if you want to send one message to many receivers?
 
     ![Alt text](image-36.png)
 
+### CloudWatch Dashboard
+- The CloudWatch dashboard feature enables you to access all the metrics for your resources 
+from a single location. This enables you to collect metrics and logs from all your AWS 
+resources applications, and services that run on AWS and on-premises servers.
+
+- Use a CloudWatch dashboard to monitor the CPU utilization of an Amazon EC2 instance, the 
+total number of requests made to an Amazon S3 bucket, and more.
+
+    ![Alt text](image-210.png)
+
 ## Amazon EventBridge (*formerly CloudWatch Events*)
 - Amazon EventBridge  is a serverless event bus that makes it easier to build event-driven applications at scale using events generated from your applications, integrated Software-as-a-Service (SaaS) applications, and AWS services. 
 
@@ -2470,10 +2541,12 @@ What if you want to send one message to many receivers?
 - Ability to replay archived events
 
 ## AWS CloudTrail
-- AWS CloudTrail is a web service that records AWS API calls for your account and delivers log files to you. The recorded information includes the identity of the API caller, the time of the API call, the source IP address of the API caller, the request parameters, and the response elements returned by the AWS service.
+- AWS CloudTrail is a web service that **records AWS API calls** for your account and **delivers log files** to you. 
+
+- The **recorded information** includes the **identity** of the API caller, the **time** of the API call, the **source IP address** of the API caller, the **request parameters**, and the **response elements** returned by the AWS service.
 - Provides governance, compliance and audit for your AWS Account
 
-- CloudTrail is enabled by default!
+- CloudTrail is enabled by **default**!
 - Get an history of events / API calls made within your AWS Account by:
     - Console
     - SDK
@@ -2482,6 +2555,14 @@ What if you want to send one message to many receivers?
 - Can put logs from CloudTrail into CloudWatch Logs or S3
 - A trail can be applied to All Regions (default) or a single Region.
 - If a resource is deleted in AWS, investigate CloudTrail first!
+
+- You can think of CloudTrail as a "trail" of breadcrumbs (*or a log of actions*) that someone has left behind them.
+- With CloudTrail, you can **view a complete history of user activity** and **API calls** of your applications and resources.
+- Events are typically updated in CloudTrail within 15 minutes after an API call.
+- CloudTrail can **save** those **logs** indefinitely in **secure S3 buckets**.
+
+### CloudTrail Insights
+Within CloudTrail, you can also enable CloudTrail Insights. This optional feature allows CloudTrail to automatically **detect unusual API activities** in your AWS account.
 
 ### CloudTrail Diagram
 ![Alt text](image-41.png)
@@ -3366,12 +3447,37 @@ workloads
 - Billing Alarms 
 - Budgets
 
+## AWS Pricing Concepts
+1. **Pay for what you use**: For each service, you pay for exactly the amount of resources that you actually use, without 
+requiring long-term contracts or complex licensing.
+
+2. **Pay less when you reserve**: ome services offer reservation options that provide a significant discount compared to On-Demand Instance pricing
+
+3. **Pay less with volume-based discounts when you use more** Some services offer tiered pricing, so the per-unit cost is incrementally lower with increased 
+usage.
+
 ### AWS Pricing Calculator
+- The AWS Pricing Calculator lets you explore AWS services and create an estimate for the 
+cost of your use cases on AWS.
 - Available at https://calculator.aws/ 
 - Estimate the cost for your solution architecture
 
 ### AWS Billing Dashboard
 ![Alt text](image-92.png)
+
+## AWS Free Tier
+The AWS Free Tier enables you to begin using certain services without having to worry 
+about incurring costs for the specified period.
+
+Three types of offers are available:
+    - **Always Free** :
+        - These offers do not expire and are available to all AWS customers.
+
+    - **12 months Free** :
+        - These offers are free for 12 months following your initial-sign-up date to AWS (12 Months Free category)
+
+    - **Trials** :
+        - Short-term free trial offers start from the date you activate a particular service. The length of each trial might vary by number of days or the amount of usage in the service.
 
 ### AWS Free Tier Dashboard
 ![Alt text](image-93.png)
@@ -3462,11 +3568,31 @@ continuous cost increases (you don’t need to define thresholds)
 - Request a quota increase from AWS Service Quotas or shutdown resources before limit is reached
 
 ## AWS Trusted Advisor
+- AWS Trusted Advisor is an automated web service that inspects your AWS environment and 
+provides real-time recommendations in accordance with AWS best practices.
+
+- Trusted Advisor compares its findings to AWS best practices in five categories:
+    - Cost Optimization
+    - Performance
+    - Security
+    - Fault Tolerance
+    - Service Limits
+
 - No need to install anything – high level 
 AWS account assessment
-- Analyze your AWS accounts and provides 
-recommendation on 5 categories
-- Cost optimization • Performance • Security - Fault tolerance • Service limit
+
+### AWS Trusted Advisor Dashboard
+When you access the Trusted Advisor dashboard on the AWS Management Console, you can 
+review completed checks for cost optimization, performance, security, fault tolerance, and 
+service limits.
+
+For each category:
+    - The green check indicates the number of items for which it detected **no problems.**
+    - The orange triangle represents the number of recommended **investigations.**
+    - The red circle represents the number of recommended **actions**.
+
+    ![Alt text](image-211.png)
+
 
 ### Trusted Advisor - Support Plans
 ![Alt text](image-100.png)
@@ -3830,7 +3956,7 @@ delivery schedules, highly-targeted segments, and full campaigns
 6. Sustainability
 
 ## Pillar 1: Operational Excellence
-- Includes the ability to run and monitor systems to deliver business value and to continually improve supporting processes and procedures
+- Includes the **ability to run and monitor systems** to deliver business value and to continually improve **supporting processes and procedures**
 - Design Principles
     - **Perform operations as code** - Infrastructure as code 
     - **Annotate documentation** - Automate the creation of annotated documentation after every build
@@ -3843,7 +3969,7 @@ delivery schedules, highly-targeted segments, and full campaigns
 ![Alt text](image-49.png)
 
 ## Pillar 2: Security
-- Includes the ability to protect information, systems, and assets while delivering business value through risk assessments and mitigation strategies
+- Includes the ability to **protect information**, systems, and assets while delivering business value through risk assessments and mitigation strategies
 - Design Principles
     - **Implement a strong identity foundation** - Centralize privilege management and reduce (or even eliminate) reliance on long-term credentials - Principle of least privilege - IAM
     
@@ -3859,7 +3985,7 @@ delivery schedules, highly-targeted segments, and full campaigns
 ![Alt text](image-50.png)
 
 ## Pillar 3: Reliability
-- Ability of a system to recover from infrastructure or service disruptions, dynamically acquire computing resources to meet demand, and mitigate disruptions such as misconfigurations or transient network issues
+- Ability of a system to **recover** from infrastructure or service disruptions, dynamically acquire computing resources to meet demand, and mitigate disruptions such as misconfigurations or transient network issues
 - Design Principles
     - **Test recovery procedures** - Use automation to simulate different failures or to recreate scenarios that led to failures before
     - **Automatically recover from failure** - Anticipate and remediate failures before they occur
@@ -3871,7 +3997,7 @@ delivery schedules, highly-targeted segments, and full campaigns
 ![Alt text](image-51.png)
 
 ## Pillar 4: Performance Efficiency
-- Includes the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technologies evolve
+- Includes the ability to **use computing resources efficiently** to meet system requirements, and to maintain that efficiency as demand changes and technologies evolve
 - Design Principles
     - **Democratize advanced technologies** - Advance technologies become services and hence you can focus more on product development
     - **Go global in minutes** - Easy deployment in multiple regions
@@ -3883,7 +4009,7 @@ delivery schedules, highly-targeted segments, and full campaigns
 ![Alt text](image-52.png)
 
 ## Pillar 5: Cost Optimization
-- Includes the ability to run systems to deliver business value at the lowest price point
+- Includes the ability to run systems to deliver business value at the **lowest price point**
 - Design Principles
     - **Adopt a consumption mode** - Pay only for what you use
     - **Measure overall efficiency** - Use CloudWatch
@@ -3895,7 +4021,7 @@ delivery schedules, highly-targeted segments, and full campaigns
 ![Alt text](image-53.png)
 
 ## Pillar 6: Sustainability
-- The sustainability pillar focuses on minimizing the environmental impacts of running cloud workloads. 
+- The sustainability pillar focuses on **minimizing the environmental impacts** of running cloud workloads. 
 - Design Principles
     - **Understand your impact** – establish performance indicators, evaluate improvements
     - **Establish sustainability goals** – Set long-term goals for each workload, model return on investment (ROI)

@@ -1863,7 +1863,7 @@ developer-friendly environment
 - Then CloudFormation creates those for you, in the right order, with the exact configuration that you specify.
 
 ### Benefits of AWS CloudFormation
-- Infrastructure as Code:
+- **Infrastructure as Code**:
     - No resources are manually created, which is excellent for control
     - Changes to the infrastructure are reviewed through code
 

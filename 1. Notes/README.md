@@ -52,7 +52,7 @@ networks. They know where to send your packets on the internet!
 - How to deal with disasters? (earthquake, power shutdown, fire…)
 
 ## What is Cloud Computing?
-- Cloud computing is the on-demand delivery of compute power, database storage, 
+- Cloud computing is the **on-demand** delivery of compute power, database storage, 
 applications, and other IT resources
 - Through a cloud services platform with pay-as-you-go pricing
 - You can provision exactly the right type and size of computing resources you 
@@ -293,16 +293,16 @@ networking, and connectivity
 
 ### IAM Policies Structure
 - Consists of: 
-    - Version: policy language version, always include "2012-10-17" 
-    - Id: an identifier for the policy (optional) 
-    - Statement: one or more individual statements (required) 
+    - **Version**: policy language version, always include "2012-10-17" 
+    - **Id**: an identifier for the policy (optional) 
+    - **Statement**: one or more individual statements (required) 
 - Statement consists of 
-    - Sid: an identifier for the statement (optional) 
-    - Effect: whether the statement allows or denies access (Allow, Deny) 
-    - Principal: account/user/role to which this play applied to 
-    - Action: list of actions this policy allow or denies 
-    - Resource: list of resources to which the actions applied to 
-    - Condition: conditions for when this policy is in effect (optional) 
+    - **Sid**: an identifier for the statement (optional) 
+    - **Effect**: whether the statement allows or denies access (Allow, Deny) 
+    - **Principal**: account/user/role to which this play applied to 
+    - **Action**: list of actions this policy allow or denies 
+    - **Resource**: list of resources to which the actions applied to 
+    - **Condition**: conditions for when this policy is in effect (optional) 
 
 ## IAM Policies Hands On 
 - If the user is removed (permission), access will be denied, will have to give the permission again to the user. 
@@ -357,7 +357,6 @@ networking, and connectivity
     - AWS Management Console (protected by password + MFA) 
     - AWS Command Line Interface (CLI): protected by access keys 
     - AWS Software Developer Kit (SDK): for code: protected by access keys
-    
 - Access Keys are generated through the AWS Console 
 - Users manage their own access keys 
 - Access Keys are secret, just like a password. Don't share them. 
@@ -394,7 +393,6 @@ networking, and connectivity
     - EC2 Instance Roles 
     - Lambda Function Roles 
     - Roles for CloudFormation 
-
     ![Alt text](image-171.png)
 
 ## IAM Security Tools 
@@ -520,9 +518,7 @@ access to large data sets on local storage
 ## Introduction to Security Groups
 - Security Groups are the fundamental of network security in AWS
 - They control how traffic is allowed into or out of our EC2 Instances.
-
     ![Alt text](image-173.png)
-	
 - Security groups only contain **allow** rules
 - Security groups rules can reference by IP or by security group
 
@@ -553,12 +549,12 @@ error or it’s not launched
 ![Alt text](image-175.png)
 
 ## Classic Ports to Know
-- 22 = SSH (Secure Shell) - log into a Linux instance
-- 21 = FTP (File Transfer Protocol) – upload files into a file share
-- 22 = SFTP (Secure File Transfer Protocol) – upload files using SSH
-- 80 = HTTP – access unsecured websites
-- 443 = HTTPS – access secured websites
-- 3389 = RDP (Remote Desktop Protocol) – log into a Windows instance
+- 22 = **SSH** (Secure Shell) - log into a Linux instance
+- 21 = **FTP** (File Transfer Protocol) – upload files into a file share
+- 22 = **SFTP** (Secure File Transfer Protocol) – upload files using SSH
+- 80 = **HTTP** – access unsecured websites
+- 443 = **HTTPS** – access secured websites
+- 3389 = **RDP** (Remote Desktop Protocol) – log into a Windows instance
 
 
 ## SSH Summary Table
@@ -568,9 +564,7 @@ error or it’s not launched
 - We’ll learn how to SSH into your EC2 instance using Windows
 - SSH is one of the most important function. It allows you to control a 
 remote machine, all using the command line.
-
-![Alt text](image-177.png)
-
+    ![Alt text](image-177.png)
 - We will configure all the required parameters necessary for doing SSH 
 on Windows using the free tool Putty.
 
@@ -795,7 +789,6 @@ A MI = Amazon Machine Image
 - Managed NFS (network file system) that can be mounted on 100s of EC2
 - EFS works with Linux EC2 instances in multi-AZ
 - Highly available, scalable, expensive (3x gp2), pay per use, no capacity planning
-
     ![Alt text](image-185.png)
 
 ## EBS vs EFS
@@ -808,7 +801,6 @@ A MI = Amazon Machine Image
 - Enable EFS-IA with a Lifecycle Policy 
 - Example: move files that are not accessed for 60 days to EFS-IA
 - Transparent to the applications accessing EFS
-
     ![Alt text](image-187.png)
 
 ## Shared Responsibility Model for EC2 Storage
@@ -836,7 +828,6 @@ using EC2 Instance Store
 - Supports SMB protocol & Windows NTFS
 - Integrated with Microsoft Active Directory
 - Can be accessed from AWS or your on-premise infrastructure
-
     ![Alt text](image-188.png)
 
 ## Amazon FSx for Lustre
@@ -844,7 +835,6 @@ using EC2 Instance Store
 - The name Lustre is derived from “Linux” and “cluster”
 - Machine Learning, Analytics, Video Processing, Financial Modeling, …
 - Scales up to 100s GB/s, millions of IOPS, sub-ms latencies
-
     ![Alt text](image-189.png)
 
 --------------------------------------------------------
@@ -881,13 +871,13 @@ survive a data center loss
 (disaster)
 
 ## HIgh Availability & Scalability for EC2
-- Vertical Scaling: Increase instance size (= scale up / down)
+- **Vertical Scaling**: Increase instance size (= scale up / down)
 	- From: t2.nano - 0.5G of RAM, 1 vCPU
 	- To: u-12tb1.metal – 12.3 TB of RAM, 448 vCPUs
-- Horizontal Scaling: Increase number of instances (= scale out / in)
+- **Horizontal Scaling**: Increase number of instances (= scale out / in)
 	- Auto Scaling Group
 	- Load Balancer
-- High Availability: Run instances for the same application across multi AZ
+- **High Availability**: Run instances for the same application across multi AZ
 	- Auto Scaling Group multi AZ
  	- Load Balancer multi AZ
 
@@ -904,10 +894,8 @@ a click away, which means that you reduce the time to make those
 resources available to your developers from weeks to just minutes.
 
 
-## What is Load Balnacing?
-Load balancers are servers that **forward internet traffic** to **multiple 
-servers** (EC2 Instances) downstream
-
+## What is Load Balancing?
+Load balancers are servers that **forward internet traffic** to **multiple servers** (EC2 Instances) downstream
 ![Alt text](image-109.png)
 
 ## Why use a Load Balancer?
@@ -925,15 +913,10 @@ servers** (EC2 Instances) downstream
 	- AWS provides only a few configuration knobs
 - It costs less to setup your own load balancer but it will be a lot more effort on your end (maintenance, integrations)
 -	 **4 kinds of load balancers** offered by AWS:
-	
-        - Application Load Balancer (HTTP / HTTPS only) – Layer 7
-	
-        - Network Load Balancer (ultra-high performance, allows for TCP) – Layer 4	
-	
-        - Gateway Load Balancer – Layer 3
-	
-        - Classic Load Balancer (retired in 2023) – Layer 4 & 7
-
+        - **Application Load Balancer (HTTP / HTTPS only)** – Layer 7
+        - **Network Load Balancer (ultra-high performance, allows for TCP)** – Layer 4	
+        - **Gateway Load Balancer** – Layer 3
+        - **Classic Load Balancer (retired in 2023)** – Layer 4 & 7
             ![Alt text](image-110.png)
 
 ## What's an Auto Scaling Group?
@@ -971,7 +954,6 @@ servers** (EC2 Instances) downstream
     -  Uses Machine Learning to predict future traffic ahead of time
     - Automatically provisions the right number of EC2 instances in advance
 - Useful when your load has predictable time- based pattern
-
     ![Alt text](image-113.png)
 
 
@@ -981,11 +963,8 @@ servers** (EC2 Instances) downstream
 
 ## Introduction
 - Amazon S3 is one of the main building blocks of AWS
-
 - It’s advertised as ”*infinitely scaling*” storage 
-
 - Many websites use Amazon S3 as a backbone
-
 - Many AWS services use Amazon S3 as an integration as well
 
 ## Amazon S3 Use Cases
@@ -1009,20 +988,15 @@ volumes that you can use with Amazon EC2 instances.
 
 ## Amazon S3 - Buckets
 - Amazon S3 allows people to **store objects (files)** in “*buckets*” (directories)
-
 - Buckets must have a **globally unique name** (across all regions all accounts)
-
 - Buckets are defined at the region level 
-
 - S3 looks like a global service but buckets are created in a region
-
 - Naming convention
     - No uppercase, No underscore
     - 3-63 characters long
     - Not an IP
     - Must start with lowercase letter or number
     - Must NOT start with the prefix **xn--**
-
     - Must NOT end with the suffix **-s3alias**
 
 ## Amazon S3 - Objects
@@ -1032,7 +1006,6 @@ volumes that you can use with Amazon EC2 instances.
     - s3://my-bucket/my_folder1/another_folder/my_file.txt
 - The key is composed of prefix + object name
     - s3://my-bucket/my_folder1/another_folder/my_file.txt
-
 - There’s no concept of “directories” within buckets
 (although the UI will trick you to think otherwise)
 - Just keys with very long names that contain slashes (“/”)
@@ -1092,7 +1065,6 @@ Account
 ## Amazon S3 - Static Website Hosting
 - S3 can host static websites and have them accessible on 
 the Internet
-
 - The website URL will be (depending on the region)
     - http://bucket-name.s3-website-aws-region.amazonaws.com
 
@@ -1114,7 +1086,6 @@ policy allows public reads
     - Any file that is not versioned prior to enabling versioning will 
 have version “null”
     - Suspending versioning does not delete the previous version
-
     ![Alt text](image-121.png)
 
 ## Amazon S3 - Replication (CRR & SRR)
@@ -1148,12 +1119,10 @@ have version “null”
 ## S3 Durability and Ability
 - Durability
     - High Durability (99.999999999, 11 9's) of objects across multiple AZ
-
     - If you store 10,000,000 objects with Amazon S3, you can on average expect to incur a loss of a single object once every 10,000 years.
     - Same for all storage classes
 - Availability
     - Measures how much readily available a service is
-
     - Varies depending on storage class
     - Example: S3 standard has 99.99% availability = not available 53 minuted a year.
 
@@ -1261,7 +1230,6 @@ have version “null”
 - High network cost
 - Shared bandwidth (can't maximize the line)
 - Connection stability
-
     ![Alt text](image-124.png)
 
 AWS Snow Family: offline devices to perform data migrations: If it takes more than a week to transfer over the network, use Snowball devices!
@@ -1387,7 +1355,6 @@ restore, tiered storage
     - Volume Gateway
     - Tape Gateway
 - No need to know the types at the exam
-
     ![Alt text](image-128.png)
 
 ## Quiz : S3 Quiz
@@ -1408,7 +1375,6 @@ features, shapes and constraint
 ## Relational Databases
 - Looks just like Excel spreadsheets, with links between them!
 - Can use the SQL language to perform queries / lookups
-
     ![Alt text](image-129.png)
 
 ## NoSQL Databases
@@ -1428,7 +1394,6 @@ that fits into a NoSQL model
 - Data can be nested
 - Fields can change over time
 - Support for new types: arrays, etc…
-
     ![Alt text](image-130.png)
 
 ## Databases & Shared Responsibility on AWS
@@ -1474,7 +1439,6 @@ tolerance, scaling…
 - Aurora storage automatically grows in increments of 10GB, up to 128 TB 
 - Aurora costs more than RDS (20% more) – but is more efficient
 - Not in the free tier
-
     ![Alt text](image-132.png)
 
 ### Amazon Aurora Serverless
@@ -1484,7 +1448,6 @@ tolerance, scaling…
 - Least management overhead 
 - Pay per second, can be more cost effective
 - Use cases: good for infrequent, intermittent or unpredictable workloads…
-
     ![Alt text](image-133.png)
 
 ## RDS Deployments: Read Replicas, Multi A-Z
@@ -1492,14 +1455,12 @@ tolerance, scaling…
     - Scale the read workload of your DB
     - Can create up to 15 Read Replicas
     - Data is only written to the main DB
-
     ![Alt text](image-134.png)
 
 - **Multi A-Z:**
     - Failover in case of AZ outage (high availability)
     - Data is only read/written to the main database
     - Can only have I other AZ as failover.
-
     ![Alt text](image-135.png)
 
 ## RDS Deployments: Multi-Region
@@ -1507,7 +1468,6 @@ tolerance, scaling…
     - **Disaster Recovery** in case of region issue
     - **Local Performance** for global reads 
     - Replication cost
-
     ![Alt text](image-136.png)
 
 ## Amazon ElastiCache Overview
@@ -1542,17 +1502,13 @@ DynamoDB
 - Secure, highly scalable & highly available
 - Difference with ElastiCache at the CCP 
 level: **DAX is only used for and is 
-integrated with DynamoDB**, while 
-ElastiCache can be used for other 
-databases
-
+integrated with DynamoDB**, while ElastiCache can be used for other databases
     ![Alt text](image-139.png)
 
  
 ## DynamoDB Global Tables
 - Make a DynamoDB table accessible with low latency in multiple-regions
 - Active-Active replication (read/write to any AWS Region)
-
     ![Alt text](image-140.png)
 
 ## Redshift Overview
@@ -1570,7 +1526,6 @@ databases
 - Automatically provisions and scales data warehouse underlying capacity
 - Run analytics workloads without managing data warehouse infrastructure
 - Pay only for what you use (save costs)
-
 - Use cases: Reporting, dashboarding applications, real-time analytics…
     ![Alt text](image-141.png)
 
@@ -1592,7 +1547,6 @@ Supports CSV, JSON, ORC, Avro, and Parquet (built on Presto)
 - Use cases: Business intelligence / analytics / reporting, analyze & 
 query VPC Flow Logs, ELB Logs, CloudTrail trails, etc... 
 - Exam Tip: analyze data in S3 using serverless SQL, use Athena
-
     ![Alt text](image-142.png)
 
 ## Amazon QuickSight
@@ -1604,7 +1558,6 @@ query VPC Flow Logs, ELB Logs, CloudTrail trails, etc...
     - Perform ad-hoc analysis
     - Get business insights using data
 - Integrated with RDS, Aurora, Athena, Redshift, S3..
-
     ![Alt text](image-143.png)
 
 ## DocumentDB Overview
@@ -1630,7 +1583,6 @@ datasets – optimized for these complex and hard queries
 - Highly available with replications across multiple AZs 
 - Great for knowledge graphs (Wikipedia), fraud detection, 
 recommendation engines, social networking
-
     ![Alt text](image-144.png)
 
 ## Amazon QLDB 
@@ -1639,9 +1591,7 @@ recommendation engines, social networking
 - Fully Managed, Serverless, High available, Replication across 3 AZ
 - Used to review history of all the changes made to your application data over time 
 - Immutable system: no entry can be removed or modified, cryptographically verifiable
-
     ![Alt text](image-145.png)
-
 - 2-3x better performance than common ledger blockchain frameworks, manipulate data using SQL
 - Difference with Amazon Managed Blockchain: no decentralization component, in accordance with financial regulation rules
 
@@ -1655,8 +1605,7 @@ recommendation engines, social networking
 ## AWS Glue Overview
 - Managed extract, transform, and load (ETL) service
 - Useful to prepare and transform data for analytics
-- Fully serverless servic
-
+- Fully serverless service
     ![Alt text](image-146.png)
 
 ## DMS - Database Migration Service
@@ -1667,7 +1616,6 @@ during the migration
 - Supports:
     - Homogeneous migrations: ex Oracle to Oracle
     - Heterogeneous migrations: ex Microsoft SQL Server to Aurora
-
     ![Alt text](image-147.png)
 
 --------------------------------------------------------
@@ -1701,7 +1649,6 @@ during the migration
 ## Docker versus Virtual Machines
 - Docker is ”sort of” a virtualization technology, but not exactly
 - Resources are shared with the host => many containers on one server
-
     ![Alt text](image-149.png)
 
 ## ECS
@@ -1715,7 +1662,6 @@ instances)
 stopping containers
 - Has integrations with the 
 Application Load Balancer
-
     ![Alt text](image-150.png)
 
 ## Fargate
@@ -1726,7 +1672,6 @@ instances to manage) – simpler!
 - Serverless offering 
 - AWS just runs containers for you based on the CPU / RAM 
 you need.
-
     ![Alt text](image-151.png)
 
 ## ECR
@@ -1734,7 +1679,6 @@ you need.
 - Private Docker Registry on AWS
 - This is where you store your Docker images so they can 
 be run by ECS or Fargate
-
     ![Alt text](image-152.png)
 
 ## What's serverless?
@@ -1784,7 +1728,6 @@ it means you just don’t manage / provision / see them
 - Pay per calls:
     - First 1,000,000 requests are free 
     - $0.20 per 1 million requests thereafter ($0.0000002 per request)
-
 - Pay per duration: (in increment of 1 ms)
     - 400,000 GB-seconds of compute time per month for FREE
     - == 400,000 seconds if function is 1GB RAM 
@@ -1795,7 +1738,6 @@ it means you just don’t manage / provision / see them
 ## Amazon API Gateway
 - Example: building a serverless API
     ![Alt text](image-156.png)
-
 - Fully managed service for developers to easily create, publish, maintain, 
 monitor, and secure APIs
 - Serverless and scalable
@@ -1889,7 +1831,6 @@ developer-friendly environment
 - Example: WordPress CloudFormation Stack
 - We can see all the resources
 - We can see the relations between the components
-
     ![Alt text](image.png)
 
 -------------
@@ -1902,7 +1843,6 @@ developer-friendly environment
     - Great for Lambda functions
     - Great for Docker containers in ECS / EKS
 - Infrastructure as a Code
-
     ![Alt text](image-1.png)
 
 ## CDK Example
@@ -1985,7 +1925,6 @@ applications.
 - Works with On-Premises Servers
 - Hybrid Service
 - Severs/Instances must be provisioned and configured ahead of time with the CodeDeploy/Agent
-
     ![Alt text](image-5.png)
 
 ## AWS CodeCommit
@@ -2014,7 +1953,6 @@ scale your own build servers.
 
 - Code building service in the cloud (name is obvious)
 - Compiles source code, run tests, and produces packages that are ready to be deployed (by CodeDeploy for example)
-
     ![Alt text](image-6.png)
 
 - Benefits:

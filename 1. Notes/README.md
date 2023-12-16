@@ -3046,8 +3046,8 @@ groups
 # Machine Learning 
 ## Amazon Rekognition 
 - Find **objects, people, text, scenes** in **images and videos** using ML 
-- **Facial analysis** and **facial search** to do user verification, people counting 
-- Create a database of “familiar faces” or compare against celebrities 
+- **Facial analysis** and **facial rekognition** to do user verification, people counting 
+- Create a database of “*familiar faces”* or compare against celebrities 
 - Use cases:   
     - Labeling   
     - Content Moderation   
@@ -3058,7 +3058,7 @@ groups
     - Pathing (ex: for sports game analysis)
 
 ## Amazon Transcribe 
-- Automatically **convert speech to text** 
+- Automatically *convert* **Speech-to-Text** 
 - Uses a **deep learning process** called **automatic speech recognition** (ASR) to convert speech to text quickly and accurately 
 - Automatically remove Personally Identifiable Information (PII) using Redaction 
 - Supports Automatic Language Identification for multi-lingual audio 
@@ -3068,36 +3068,49 @@ groups
     - generate metadata for media assets to create a fully searchable archive 
     
 ## Amazon Polly 
-- Turn **text into lifelike speech** using deep learning 
+- Turn **Text-to-Speech** (*lifelike*) using deep learning 
 - Allowing you to create applications that talk 
 
 ## Amazon Translate 
-- Natural and accurate **language translation** 
+- Natural and accurate **Language Translation** 
 - Amazon Translate allows you to **localize content** - such as websites and applications - for **international users**, and to easily translate large volumes of text efficiently. 
 
-## Amazon Lex & Connect 
-### Amazon Lex: (*same technology that powers Alexa*) 
-- Automatic Speech Recognition (ASR) to **convert speech to text** 
-- Natural Language Understanding to recognize the intent of text, callers 
+    ![Alt text](image-212.png)
+
+## Amazon Lex: (*same technology that powers Alexa*) 
+- **A**utomatic **S**peech **R**ecognition (ASR) to *convert* **Speech-to-Text** 
+- **N**atural **L**anguage **U**nderstanding (NLU) to recognize the intent of text, callers 
 - Helps build chatbots, call center bots 
 
 ### Amazon Connect: 
+- It is a **C**ontact **C**enter as a **S**ervice (CCaaS) solution that offers easy, self-service configuration and enables dynamic, personal, and natural customer engagement at any scale.
 - Receive calls, create contact flows, cloud-based **virtual contact center** 
 - Can integrate with other CRM systems or AWS - No upfront payments, 80% cheaper than traditional contact center solutions 
 
+### Flow of Small Contact Center
+A phone call to schedule an appointment that is made into a number that is defined by Amazon Connect. So, they call Amazon Connect.
+
+Lex is streaming all the informatio from this call and understand the intent of the phone call.
+
+Therefore, it'll invoke the right lambda function <br/>
+Lambda Function: *Hey, someone scheduled a meeting tomorrow at 3:00 PM.*
+<br/>
+Okay, I'll go into my CRM and schedule the meeting by writing some code.
     ![Alt text](image-102.png)
+
+Amazon Lex and Amazon Connect often goes hand-in-hand.
 
 ## Amazon Comprehend 
 - For **Natural Language Processing – NLP** 
 - Fully managed and **serverless** service 
-- Uses machine learning to find insights and relationships in text   
+- Uses machine learning to find insights about the content of documents and relationships in text   
     - Language of the text   
     - Extracts key phrases, places, people, brands, or events   
     - Understands how positive or negative the text is   
     - Analyzes text using tokenization and parts of speech   
     - Automatically organizes a collection of text files by topic 
 - Sample use cases:   
-    - analyze customer interactions (emails) to find what leads to a positive or negative experience   
+    - Analyze customer interactions (emails) to find what leads to a positive or negative experience   
     - Create and groups articles by topics that Comprehend will uncover 
 
 ## Amazon SageMaker 
@@ -3117,10 +3130,10 @@ groups
     ![Alt text](image-104.png)
 
 ## Amazon Kendra 
-- Fully managed document search service powered by Machine Learning 
+- Fully managed **document search service** powered by Machine Learning 
 - **Extract answers from within a document** (text, pdf, HTML, PowerPoint, MS Word, FAQs…) 
 - Natural language search capabilities 
-- Learn from user interactions/feedback to promote preferred results (Incremental Learning) 
+- Learn from user interactions/feedback to promote preferred results (*Incremental Learning*) 
 - Ability to manually fine-tune search results (importance of data, freshness, custom, …) 
 
     ![Alt text](image-105.png)
@@ -3144,6 +3157,19 @@ groups
     - Financial Services (e.g., invoices, financial reports)   
     - Healthcare (e.g., medical records, insurance claims)   
     - Public Sector (e.g., tax forms, ID documents, passports)
+
+## Summary
+- **Rekognition** : face detection, labeling, celebrity recognition
+- **Transcribe**: audio to text (ex: subtitles)
+- **Polly**: text to audio
+- **Translate**: translations
+- **Lex**: build conversational vots -- chatbots
+- **Connect**: cloud contact center
+- **Comprehend**: natural language processing
+- **SageMaker**: machine learning for every developer and data scientist
+- **Forecast**: build highly accurate forecasts
+- **Kendra**: ML-powered search engine
+- **Personalize**: real-time peronalized recommendations 
 
 ----------------------------
 

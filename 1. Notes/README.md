@@ -856,11 +856,10 @@ using EC2 Instance Store
 - There’s usually a limit to how much you can vertically scale (hardware limit)
 
 ## Horizontal Scalability
-- Horizontal Scalability means **increasing the number of instances / systems** for your 
-application
+- Horizontal Scalability means **increasing the number of instances / systems** for your application.
 - Horizontal scaling implies distributed systems. 
 - This is very **common for web applications** /modern applications
-- It’s easy to horizontally scale thanks the cloud 
+- It’s easy to horizontally scale thanks to the cloud 
 offerings such as Amazon EC2
 
 ## High Availability
@@ -920,6 +919,7 @@ Load balancers are servers that **forward internet traffic** to **multiple serve
             ![Alt text](image-110.png)
 
 ## What's an Auto Scaling Group?
+- Auto scaling is enabled by Amazon CloudWatch and is available at no additional charge beyond the service fees for CloudWatch and the other AWS resources.
 - In real-life, the load on your websites and application can change
 - In the cloud, you can create and get rid of servers very quickly
 - The **goal** of an Auto Scaling Group (ASG) is to:
@@ -929,7 +929,6 @@ Load balancers are servers that **forward internet traffic** to **multiple serve
 	- Automatically register new instances to a load balancer
 	- Replace unhealthy instances
 - Cost Savings: only run at an optimal capacity (principle of the cloud)
-
 
 ## Auto Scaling Group in AWS
 ![Alt text](image-111.png)
@@ -953,7 +952,7 @@ Load balancers are servers that **forward internet traffic** to **multiple serve
 - **Predictive Scaling**: 
     -  Uses Machine Learning to predict future traffic ahead of time
     - Automatically provisions the right number of EC2 instances in advance
-- Useful when your load has predictable time- based pattern
+- Useful when your load has predictable time-based pattern
     ![Alt text](image-113.png)
 
 
@@ -962,6 +961,8 @@ Load balancers are servers that **forward internet traffic** to **multiple serve
 # Amazon S3
 
 ## Introduction
+- Amazon Simple Storage Service (Amazon S3) is storage for the internet. 
+- You can use Amazon S3 to store and retrieve any amount of data at any time, from anywhere on the web.
 - Amazon S3 is one of the main building blocks of AWS
 - It’s advertised as ”*infinitely scaling*” storage 
 - Many websites use Amazon S3 as a backbone
@@ -979,8 +980,7 @@ Load balancers are servers that **forward internet traffic** to **multiple serve
 - Static websit
 
 ## Amazon EBS
-- Amazon Elastic Block Store (Amazon EBS) is a service that provides block-level storage 
-volumes that you can use with Amazon EC2 instances. 
+- Amazon Elastic Block Store (Amazon EBS) is a service that provides block-level storage volumes that you can use with any running EC2 instances and use it like a hard drive. 
 
 - If you stop or terminate an Amazon EC2 instance, all the data on the attached EBS volume remains available.
 
@@ -1004,9 +1004,9 @@ volumes that you can use with Amazon EC2 instances.
 - The **key** is the FULL path:
     - s3://my-bucket/my_file.txt
     - s3://my-bucket/my_folder1/another_folder/my_file.txt
-- The key is composed of prefix + object name
+- The key is composed of **prefix** + **object name**
     - s3://my-bucket/my_folder1/another_folder/my_file.txt
-- There’s no concept of “directories” within buckets
+- There’s no concept of *“directories”* within buckets
 (although the UI will trick you to think otherwise)
 - Just keys with very long names that contain slashes (“/”)
 - Object values are the content of the body:
@@ -1039,8 +1039,7 @@ policy to
 - Use S3 bucket for policy to: 
     - Grant public access to the bucket 
     - Force objects to be encrypted at upload 
-    - Grant access to another account (Cross 
-Account
+    - Grant access to another account (Cross Account)
 
         ![Alt text](image-114.png)
 
@@ -1066,19 +1065,18 @@ Account
 - S3 can host static websites and have them accessible on 
 the Internet
 - The website URL will be (depending on the region)
-    - http://bucket-name.s3-website-aws-region.amazonaws.com
+    - http://bucket-name.s3-website**-**aws-region.amazonaws.com
 
-    - **OR** http://bucket-name.s3-website.aws-region.amazonaws.com
-- If you get a **403 Forbidden** error, make sure the bucket 
-policy allows public reads
+    - **OR** http://bucket-name.s3-website**.**aws-region.amazonaws.com
+- If you get a **403 Forbidden** error, make sure the bucket policy allows public reads
 
     ![Alt text](image-120.png)
 
 ## Amazon S3 - Versioning
 - You can version your files in Amazon S3
 
-- It is enabled at the **Z**
-- Same key overwrite will change the “version”: 1, 2, 3….
+- It is enabled at the bucket level
+- Same key overwrite will change the *“version”*: 1, 2, 3….
 - It is best practice to version your buckets
     - Protect against unintended deletes (ability to restore a version)
     - Easy roll back to previous version 
@@ -1118,7 +1116,7 @@ have version “null”
 
 ## S3 Durability and Ability
 - Durability
-    - High Durability (99.999999999, 11 9's) of objects across multiple AZ
+    - High Durability (99.999999999%, 11 9's) of objects across multiple AZ
     - If you store 10,000,000 objects with Amazon S3, you can on average expect to incur a loss of a single object once every 10,000 years.
     - Same for all storage classes
 - Availability
@@ -1128,41 +1126,39 @@ have version “null”
 
 ## S3 Standard : General Purpose
 - 99.99% Availability
-- Used for frequently accessed data
+- Used for **frequently accessed data**
 - Low latency and high throughput
 - Sustain 2 concurrent facility failures
 - Use CasesL Big Data Analytics, Mobile & Gaming Applications, Content Distribution..
 
 ## S3 Storage Classes : Infrequent Access
-- For data that is less frequently accessed, but required rapid access when needed
+- For data that is less frequently accessed, but **required rapid access when needed**
 - Lower cost than S3 standard
 
-<br/>
+### Amazon S3 Standard-Infrequent Access (S3 Standard-IA)
+- 99.9% Availability
+- Use cases; Disaster Recovery, backups
 
-- Amazon S3 Standard-Infrequent Access (S3 Standard-IA)
-    - 99.9% Availability
-    - Use cases; Disaster Recovery, backups
-
-<br/>
-
-- Amazon S3 One Zone-Infrequent Access (S3 One Zone-IA)
-    - High durability (99.999999999%) in a single AZ; data lost when AZ is destroyed
-    - 99.5% Availability
-    - Use Cases: Storing secondary backup copies of on-premise data, or data you can recreate
+### Amazon S3 One Zone-Infrequent Access (S3 One Zone-IA)
+- High durability (99.999999999%) in a single AZ; *data lost when AZ is destroyed*
+- 99.5% Availability
+- Use Cases: Storing secondary backup copies of on-premise data, or data you can recreate
 
 ## Amazon S3 Glacier Storage Classes
-- Low-cost object storage meant for archiving / backup
+- *Low-cost* object storage meant for **archiving/backup**
 - Pricing: price for storage + object retrieval cost
-- **Amazon S3 Glacier Instant Retrieval**
-    - Millisecond retrieval, great for data accessed once a quarter 
-    - Minimum storage duration of 90 days
 
-- **Amazon S3 Glacier Flexible Retrieval** (*formerly Amazon S3 Glacier*):
-    - Expedited (1 to 5 minutes), Standard (3 to 5 hours), Bulk (5 to 12 hours) – free
-    - Minimum storage duration of 90 days
-- **Amazon S3 Glacier Deep Archive** – *for long term storage*:
-    - Standard (12 hours), Bulk (48 hours)
-    - Minimum storage duration of 180 days
+### Amazon S3 Glacier Instant Retrieval
+- Millisecond retrieval, great for data accessed *once a quarter*
+- **Minimum storage** duration of **90 days**
+
+### Amazon S3 Glacier Flexible Retrieval (*formerly Amazon S3 Glacier*):
+- Expedited (1 to 5 minutes), Standard (3 to 5 hours), Bulk (5 to 12 hours) – free
+- **Minimum storage** duration of **90 days**
+
+### Amazon S3 Glacier Deep Archive** – *for long term storage*:
+- Standard (12 hours), Bulk (48 hours)
+- M**inimum storage** duration of **180 days**
 
 ## S3 Intelligent - Tiering
 - Small monthly monitoring and auto-tiering fee
@@ -1198,7 +1194,8 @@ have version “null”
 
 
 ## S3 Encryption
-![Alt text](image-122.png)
+By default ther Server-Side Encryption is always ON.
+    ![Alt text](image-122.png)
 
 ## IAM Access Analyzer for S3
 - Ensures that only intended people have access to your S3 buckets
@@ -1219,9 +1216,12 @@ have version “null”
 - S3 Storage Classes
 - Data Encryption at rest and in transit
 
-## AWS Snow Family
+## AWS Snow Family Overview
+- The AWS Snow Family is a service that helps customers who need to run operations in austere, non-data center environments, and in locations where there's no consistent network connectivity. 
+
+- You can use these devices to locally and cost-effectively access the storage and compute power of the AWS Cloud in places where an internet connection might not be an option.
 - Highly-secure, portable devices to **collect and process data at the edge**, and **migrate data into and out of AWS**
-![Alt text](image-123.png)
+    ![Alt text](image-123.png)
 
 ## Data Migrations with AWS Snow Family
 ### Challenges
@@ -1238,30 +1238,30 @@ AWS Snow Family: offline devices to perform data migrations: If it takes more th
 ![Alt text](image-125.png)
 
 ## Snowball Edge (for data transfers)
-- Physical data transport solution: move TBs or PBs of data in or out 
-of AWS
+- Physical data transport solution: move TBs or PBs of data in or out of AWS
 - Alternative to moving data over the network (and paying network 
 fees)
 - Pay per data transfer job • Provide block storage and Amazon S3 compatible object storage
 - **Snowball Edge Storage Optimized**
-    - 80 TB of HDD capacity for block volume and S3 compatible object storage
+    - *80 TB of HDD capacity* for block volume and S3 compatible object storage
 - **Snowball Edge Compute Optimized**
-    - 42 TB of HDD or 28TB NVMe capacity for block volume and S3 compatible object storage
+    - *42 TB of HDD or 28TB NVMe capacity* for block volume and S3 compatible object storage
 - Use cases: large data cloud migrations, DC decommission, disaster recovery
 
 ## AWS Snowcone & Snowcone SSD
 - Small, portable computing, anywhere, rugged & 
 secure, withstands harsh environments
-- Light (4.5 pounds, 2.1 kg) • Device used for edge computing, storage, and data transfer
-- Snowcone : 8 TB of HDD Storage
-- Snowcone SSD : 14 TB of SSD Storage
+- Light (4.5 pounds, 2.1 kg) 
+- Device used for edge computing, storage, and data transfer
+- **Snowcone** : **8 TB** of *HDD Storage*
+- **Snowcone SSD** : **14 TB** of *SSD Storage*
 - Use Snowcone where Snowball does not fit (space constrained environment)
 - Must provide your own battery / cables
 - Can be sent back to AWS offline, or connect it to  internet and use AWS DataSync to send data
 
 ## AWS Snowmobile
 - Transfer exabytes of data (1 EB = 1,000 PB = 1,000,000 TBs)
-- Each Snowmobile has 100 PB of capacity (use multiple in parallel)
+- Each Snowmobile has **100 PB of capacity** (use multiple in parallel)
 - High security: temperature controlled, GPS, 24/7 video surveillance
 - Better than Snowball if you transfer more than 10 PB
 
@@ -1272,8 +1272,7 @@ secure, withstands harsh environments
 1. Request Snowball devices from the AWS console for delivery
 2. Install the snowball client / AWS OpsHub on your servers
 3. Connect the snowball to your servers and copy files using the client
-4. Ship back the device when you’re done (goes to the right AWS 
-facility)
+4. Ship back the device when you’re done (goes to the right AWS facility)
 5. Data will be loaded into an S3 bucket
 6. Snowball is completely wiped
 
@@ -1283,7 +1282,7 @@ facility)
 - These locations may have 
     - Limited / no internet access
     - Limited / no easy access to computing power
-- We setup a Snowball Edge / Snowcone device to do edge computing
+- We setup a **Snowball Edge**/**Snowcone** device to do edge computing
 - Use cases of Edge Computing:
     - Preprocess data
     - Machine learning at the edge
@@ -1291,15 +1290,15 @@ facility)
 - Eventually (if need be) we can ship back the device to AWS (for transferring data for example)
 
 ## Snow Family - Edge Computing
-- Snowcone & Snowcone SSD (smaller)
+- **Snowcone & Snowcone SSD (smaller)**
     - 2 CPUs, 4 GB of memory, wired or wireless access
     - USB-C power using a cord or the optional battery
-- Snowball Edge – Compute Optimized
+- **Snowball Edge – Compute Optimized**
     - 104 vCPUs, 416 GiB of RAM
     - Optional GPU (useful for video processing or machine learning)
     - 28TB NVMe or 42TB HDD usable storage
     - Storage Clustering available (up to 16 nodes)
-- Snowball Edge – Storage Optimized
+- **Snowball Edge – Storage Optimized**
     - Up to 40 vCPUs, 80 GiB of RAM, 80 TB storage
 - All: Can run EC2 Instances & AWS Lambda functions (using AWS IoT Greengrass)
 - Long-term deployment options: 1 and 3 years discounted pricing
@@ -1307,28 +1306,30 @@ facility)
 ## AWS OpsHub
 - Historically, to use Snow Family devices, you 
 needed a CLI (Command Line Interface tool)
-- Today, you can use AWS OpsHub (a software you install on your computer / laptop) to manage your Snow Family Device
+- Today, you can use AWS OpsHub (*a software you install on your computer/laptop*) to **manage your Snow Family Device**
     - Unlocking and configuring single or clustered devices
     - Transferring files
     - Launching and managing instances running on Snow Family Devices
     - Monitor device metrics (storage capacity, active 
 instances on your device)
-    - Launch compatible AWS services on your devices (ex: Amazon EC2 instances, AWS DataSync, Network File System (NFS))
+    - Launch compatible AWS services on your devices (ex: Amazon EC2 instances, AWS DataSync, Network File System (NFS)
 
 ## Snowball Edge Pricing
-- You pay for device usage and data transfer out of AWS
+- You pay for **device usage** and dat**a transfer** out of AWS
 - Data transfer IN to Amazon S3 is $0.00 per GB
-- On-Demand
+- **On-Demand**
     - Includes a one-time service fee per job, which includes:
-        - 10 days of usage for Snowball Edge Storage Optimized 80TB
-        - 15 days of usage for Snowball Edge Storage Optimized 210TB
+        - **10 days** of usage for **Snowball Edge Storage Optimized 80TB**
+        - **15 days** of usage for **Snowball Edge Storage Optimized 210TB**
     - Shipping days are NOT counted towards the included 10 or 15 days
     - Pay per day for any additional days
-- Committed Upfront
-    - Pay in advance for monthly, 1-year, and 3-years of usage (Edge Computing)
+- **Committed Upfront**
+    - Pay in advance for monthly, 1-year, and 3-years of usage (**Edge Computing**)
     - Up to 62% discounted pricing
 
 ## Storage Gateway Overview
+AWS Storage Gateway is a service that **connects** an *on-premises software appliance with cloud-based storage* to provide seamless and secure integration between your on-premises IT environment and the AWS storage infrastructure in the AWS Cloud.
+
 ### Hybrid Cloud for Storage
 - AWS is pushing for "hybrid cloud"
     - Part of your infrastructure is on-premises
@@ -1338,7 +1339,7 @@ instances on your device)
     - Security requirements
     - Compliance requirements
     - IT strategy
-- S3 is a proprietary storage technology (unlike EFS / NFS), so how do you expose the S3 data on-premise? 
+- S3 is a proprietary storage technology (unlike EFS/NFS), so how do you expose the S3 data on-premise? 
 - AWS Storage Gateway
 
 ## AWS Storage Cloud Native Options
@@ -1346,8 +1347,7 @@ instances on your device)
 
 ### AWS Storage Gateway
 - Bridge between on-premise data and cloud data in S3
-- Hybrid storage service to allow on- premises to seamlessly use the AWS 
-Cloud 
+- Hybrid storage service to allow on-premises to seamlessly use the AWS Cloud 
 - Use cases: disaster recovery, backup & 
 restore, tiered storage
 - Types of Storage Gateway:
@@ -1357,20 +1357,27 @@ restore, tiered storage
 - No need to know the types at the exam
     ![Alt text](image-128.png)
 
-## Quiz : S3 Quiz
+## Summary
+- **Buckets vs Objects**: global unique name, tied to a region
+- **S3 Security**: IAM policy, S3 Bucket Policy (public access), S3 Encryption
+- **S3 Websites**: host a static website on Amazon S3
+- **S3 Versioning**: multiple versions for files, prevent accidental deletes
+- **S3 Replication**: same-region or cross-region, must enable versioning
+- **S3 Storage Classes**: Standard IA, IZ-IA, Intelligent, Glacier (Instant, Flexible, Deep)
+- **Snow Family**: import data onto S3 through a physical device, edge computing
+- **OpsHub**: desktop application to manage Snow Family devices
+- **Storage Gateway**: hybrid solution to extend on-premises storage to S3
 
 --------------------------------------------------------
 
 # Databases & Analytics
-
 ## Databases Introduction
 - Storing data on disk (EFS, EBS, EC2 Instance Store, S3) can have its limits 
 - Sometimes, you want to store data in a database…
 - You can **structure** the data
 - You build **indexes** to efficiently **query/search** through the data
 - You define **relationships** between your **datasets**
-- Databases are **optimized for a purpose** and come with different 
-features, shapes and constraint
+- Databases are **optimized for a purpose** and come with different features, shapes and constraint
 
 ## Relational Databases
 - Looks just like Excel spreadsheets, with links between them!
@@ -1389,26 +1396,24 @@ features, shapes and constraint
 
 ## NoSQL Data Example: JSON
 - JSON = JavaScript Object Notation
-- JSON is a common form of data 
-that fits into a NoSQL model
+- JSON is a common form of data that fits into a NoSQL model
 - Data can be nested
 - Fields can change over time
 - Support for new types: arrays, etc…
     ![Alt text](image-130.png)
 
 ## Databases & Shared Responsibility on AWS
-- AWS offers use to **manage** different databases
+- AWS offers us to **manage** different databases
 - **Benefits** include:
     - Quick Provisioning, High Availability, Vertical and Horizontal Scaling
     - Automated Backup & Restore, Operations, Upgrades
     - Operating System Patching is handled by AWS
     - Monitoring, alerting
-- Note: many databases technologies could be run on EC2, but you must handle yourself the resiliency, backup, patching, high availability, fault 
-tolerance, scaling… 
+- Note: many databases technologies could be run on EC2, but you must handle yourself the resiliency, backup, patching, high availability, fault tolerance, scaling… 
 
 ## AWS RDS Overview
 - RDS stands for **Relational** Database Service
-- It’s a managed DB service for DB use SQL as a query language. 
+- It’s a managed DB service for DB. It uses SQL as a query language. 
 - It allows you to create databases in the cloud that are managed by AWS
     - Postgres
     - MySQL

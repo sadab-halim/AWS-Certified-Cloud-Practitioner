@@ -2322,25 +2322,23 @@ Real-time Gaming, …
 - Synchronous between applications can be problematic if there are sudden spikes of traffic
 - What if you need to suddenly encode 1000 videos but usually it’s 10?
 - In that case, it’s better to decouple your applications: 
-    - using SQS: queue model
-    - using SNS: pub/sub model
-    - using Kinesis: real-time data streaming model
+    - using **SQS**: queue model
+    - using **SNS**: pub/sub model
+    - using **Kinesis**: real-time data streaming model
 - These services can scale independently from our application
 
 ## Amazon SQS - Simple Queue Service
 ![Alt text](image-29.png)
 
 - Oldest AWS offering (over 10 years old)
-- Fully managed service (~serverless), use to decouple applications
+- Fully managed service (~**serverless**), use to decouple applications
 - Scales from 1 message per second to 10,000s per second
 - Default retention of messages: 4 days, maximum of 14 days
 - No limit to how many messages can be in the queue
 - Messages are deleted after they’re read by consumers
 - Low latency (<10 ms on publish and receive)
 - Consumers share the work to read messages & scale horizontally
-- Using SQS, you can send, store, and receive
-messages between software components at any volume, without losing messages or requiring other
-services to be available.
+- Using SQS, you can send, store, and receive messages between software components at any volume, without losing messages or requiring other services to be available.
 
 ### SQS to decouple between application tiers
 ![Alt text](image-30.png)
@@ -2353,22 +2351,20 @@ Messages are produced in the order by the consumer
 - For the exam: Kinesis = real-time big data streaming
 - Managed service to collect, process, and analyze real-time streaming data at any scale
 - Too detailed for the Cloud Practitioner exam but good to know:
-    - Kinesis Data Streams: low latency streaming to ingest data at scale from 
-hundreds of thousands of sources
-    - Kinesis Data Firehose: load streams into S3, Redshift, ElasticSearch, etc…
-    - Kinesis Data Analytics: perform real-time analytics on streams using SQL
-    - Kinesis Video Streams: monitor real-time video streams for analytics or ML
+    - **Kinesis Data Streams**: low latency streaming to ingest data at scale from hundreds of thousands of sources
+    - **Kinesis Data Firehose**: load streams into S3, Redshift, ElasticSearch, etc…
+    - **Kinesis Data Analytics**: perform real-time analytics on streams using SQL
+    - **Kinesis Video Streams**: monitor real-time video streams for analytics or ML
 
 ## Kinsesis (High Level Overview)
 ![Alt text](image-32.png)
 
 ## Amazon SNS
-- Amazon SNS is a highly available, durable, secure, fully managed pub/sub messaging service that enables you to decouple microservices, distributed systems, and serverless applications. 
+- Amazon SNS is a highly available, durable, secure, fully managed **pub/sub** messaging service that enables you to decouple microservices, distributed systems, and serverless applications. 
 
-- Amazon SNS provides topics for high-throughput, push-based, many-to-many messaging. Using Amazon SNS topics, your publisher systems can fan out messages to a large number of subscriber endpoints for parallel processing, including Amazon SQS queues, AWS Lambda functions, and HTTP/S webhooks. 
+- Amazon SNS provides topics for high-throughput, push-based, **many-to-many messaging**. Using Amazon SNS topics, your publisher systems can fan out messages to a large number of subscriber endpoints for parallel processing, including Amazon SQS queues, AWS Lambda functions, and HTTP/S webhooks. 
 
-- Additionally, SNS can be used to fan out notifications to end users using mobile push,
-SMS, and email
+- Additionally, SNS can be used to fan out **notifications** to end users using mobile push, SMS, and email
 
 What if you want to send one message to many receivers?
 ![Alt text](image-33.png)
@@ -2384,7 +2380,7 @@ What if you want to send one message to many receivers?
 - SQS, SNS are “cloud-native” services: proprietary protocols from AWS
 - Traditional applications running from on-premises may use open protocols such as: MQTT, AMQP, STOMP, Openwire, WSS
 - When migrating to the cloud, instead of re-engineering the application to use SQS and SNS, we can use Amazon MQ 
-- Amazon MQ is a managed message broker service for RabbitMQ and ActiveMQ
+- Amazon MQ is a **managed message broker service** for *RabbitMQ* and *ActiveMQ*
 - Amazon MQ doesn’t “scale” as much as SQS / SNS
 - Amazon MQ runs on servers, can run in Multi-AZ with failover
 - Amazon MQ has both queue feature (~SQS) and topic features (~SNS)
@@ -2393,16 +2389,13 @@ What if you want to send one message to many receivers?
 
 # Cloud Monitoring
 ## Amazon CloudWatch
-- Amazon CloudWatch is a web service that enables you to monitor and manage various 
-metrics and configure alarm actions based on data from those metrics.
-
-- CloudWatch uses metrics to represent the data points for your resources. 
+- Amazon CloudWatch is a web service that enables you to **monitor** and manage various metrics and configure alarm actions based on data from those metrics.
+- CloudWatch uses **metrics** to represent the data points for your resources. 
 - AWS services send metrics to CloudWatch. 
-- CloudWatch then uses these metrics to create graphs automatically that show how performance has changed over time.
+- CloudWatch then uses these metrics to create graphs automatically that show how **performance** has changed over time.
 
 ## Amazon CloudWatch Metrics
 - CloudWatch is a monitory and management service built for developers, system operators, sre and it managers.
-
 - CloudWatch provides metrics for every services in AWS
 - Metric is a variable to monitor (CPUUtilization, NetworkIn…)
 - Metrics have timestamps
@@ -2435,12 +2428,12 @@ metrics and configure alarm actions based on data from those metrics.
 
 ### Amazon CloudWatch Logs
 - CloudWatch Logs can collect log from:
-    - Elastic Beanstalk: collection of logs from application
-    - ECS: collection from containers
-    - AWS Lambda: collection from function logs
+    - **Elastic Beanstalk**: collection of logs from application
+    - **ECS**: collection from containers
+    - **AWS Lambda**: collection from function logs
     - CloudTrail based on filter
     - CloudWatch log agents: on EC2 machines or on-premises servers
-    - Route53: Log DNS queries
+    - **Route53**: Log DNS queries
 - Enables real-time monitoring of logs
 - Adjustable CloudWatch Logs retention
 
@@ -2463,7 +2456,7 @@ total number of requests made to an Amazon S3 bucket, and more.
     ![Alt text](image-210.png)
 
 ## Amazon EventBridge (*formerly CloudWatch Events*)
-- Amazon EventBridge  is a serverless event bus that makes it easier to build event-driven applications at scale using events generated from your applications, integrated Software-as-a-Service (SaaS) applications, and AWS services. 
+- Amazon EventBridge  is a **serverless** event bus that makes it easier to **build event-driven applications at scale** using events generated from your applications, integrated **Software-as-a-Service (SaaS)** applications, and AWS services. 
 
 - EventBridge delivers a stream of real-time data from event sources such as Zendesk or Shopify to targets like AWS Lambda and other SaaS applications.
 
@@ -2511,8 +2504,7 @@ Within CloudTrail, you can also enable CloudTrail Insights. This optional featur
 ![Alt text](image-41.png)
 
 ## AWS X-Ray
-- AWS X-Ray helps developers analyze and debug distributed applications in production or under
-development, such as those built using a microservices architecture.
+- AWS X-Ray helps developers **analyze** and **debug** distributed applications in production or under development, such as those built using a microservices architecture.
 
 - With X-Ray, you can understand how your application and its underlying services are performing so you can identify and troubleshoot the root cause of performance issues and errors.
 
@@ -2539,33 +2531,28 @@ development, such as those built using a microservices architecture.
 - Identify users that are impacted
 
 ## Amazon CodeGuru
-- Amazon CodeGuru is a developer tool that provides intelligent recommendations to improve code quality and identify an application’s most expensive lines of code. 
+- Amazon CodeGuru is a developer tool that provides **intelligent recommendations to improve code quality** and **identify** an application’s most *expensive lines of code*. 
 
-- Integrate CodeGuru into your existing software development workflow to automate code reviews during application development and continuously monitor application's performance in production and provide recommendations and visual clues on how to improve code quality, application performance, and reduce overall cost.
+- Integrate CodeGuru into your existing software development workflow to **automate code reviews** during application development and continuously monitor application's performance in production and provide recommendations and visual clues on how to improve code quality, application performance, and reduce overall cost.
 
 - An ML-powered service for automated code reviews and application performance recommendations 
 - Provides two functionalities
-    - CodeGuru Reviewer: automated code reviews for static code analysis (development)
-    - CodeGuru Profiler: visibility/recommendations about application performance during runtime (production)
+    - **CodeGuru Reviewer**: automated code reviews for static code analysis (development)
+    - **CodeGuru Profiler**: visibility/recommendations about application performance during runtime (production)
 
     ![Alt text](image-43.png)
 
 ### Amazon CodeGuru Reviewer
-- Identify critical issues, security 
-vulnerabilities, and hard-to-find bugs
-- Example: common coding best practices, 
-resource leaks, security detection, input validation
+- Identify critical issues, security vulnerabilities, and hard-to-find bugs
+- Example: common coding best practices, resource leaks, security detection, input validation
 - Uses Machine Learning and automated reasoning
 - Hard-learned lessons across millions of code reviews on 1000s of open-source and Amazon repositories
 - Supports Java and Python
-- Integrates with GitHub, Bitbucket, and 
-AWS CodeCommit
+- Integrates with GitHub, Bitbucket, and AWS CodeCommit
 
 ### Amazon CodeGuru Profiler
-- Helps understand the runtime behavior of your 
-application
-- Example: identify if your application is consuming 
-excessive CPU capacity on a logging routine
+- Helps understand the **runtime behavior** of your application
+- Example: identify if your application is consuming excessive CPU capacity on a logging routine
 - Features:
     - Identify and remove code inefficiencies
     - Improve application performance (e.g., reduce CPU utilization)
@@ -2583,9 +2570,9 @@ excessive CPU capacity on a logging routine
 
 ### AWS Health Dashboard -  Your Account
 - Previously called AWS Personal Health Dashboard (PHD)
-- AWS Account Health Dashboard provides alerts and remediation guidance when AWS is experiencing events that may impact you.
+- AWS Account Health Dashboard provides **alerts** and **remediation guidance** when AWS is experiencing events that may impact you.
 
-- While the Service Health Dashboard displays the general status of AWS services, Account Health Dashboard gives you a personalized view into the performance and availability of the AWS services underlying your AWS resources.
+- While the Service Health Dashboard displays the general status of AWS services, Account Health Dashboard gives you a personalized view into the **performance** and **availability** of the **AWS services** underlying your AWS resources.
 
 - The dashboard displays relevant and timely information to help you manage events in progress and provides proactive notification to help you plan for scheduled activities. 
 

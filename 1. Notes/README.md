@@ -39,7 +39,7 @@ Compute Cloud (Amazon EC2), a type of virtual server....
 - **Network**: cables, routers and servers connected with each other
 - **Router**: A networking device that forwards data packets between computer 
 networks. They know where to send your packets on the internet!
-- **Switch**: Takes a packet and send it to the correct server / client on your network
+- **Switch**: Takes a packet and send it to the correct server / client on your networkkkkk
 
     ![Alt text](image-161.png)
 

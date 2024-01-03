@@ -28,7 +28,7 @@
 ## How does website work
 In computing, a client can be a web browser or desktop application that a person interacts 
 with to make requests to computer servers. A server can be services such as Amazon Elastic 
-Compute Cloud (Amazon EC2), a type of virtual server....
+Compute Cloud (Amazon EC2), a type of virtual server.
 
 ![Alt text](image-159.png)
 
@@ -39,7 +39,7 @@ Compute Cloud (Amazon EC2), a type of virtual server....
 - **Network**: cables, routers and servers connected with each other
 - **Router**: A networking device that forwards data packets between computer 
 networks. They know where to send your packets on the internet!
-- **Switch**: Takes a packet and send it to the correct server / client on your networkkkkk
+- **Switch**: Takes a packet and send it to the correct server / client on your network
 
     ![Alt text](image-161.png)
 
@@ -278,14 +278,12 @@ networking, and connectivity
 - **Users** are people within your organization, and can be ignored 
 - **Groups** only contain users, not other groups 
 - Users don't have to belong to a group, and user can belong to multiple groups 
-
     ![Alt text](image-168.png)
 
 ## IAM: Permissions 
 - Users or Groups can be assigned JSON documents called **policies** 
 - These policies define the **permissions** of the users 
-- In AWS you apply the least privilege principle; don't give more permissions than a user needs. 
-
+- In AWS you apply the **least privilege principle**; *don't give more permissions than a user needs.* 
     ![Alt text](image-169.png)
 
 ## IAM Policies Inheritance
@@ -326,9 +324,7 @@ networking, and connectivity
 - Users have access to your account and can possibly change configurations or delete resources in your AWS account 
 - You want to protect your Root Accounts and IAM users 
 - MFA: password you know + security device you own 
-
     ![Alt text](image-170.png)
-
 - Main benefit of MFA: If a password is stolen or hacked, the account is not compromised. 
 
 ## MFA Devices Options in AWS 
@@ -353,14 +349,15 @@ networking, and connectivity
 - Add MFA 
 
 ## How can users access AWS? 
-- To access AWS, you have three options:    
-    - AWS Management Console (protected by password + MFA) 
-    - AWS Command Line Interface (CLI): protected by access keys 
-    - AWS Software Developer Kit (SDK): for code: protected by access keys
+- To **access AWS**, you have *three options*:    
+    - **AWS Management Console** (protected by password + MFA) 
+    - **AWS Command Line Interface (CLI)**: protected by access keys 
+    - **AWS Software Developer Kit (SDK)**: for code; protected by access keys
 - Access Keys are generated through the AWS Console 
 - Users manage their own access keys 
 - Access Keys are secret, just like a password. Don't share them. 
-- Access Key ID ~= username Secret Access Key ~= password 
+- Access Key ID ~= username
+- Secret Access Key ~= password 
 
 ## What's the AWS CLI? 
 - A tool that enables you to interact with AWS services using commands in your command-line shell. 
@@ -396,10 +393,10 @@ networking, and connectivity
     ![Alt text](image-171.png)
 
 ## IAM Security Tools 
-- IAM Credentials Report (Account-Level) 
+- **IAM Credentials Report (Account-Level)** 
     - A report that lists all your account's users and the status of their various credentials 
 
-- IAM Access Advisor (User-Level) 
+- **IAM Access Advisor (User-Level)** 
     - Access advisor shows the service permissions granted to a user and when those services were last accessed. 
     - You can use this information to revise your policies.
     
@@ -433,7 +430,7 @@ networking, and connectivity
 
 ## Amazon EC2
 - EC2 is one of the most popular of AWS’ offering 
-- EC2 = Elastic Compute Cloud = Infrastructure as a Service
+- EC2 = Elastic Compute Cloud = **Infrastructure as a Service**
 - It mainly consists in the capability of :
 	- Renting virtual machines (EC2)
 	- Storing data on virtual drives (EBS)
@@ -442,14 +439,14 @@ networking, and connectivity
 - Knowing EC2 is fundamental to understand how the Cloud works
 
 ## EC2 Sizing & Configuration Options
-- Operating System (OS): Linux, Windows or Mac OS 
+- **Operating System (OS)**: Linux, Windows or Mac OS 
 - How much compute power & cores (CPU) 
 - How much random-access memory (RAM) 
 - How much storage space: 
 	- Network-attached (EBS & EFS) 
 	- hardware (EC2 Instance Store) 
 - Network card: speed of the card, Public IP address 
-- Firewall rules: security group 
+- **Firewall rules**: security group 
 - Bootstrap script (configure at first launch): EC2 User Data 
 
 ## EC2 User Data
@@ -478,15 +475,12 @@ networking, and connectivity
 	- 5: generation (AWS improves them over time)
 	- 2xlarge: size within the instance class
 ## EC2 Instance Types - General Purpose
-- Great for a diversity of workloads such as web servers or code repositories
-- Balance between: 
-	- Compute
-	- Memory
-	- Networking
-	- In the course, we will be using the t2.micro which is a General Purpose EC2 instance
+- Great for a **diversity of workloads** such as web servers or code repositories
+- Balance between: Compute, Memory and Networking
+- In the course, we will be using the t2.micro which is a General Purpose EC2 instance
 
 ## EC2 Instance Types - Compute Optimized
-- Great for compute-intensive tasks that require high performance processors:
+- Great for **compute-intensive tasks** that require **high performance processors**:
 	- Batch processing workloads
 	- Media transcoding
 	- High performance web servers
@@ -495,7 +489,7 @@ networking, and connectivity
 	- Dedicated gaming servers
 
 ## EC2 Instance Types - Memory Optimized
-- Fast performance for workloads that process large data sets in memory
+- **Fast performance** for workloads that **process large data sets in memory**
 - Use cases: 
 	- High performance, relational/non-relational databases
 	- Distributed web scale cache stores
@@ -503,8 +497,7 @@ networking, and connectivity
 	- Applications performing real-time processing of big unstructured data
 
 ## EC2 Instance Types - Storage Optimized
-- Great for storage-intensive tasks that require high, sequential read and write 
-access to large data sets on local storage
+- Great for **storage-intensive tasks** that require **high sequential read and write** access to large data sets on local storage
 - Use cases: 
 	- High frequency online transaction processing (OLTP) systems
 	- Relational & NoSQL databases
@@ -516,7 +509,7 @@ access to large data sets on local storage
 ![Alt text](image-172.png)
 
 ## Introduction to Security Groups
-- Security Groups are the fundamental of network security in AWS
+- Security Groups are the fundamentals of network security in AWS
 - They control how traffic is allowed into or out of our EC2 Instances.
     ![Alt text](image-173.png)
 - Security groups only contain **allow** rules
@@ -578,10 +571,10 @@ on Windows using the free tool Putty.
 ## EC2 Instances Purchasing Options
 - **On-Demand Instances** – short workload, predictable pricing, pay by second
 - **Reserved (1 & 3 years)**
-	- Reserved Instances – long workloads 
-	- Convertible Reserved Instances – long workloads with flexible instances
+	- **Reserved Instances** – long workloads 
+	- **Convertible Reserved Instances** – long workloads with flexible instances
 - **Savings Plans (1 & 3 years)** –commitment to an amount of usage, long workload
-- **Spot Instances** – short workloads, cheap, can lose instances (less reliable)
+- **Spot Instances** – short workloads, cheap, can lose instances (*less reliable*)
 - **Dedicated Hosts** – book an entire physical server, control instance placement
 - **Dedicated Instances** – no other customers will share your hardware
 - **Capacity Reservations** – reserve capacity in a specific AZ for any duration
@@ -593,37 +586,36 @@ on Windows using the free tool Putty.
 	- All other operating systems - billing per hour 
 - Has the highest cost but no upfront payment
 - No long-term commitment
-- Recommended for short-term and un-interrupted workloads, where 
-you can't predict how the application will behave
+- Recommended for **short-term** and **un-interrupted workloads**, where *you can't predict how the application will behave*
 
 
 ## EC2 Reserved Instances
-- Up to 72% discount compared to On-demand
+- Up to **72% discount** *compared to* On-Demand
 - You reserve a specific instance attributes (Instance Type, Region, Tenancy, OS)
 - Reservation Period – 1 year (+discount) or 3 years (+++discount)
 - Payment Options – No Upfront (+), Partial Upfront (++), All Upfront (+++)
 - Reserved Instance’s Scope – Regional or Zonal (reserve capacity in an AZ)
-- Recommended for steady-state usage applications (think database)
+- Recommended for **steady-state usage applications** (think database)
 - You can buy and sell in the Reserved Instance Marketplace
-- Convertible Reserved Instance
-	- Can change the EC2 instance type, instance family, OS, scope and tenancy
-	- Up to 66% discount
+- **Convertible Reserved Instance**
+	- Can *change* the EC2 instance type, instance family, OS, scope and tenancy
+	- Up to **66% discount**
 
 ## EC2 Savings Plan
-- Get a discount based on long-term usage (up to 72% - same as RIs)
+- Get a discount based on **long-term usage** (up to **72%** - same as RIs)
 - Commit to a certain type of usage ($10/hour for 1 or 3 years)
 - Usage beyond EC2 Savings Plans is billed at the On-Demand price
-- Locked to a specific instance family & AWS region (e.g., M5 in us-east-1)
-- Flexible across:
+- **Locked** to a *specific instance family* & *AWS region* (e.g., M5 in us-east-1)
+- **Flexible** across:
 	- Instance Size (e.g., m5.xlarge, m5.2xlarge)
 	- OS (e.g., Linux, Windows)
 	- Tenancy (Host, Dedicated, Default)
 
 
 ## EC2 Spot Instances
-- Can get a discount of up to 90% compared to On-demand
+- Can get a discount of up to **90%** compared to On-demand
 - Instances that you can “lose” at any point of time if your max price is less than the current spot price
-- The MOST cost-efficient instances in AWS
+- The **MOST cost-efficient** instances in AWS
 - Useful for workloads that are resilient to failure
 	- Batch jobs
 	- Data analysis
@@ -638,8 +630,8 @@ you can't predict how the application will behave
 - Purchasing Options:
 	- On-demand – pay per second for active Dedicated Host
 	- Reserved - 1 or 3 years (No Upfront, Partial Upfront, All Upfront)
-- The most expensive option
-- Useful for software that have complicated licensing model (BYOL – Bring Your Own License)
+- The **most expensive option**
+- Useful for software that have complicated licensing model (**BYOL** – Bring Your Own License)
 - Or for companies that have strong regulatory or compliance needs
 
 ## EC2 Dedicated Instances
@@ -690,8 +682,8 @@ rooms. You can get kicked out at any time
 # EC2 Instance Storage
 
 ## What's an EBS Volume?
-- An EBS (Elastic Block Store) Volume is a network drive you can attach to your instances while they run
-- It allows your instances to persist data, even after their termination
+- An **EBS** (*Elastic Block Store*) **Volume** is a *network drive* you can attach to your instances while they run
+- It allows your instances to *persist data*, *even after their termination*
 - They can only be mounted to one instance at a time (at the CCP 
 level)
 - They are bound to a specific availability zone
@@ -701,12 +693,11 @@ Magnetic per month
 
 
 ## EBS Volume
-- It’s a network drive (i.e. not a physical drive)
-    - It uses the network to communicate the instance, which means there might be a bit of 
-latency
+- It’s a **network drive** (i.e. not a physical drive)
+    - It uses the network to communicate the instance, which means there might be a bit of *latency*
     - It can be detached from an EC2 instance and attached to another one quickly
 
-- It’s locked to an Availability Zone (AZ)
+- It’s **locked** to an Availability Zone (AZ)
     - An EBS Volume in us-east-1a cannot be attached to us-east-1b
     - To move a volume across, you first need to snapshot it
 
@@ -730,7 +721,6 @@ latency
 - Make a backup (snapshot) of your EBS volume at a point in time
 - Not necessary to detach volume to do snapshot, but recommended
 - Can copy snapshots across AZ or Region
-
     ![Alt text](image-180.png)
 
 ## EBS Snapshots Features
@@ -739,22 +729,20 @@ latency
 	- Takes within 24 to 72 hours for restoring the archive
 - Recycle Bin for EBS Snapshots
 	- Setup rules to retain deleted snapshots so 
-you can recover them after an accidental 
-deletion
+you can recover them after an accidental deletion
 - Specify retention (from 1 day to 1 year)
-
     ![Alt text](image-181.png)
 
 ## AMI Overview
-A MI = Amazon Machine Image
+- AMI = Amazon Machine Image
 - AMI are a customization of an EC2 instance
 - You add your own software, configuration, operating system, monitoring…
 - Faster boot / configuration time because all your software is pre-packaged
 - AMI are built for a specific region (and can be copied across regions)
 - You can launch EC2 instances from:
-- A Public AMI: AWS provided
-- Your own AMI: you make and maintain them yourself
-- An AWS Marketplace AMI: an AMI someone else made (and potentially sells)
+    - A public AMI: AWS provided
+    - Your own AMI: you make and maintain them yourself
+    - An AWS Marketplace AMI: an AMI someone else made (and potentially sells)
 
 
 ## AMI Process (from an EC2 Instance)
@@ -762,19 +750,17 @@ A MI = Amazon Machine Image
 - Stop the instance (for data integrity)
 - Build an AMI – this will also create EBS snapshots
 - Launch instances from other AMI
-
     ![Alt text](image-182.png)
 
 ## EC2 Image Builder
 - Used to automate the creation of Virtual Machines or container images
-- => Automate the creation, maintain, validate and test EC2 AMIs
+- Automate the creation, maintain, validate and test EC2 AMIs
 - Can be run on a schedule (weekly, whenever packages are updated, etc…)
 - Free service (only pay for the underlying resources)
-
     ![Alt text](image-183.png)
 
 ## EC2 Instance Store
-- EBS volumes are network drives with good but “limited” performance
+- EBS volumes are network drives with good but *“limited”* performance
 - If you need a high-performance hardware disk, use EC2 Instance Store
 - Better I/O performance
 - EC2 Instance Store lose their storage if they’re stopped (ephemeral)
@@ -849,14 +835,14 @@ using EC2 Instance Store
 - Let’s deep dive into the distinction, using a call center as an example
 
 ## Vertical Scalabaility
-- Vertical Scalability means **increasing the size of the instance**
+- Vertical Scalability means **increasing the size** *of the instances*
 - For example, your application runs on a t2.micro
 - Scaling that application vertically means running it on a t2.large
 - Vertical scalability is very **common for non distributed systems**, such as a **database**. 
 - There’s usually a limit to how much you can vertically scale (hardware limit)
 
 ## Horizontal Scalability
-- Horizontal Scalability means **increasing the number of instances / systems** for your application.
+- Horizontal Scalability means **increasing the number** *of instances/systems* for your application.
 - Horizontal scaling implies distributed systems. 
 - This is very **common for web applications** /modern applications
 - It’s easy to horizontally scale thanks to the cloud 
@@ -865,9 +851,7 @@ offerings such as Amazon EC2
 ## High Availability
 - High Availability usually goes hand in hand with horizontal scaling
 - High availability means **running** your application / system **in at least 2 AZs**
-- The **goal** of high availability is to 
-survive a data center loss 
-(disaster)
+- The **goal** of high availability is to survive a data center loss (disaster)
 
 ## HIgh Availability & Scalability for EC2
 - **Vertical Scaling**: Increase instance size (= scale up / down)
@@ -882,15 +866,10 @@ survive a data center loss
 
 
 ## Scalability vs Elastcticy (vs Agility)
-- **Scalability**: ability to accommodate a larger load by making the 
-hardware stronger (scale up), or by adding nodes (scale out)
+- **Scalability**: ability to accommodate a larger load by making the hardware stronger (scale up), or by adding nodes (scale out)
 
-- **Elasticity**: once a system is scalable, elasticity means that there will be 
-some “*auto-scaling”* so that the system can scale based on the load. This 
-is “cloud-friendly”: pay-per-use, match demand, optimize costs
-- **Agility**: (not related to scalability - distractor) new IT resources are only 
-a click away, which means that you reduce the time to make those 
-resources available to your developers from weeks to just minutes.
+- **Elasticity**: once a system is scalable, elasticity means that there will be some “*auto-scaling”* so that the system can scale based on the load. This is “cloud-friendly”: pay-per-use, match demand, optimize costs
+- **Agility**: (not related to scalability - distractor) new IT resources are only a click away, which means that you reduce the time to make those resources available to your developers from weeks to just minutes.
 
 
 ## What is Load Balancing?
@@ -919,15 +898,15 @@ Load balancers are servers that **forward internet traffic** to **multiple serve
             ![Alt text](image-110.png)
 
 ## What's an Auto Scaling Group?
-- Auto scaling is enabled by Amazon CloudWatch and is available at no additional charge beyond the service fees for CloudWatch and the other AWS resources.
+- Auto scaling is **enabled** by *Amazon CloudWatch* and is available at no additional charge beyond the service fees for CloudWatch and the other AWS resources.
 - In real-life, the load on your websites and application can change
 - In the cloud, you can create and get rid of servers very quickly
 - The **goal** of an Auto Scaling Group (ASG) is to:
-- Scale out (add EC2 instances) to match an increased load
-	- Scale in (remove EC2 instances) to match a decreased load
+- **Scale out** (*add EC2 instances*) to match an increased load
+	- **Scale in** (*remove EC2 instances*) to match a decreased load
 	- Ensure we have a minimum and a maximum number of machines running
 	- Automatically register new instances to a load balancer
-	- Replace unhealthy instances
+	- **Replace unhealthy instances**
 - Cost Savings: only run at an optimal capacity (principle of the cloud)
 
 ## Auto Scaling Group in AWS
@@ -961,30 +940,28 @@ Load balancers are servers that **forward internet traffic** to **multiple serve
 # Amazon S3
 
 ## Introduction
-- Amazon Simple Storage Service (Amazon S3) is storage for the internet. 
-- You can use Amazon S3 to store and retrieve any amount of data at any time, from anywhere on the web.
+- Amazon Simple Storage Service (Amazon S3) is **storage** for the internet. 
+- You can use Amazon S3 to **store** and **retrieve** any amount of data at any time, from anywhere on the web.
 - Amazon S3 is one of the main building blocks of AWS
 - It’s advertised as ”*infinitely scaling*” storage 
 - Many websites use Amazon S3 as a backbone
 - Many AWS services use Amazon S3 as an integration as well
 
 ## Amazon S3 Use Cases
-- Backup and storage 
+- Backup and Storage 
 - Disaster Recovery 
 - Archive 
 - Hybrid Cloud storage 
-- Application hosting 
-- Media hosting 
-- Data lakes & big data analytics 
-- Software delivery 
-- Static websit
+- Application Hosting 
+- Media Hosting 
+- Data Lakes & Big Data Analytics 
+- Software Delivery 
+- Static Website
 
 ## Amazon EBS
-- Amazon Elastic Block Store (Amazon EBS) is a service that provides block-level storage volumes that you can use with any running EC2 instances and use it like a hard drive. 
+- Amazon Elastic Block Store (Amazon EBS) is a service that provides **block-level storage volumes** that you can use with any running EC2 instances and use it like a hard drive. 
 
 - If you stop or terminate an Amazon EC2 instance, all the data on the attached EBS volume remains available.
-
-
 
 ## Amazon S3 - Buckets
 - Amazon S3 allows people to **store objects (files)** in “*buckets*” (directories)
@@ -1040,7 +1017,6 @@ policy to
     - Grant public access to the bucket 
     - Force objects to be encrypted at upload 
     - Grant access to another account (Cross Account)
-
         ![Alt text](image-114.png)
 
 ## Example: Public Access - Use Bucket Policy
@@ -1066,15 +1042,12 @@ policy to
 the Internet
 - The website URL will be (depending on the region)
     - http://bucket-name.s3-website**-**aws-region.amazonaws.com
-
     - **OR** http://bucket-name.s3-website**.**aws-region.amazonaws.com
 - If you get a **403 Forbidden** error, make sure the bucket policy allows public reads
-
     ![Alt text](image-120.png)
 
 ## Amazon S3 - Versioning
 - You can version your files in Amazon S3
-
 - It is enabled at the bucket level
 - Same key overwrite will change the *“version”*: 1, 2, 3….
 - It is best practice to version your buckets

@@ -3593,7 +3593,7 @@ of AWS services, and alerts when your resources are impacted
 
 ----------------------------
 
-# Advanced Identity
+# Advanced Identityy
 
 ## AWS STS (Security Token Service)
 - Enables you to **create temporary, limited-privileges credentials** to access your AWS resources

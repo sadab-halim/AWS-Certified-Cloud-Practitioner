@@ -2573,53 +2573,135 @@ Within CloudTrail, you can also enable CloudTrail Insights. This optional featur
     - Example: 2001:db8:3333:4444:cccc:dddd:eeee:ffff
 
 ## VPC & Subnets Primer
-- VPC - Virtual Private Cloud: private network to deploy your resources (regional resource)
-- Subnets allow you to partition your network inside your VPC (Availability Zone resource)
-- A public subnet is a subnet that is accessible from the internet
-- A private subnet is a subnet that is not  accessible from the internet
+- A networking service that you can use to establish boundaries around your AWS resources is **AWS VPC**
+- **Virtual Private Cloud (VPC)**: **private network** to deploy your resources (regional resource)
+
+<br/>
+
+- Subnets (a section of VPC) allow you to partition your network inside your VPC (Availability Zone resource)
+- A **public subnet** is a subnet that is *accessible* from the internet
+- A **private subnet** is a subnet that is *not accessible* from the internet
 - To define access to the internet and between subnets, we use Route Tables.
-
     ![Alt text](image-44.png)
-
+    
 ## VPC Diagram
 ![Alt text](image-45.png)
 
 ## Internet Gateway & NAT Gateways
-- **Internet Gateways** helps our VPC instances connect with the internet.
+- An **Internet Gateway** is a *connection between a VPC and the internet.*
+- Nothing goes in or out without *explicit permission*.
+- You have a gateway on the VPC that only permits traffic in or out of the VPC.
+- Without an internet gateway (*door of a coffee shop*), no one can access the resources within your VPC.
+
 - Public Subnets have a route to the internet gateway.
-
-- **NAT Gateways** (AWS-managed) & **NAT Instances** (self-managed) allow your instances in your Private Subnets to access the internet while remaining private
-
+- **NAT Gateways** (*AWS-managed*) & **NAT Instances** (*self-managed*) allow your instances in your Private Subnets to access the internet while remaining private
 ![Alt text](image-46.png)
+![Alt text](image-214.png)
 
-## Network ACL & Security Groups
+## Virtual Private Gateway
+- To access private resources in a VPC, you can use a virtual private gateway, which is like a private doorway. 
+- It allows you to create a VPN connection between a private network, like  your on-premises data centre and internal corporate network to your VPC
+
+### Working of Virtual Private Gateway works
+You can think of the internet as the road between your home and the coffee shop. 
+Suppose that you are traveling on this road with a bodyguard to protect you. You are still using the same road as other customers, but with an extra layer of protection.
+
+The bodyguard is like a virtual private network (VPN) connection that encrypts (or protects) your internet traffic from all the other requests around it.
+The virtual private gateway is the component that allows protected internet traffic to enter  into the VPC. Even though your connection to the coffee shop has extra protection, traffic  jams are possible because you’re using the same road as other customers. 
+
+Although VPN connections are private and they are encrypted, but they still use a regular internet connection that has bandwidth that is being shared by many people using the internet.
+
+### AWS Direct Connect (DX)
+- You want the **lowest amount of latency possible with the highest amount of security possible**. 
+- With AWS, you can achieve that using what is called **AWS Direct Connect**.
+- **AWS Direct Connect** is a service that enables you to establish a **dedicated private connection between your data centre and a VPC.**
+
+<br/>
+
+*Example:* This private hallway provides the same type of dedicated connection as AWS Direct Connect. Residents are able to get into the coffee shop without needing to use the public road shared with other customers.
+![Alt text](image-215.png)
+
+The private connection that AWS Direct Connect provides helps you to reduce network costs 
+and increase the amount of bandwidth that can travel through your network.
+
+<br/>
+
+- Establish a **physical connection** between *on-premises and AWS*
+- The connection is **private**, **secure** and **fast**
+- Goes over a **private network**
+- Takes at least a month to establish
+    ![Alt text](image-194.png)
+
+
+### Understanding Subnets (Coffee Shop Example)
+- In the coffee shop, you can think of the counter area as a VPC. The counter area divides into two separate areas for the cashier’s workstation and the barista’s workstation. In a 
+VPC, **subnets are separate areas that are used to group together resources**
+
+- A subnet is a section of a VPC in which you can group resources based on security or 
+operational needs. Subnets can be **public** or **private**.
+
+- The only technical reason to use subnets in a VPC is to *control access to the gateways*. 
+- The *public subnets have access to the internet gateway*; the *private subnets do not*. 
+
+- Public subnets contain resources that need to be accessible by the public, such as an online store’s website
+
+- Private subnets contain resources that should be accessible only through 
+your private network, such as a database that contains customers’ personal information 
+and order histories.
+
+## Network Traffic in a VPC
 ### NACL (Network ACL)
-- A firewall which controls traffic from and to 
-subnet
-- Can have ALLOW and DENY rules
-- Are attached at the Subnet level
-- Rules only include IP addresses
+- Packets are messages from the internet, and every packet that crosses the subnet 
+boundaries gets checked against something called a network access control list (NACL) 
+- A firewall which controls traffic FROM and TO **subnet**
+- Can have **ALLOW** *(inbound traffic)* and **DENY** *(outbound traffic)* rules
+- Are *attached* at the **Subnet Level**
+- Rules ONLY *include IP addresses*
+- (Airport Security Example; in and out)
+    ![Alt text](image-216.png)
+- Each AWS account includes a default network ACL. 
+    ![Alt text](image-217.png)
 
 ### Security Groups
-- A firewall that controls traffic to and from an 
-ENI / an EC2 Instance
-- Can have only ALLOW rules
+- The VPC component that checks packet permissions for an Amazon EC2 instance is 
+a **security group**.
+    ![Alt text](image-218.png)
+- A firewall that controls traffic TO and FROM an ENI/EC2 Instance
+- Can have only **ALLOW** rules
 - Rules include IP addresses and other security 
 groups
-
 ![Alt text](image-47.png)
 
+<br/>
+
+- Every EC2 instance, when it's launched, automatically comes with a security group. 
+- And by default, the security group **does not allow any traffic into the instance** at all (i.e. a security group *denies all inbound traffic* and *allows all outbound traffic*). 
+- **All ports are blocked**; all IP 
+addresses sending packets are blocked. That's very secure, but perhaps not very useful
+- Security groups perform stateful packet filtering. They remember previous decisions made 
+for incoming packets.
+    ![Alt text](image-219.png)
+
+<br/>
+
+*Example:* You can think of the guests as packets and the door attendant as 
+a security group. As guests arrive, the door attendant checks a list to ensure they can enter the building. 
+
+However, the door attendant does not check the list again when guests are exiting the building. With security groups, you allow specific traffic in and by default, all traffic is allowed out
+
 ## Network ACLs vs Security Groups
-| Security Group | Network ACL |
+| **Security Group** | **Network ACL** |
 | ------------------- | ----------------- |
-| Operates at the instance level | Operates at the subnet level |
-| Supports allow rules only | Supports allow and deny rules |
-| Stateful: Return traffic is automatically allowed, regardless of any rules | Stateless: Return traffic must be explicitly allowed by rules |
+| Operates at the **instance** level | Operates at the **subnet** level |
+| Supports **ALLOW** rules only | Supports **ALLOW** and **DENY** rules |
+| **Stateful**: Return traffic is automatically allowed, regardless of any rules | **Stateless**: Return traffic must be explicitly allowed by rules |
 | We evaluate all rules before deciding whether to allow traffic | We process rules in number order when deciding whether to allow traffic |
 | Applies to an instance only if someone specifies the security group when launching the instance, or associates the security group with the instance later on | Automatically applies to all instances in the subnets it's associated with (therefore, you don't have to rely on users to specify the security group) |
 
+The **key difference** between a security group and a network ACL is the **security group is stateful**, meaning it has some kind of a memory when it comes to who to allow in or out, and the **network ACL is stateless**, which remembers nothing and checks every single packet that crosses its border regardless of any circumstances.
+
 ## VPC Flow Logs
-- Capture information about IP traffic going into your interfaces:
+- *Capture information* about *IP traffic* going *into your interfaces*:
 	- VPC Flow Logs
 	- Subnet Flow Logs
 	- Elastic Network Interface Flow Logs
@@ -2627,65 +2709,55 @@ groups
 	- Subnets to internet
 	- Subnets to subnets
 	- Internet to subnets
-
 - Captures network information from AWS managed interfaces too: Elastic Load Balancers, ElastiCache, RDS, Aurora, etc… 
-- VPC Flow logs data can go to S3, CloudWatch Logs, and Kinesis Data Firehose
+- VPC Flow logs data can go to **S3**, **CloudWatch Logs**, and **Kinesis Data Firehose**
 
 ## VPC Peering
-- Connect two VPC, privately using AWS’ network
+- *Connect two VPC*, **privately** using AWS’ network
 - Make them behave as if they were in the same network
 - Must not have overlapping CIDR (IP address range)
-- VPC Peering connection is not transitive (must be established for each VPC that need to communicate with one another)
-
+- VPC Peering connection is NOT transitive (must be established for each VPC that need to communicate with one another)
     ![Alt text](image-197.png)
 
 ## VPC Endpoints
-- Endpoints allow you to connect to AWS Services using a private network instead of the public www network
-- This gives you enhanced security and lower latency to access AWS services
+- Endpoints allow you to *connect to AWS Services* using a *private network* instead of the public www network
+- This gives you **enhanced security** and **lower latency** to access AWS services
 - VPC Endpoint Gateway: S3 & DynamoDB
 - VPC Endpoint Interface: the rest
-
     ![Alt text](image-196.png)
 
 ## AWS PrivateLink (VPC Endpoint Services)
-- Most secure & scalable way to expose a service to 1000s of VPCs
+- AWS PrivateLink makes it easy to connect services across different accounts and VPCs to significantly simplify the network architecture.
+- Most secure & scalable way to *expose a service to 1000s of VPCs*
 - Does not require VPC peering, internet gateway, NAT, route tables…
 - Requires a network load balancer (Service VPC) and ENI (Customer VPC)
-
     ![Alt text](image-195.png)
 
 ## Site to Site VPN & Direct Connect
 ### Site to Site VPN
-- Connect an on-premises VPN to AWS
-- The connection is automatically encrypted
-- Goes over the public internet
-
-### Direct Connect (DX)
-- Establish a physical connection between on-premises and AWS
-- The connection is private, secure and fast
-- Goes over a private network
-- Takes at least a month to establish
-
-    ![Alt text](image-194.png)
+- **Connect an on-premises VPN to AWS**
+- The connection is *automatically* **encrypted**
+- Goes over the **public internet**
 
 ## Site-to-Site VPN
-- On-premises: must use a Customer Gateway (CGW)
-- AWS: must use a Virtual Private Gateway (VGW)
+- **On-premises**: must use a *Customer Gateway (CGW)*
+- **AWS**: must use a *Virtual Private Gateway (VGW)*
    ![Alt text](image-193.png) 
 
 ## AWS Client VPN
-- Connect from your computer using OpenVPN to your private network in AWS and on-premises
-- Allow you to connect to your EC2 instances over a private IP (just as if you were in the private VPC network)
-- Goes over public Internet
+- Connect from your computer using **OpenVPN** to your private network in AWS and on-premises
+- Allow you to *connect to your EC2 instances over a private IP* (just as if you were in the private VPC network)
+- Goes over **public Internet**
     ![Alt text](image-192.png)
+
 ## Network Topologies can become complicated
 ![Alt text](image-191.png)
 
 ## Transit Gateway
+- AWS Transit Gateway is a service that enables customers to connect their Amazon Virtual Private Clouds (VPCs) and their on-premises networks to a single gateway.
 - For having transitive peering between thousands of VPC and on-premises, hub-and-spoke (star) connection
 - One single Gateway to provide this functionality
 - Works with Direct Connect Gateway, VPN connections
-
     ![Alt text](image-190.png)
 
 ----------------------------
@@ -2888,7 +2960,7 @@ groups
 - Can be used to support internal audit or compliance
 
 ## Amazon GuardDuty
-- Intelligent Threat discovery to protect your AWS Account 
+- Intelligent **threat detection service** continously monitors for malicious of unauthorized behavior to protect your AWS Account 
 - Uses Machine Learning algorithms, anomaly detection, 3rd party data
 - One click to enable (30 days trial), no need to install software
 - Input data includes:
@@ -2942,15 +3014,15 @@ groups
 - View configuration of a resource over time
 - View CloudTrail API calls if enabled to know who made these changes..
 
-## AWS Macie
+## Amazon Macie
 - Amazon Macie is a **fully managed** **data security** and **data privacy service** that **uses machine learning** and **pattern matching** to **discover** and **protect your sensitive data** in AWS.
 - Macie helps identify and alert you to **sensitive data**, such as personally identifiable information (PII)
     ![Alt text](image-207.png)
 
 ## AWS Security Hub
 - **Central security tool** to manage security **across several AWS accounts** and **automate security checks**
-- Integrated dashboards showing current security and compliance status to quickly take actions
-- Automatically aggregates alerts in predefined or personal findings formats from various AWS services & AWS partner tools: 
+- Integrated **dashboards** showing current security and **compliance status** to quickly take actions
+- Automatically **aggregates alerts** in predefined or personal findings formats from various AWS services & AWS partner tools: 
 	- Config
 	- GuardDuty
 	- Inspector
@@ -2965,7 +3037,7 @@ groups
 
 ## Amazon Detective
 - GuardDuty, Macie, and Security Hub are used to identify potential security issues, or findings
-- Sometimes security findings require deeper analysis to isolate the root cause and take action – it’s a complex process
+- Sometimes security findings require deeper analysis to isolate the **root cause** and take action – it’s a complex process
 - Amazon Detective **analyzes**, **investigates**, and quickly **identifies** **the root cause of security issues** or suspicious activities (*using ML and graphs*)
 - **Automatically collects and processes events** from VPC Flow Logs, CloudTrail, GuardDuty and create a unified view
 - Produces visualizations with details and context to get to the root cause
@@ -3007,7 +3079,7 @@ groups
 - Define Zone of Trust = AWS Account or AWS Organization
 - Access outside zone of trusts => findings
     ![Alt text](image-209.png)
-    
+
 ----------------------------
 
 # Machine Learning 

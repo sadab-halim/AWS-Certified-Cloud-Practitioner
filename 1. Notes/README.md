@@ -1757,22 +1757,19 @@ monitor, and secure APIs
 # Deploying and Managing Infrastructure at Scale
 
 ## What is CloudFormation?
-- AWS CloudFormation is an infrastructure as code tool that allows you to define a wide 
-variety of AWS resources in a declarative way using JSON or YAML text-based documents 
-called CloudFormation templates.
+- AWS CloudFormation is an infrastructure as code **(IaC)** tool that allows you to define a wide variety of AWS resources in a declarative way using JSON or YAML text-based documents called CloudFormation **templates**.
 
-- Amazon CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency, high transfer speeds, all within a
-developer-friendly environment
+- Amazon CloudFront is a fast content delivery network **(CDN)** service that securely **delivers data**, **videos**, **applications**, and **APIs** to customers globally with **low latency**, high transfer speeds, all within a developer-friendly environment
 
 - It is a content delivery network (CDN) service that helps deliver content to users more quickly and securely.
 
-- It does this by caching content at edge locations around the world, so that users can access it from the nearest location.
+- It does this by *caching content at edge locations* around the world, so that users can access it from the nearest location.
 
 - This can significantly improve the performance of your website or application, especially for users who are located far away from your origin server.
 
-- CloudFront can also help to protect your content from security threats, such as DDoS attacks.
+- CloudFront can also help to *protect your content from security threats*, such as *DDoS attacks*.
 
-- CloudFront is a pay-as-you-go service, so you only pay for the bandwidth that you use.
+- CloudFront is a **pay-as-you-go** service, so you only pay for the bandwidth that you use.
 
 - CloudFormation is a declarative way of outlining your AWS Infrastructure, for any resources (most of them are supported)
 - For example, within a CloudFormation template, you say:
@@ -1780,28 +1777,28 @@ developer-friendly environment
     - I want two EC2 instances using this security group
     - I want an S3 bucket
     - I want a load balancer (ELB) in front of these machines
-- Then CloudFormation creates those for you, in the right order, with the exact configuration that you specify.
+- Then CloudFormation **creates** those for you, in the right order, with the exact configuration that you specify.
 
 ### Benefits of AWS CloudFormation
-- Infrastructure as Code:
+- **Infrastructure as Code**:
     - No resources are manually created, which is excellent for control
     - Changes to the infrastructure are reviewed through code
 
-- Cost:
+- **Cost**:
     - Each resources within the stack is tagged with an identifier so you can easily see how much a stack costs you
     - You can estimate the costs of your resources using the CloudFormation template
     - Savings strategy: In Dev, you could automation deletion of templates at 5 PM and recreated at 8 AM, safely.
 
-- Productivity
+- **Productivity**:
     - Ability to destroy and re-create an infrastructure on the cloud on the fly
     - Automated generation of Diagram for your templates!
     - Declarative programming (no need to figure out ordering and orchestration)
 
-- Don’t re-invent the wheel
+- **Don’t re-invent the wheel**:
     - Leverage existing templates on the web!
     - Leverage the documentation
 
-- Supports (almost) all AWS resources:
+- **Supports (almost) all AWS resources**:
     - Everything we’ll see in this course is supported
     - You can use “custom resources” for resources that are not supported
 
@@ -1811,16 +1808,14 @@ developer-friendly environment
 - We can see the relations between the components
     ![Alt text](image.png)
 
--------------
-
 ## AWS Cloud Development Kit (CDK)
 - Define your cloud infrastructure using a familiar language:
     - JavaScript/TypeScript, Python, Java, and .NET
-- The code is “compiled” into a CloudFormation template (JSON YAML)
+- The code is **“compiled”** into a CloudFormation template (JSON YAML)
 - You can therefore deploy infrastructure and application runtime code together
     - Great for Lambda functions
     - Great for Docker containers in ECS / EKS
-- Infrastructure as a Code
+- **Infrastructure as a Code**
     ![Alt text](image-1.png)
 
 ## CDK Example
@@ -1834,30 +1829,26 @@ developer-friendly environment
 - Deploying Code
 - Configuring all the databases, load balancers, etc
 - Scaling concerns
-- Most web apps have the same architecture (ALB + ASG)
+- Most web apps have the same architecture (ELB + ASG)
 - All the developers want is for their code to run!
 - Possibly, consistently across different applications and environments
 
 ## AWS Elastic Beanstalk Overview
-- AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services
-developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar servers such as Apache, Nginx, Passenger, and Internet Information Services (IIS).
+- AWS Elastic Beanstalk is an easy-to-use service for **deploying** and **scaling web applications** and services *developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker* on familiar *servers such as Apache, Nginx, Passenger, and Internet Information Services (IIS).*
 
-- You can simply upload your code, and AWS Elastic Beanstalk automatically handles the deployment,
-from capacity provisioning, load balancing, and auto scaling to application health monitoring. 
+- You can simply upload your code, and AWS Elastic Beanstalk **automatically handles the deployment,** from **capacity provisioning**, **load balancing**, and **auto scaling** to application **health monitoring**. 
 
-- At the same time, you retain full control over the AWS resources powering your application and can access the
-underlying resources at any time.
+- At the same time, you retain full control over the AWS resources powering your application and can access the underlying resources at any time.
 
 - Elastic Beanstalk is a developer centric view of deploying an application on AWS
-- It uses all the component’s we’ve seen before:
-EC2, ASG, ELB, RDS, etc… 
+- It uses all the component’s we’ve seen before: EC2, ASG, ELB, RDS, etc… 
 - But it’s all in one view that’s easy to make sense of!
 - We still have full control over the configuration
-- Beanstalk = Platform as a Service (PaaS) 
+- **Beanstalk = Platform as a Service (PaaS)**
 - Beanstalk is free but you pay for the underlying instances
 
 ## Elastic Beanstalk
-- Managed service 
+- **Managed service** 
     - Instance configuration / OS is handled by Beanstalk - Deployment strategy is configurable but performed by Elastic Beanstalk 
     - Capacity provisioning 
     - Load balancing & auto-scaling 
@@ -1887,161 +1878,124 @@ EC2, ASG, ELB, RDS, etc…
 ## Elastic Beanstalk - Health Monitoring
 ![Alt text](image-4.png)
 
---------------------
 
 ## AWS CodeDeploy
-- AWS CodeDeploy is a service that automates code deployments to any instance, including EC2 instances
-and instances running on premises. 
-
-- CodeDeploy makes it easier for you to rapidly release new features, helps you avoid downtime during application deployment, and handles the complexity of updating your
+- AWS CodeDeploy is a service that **automates code deployments to any instance**, including *EC2 instances* and *instances running on premises*. 
+- CodeDeploy makes it easier for you to *rapidly release new features*, helps you *avoid downtime during application deployment*, and handles the complexity of updating your
 applications. 
-
-- You can use CodeDeploy to automate software deployments, eliminating the need for error-prone manual operations. The service scales with your infrastructure so you can easily deploy to one instance or thousands.
+- You can **use CodeDeploy to automate software deployments**, eliminating the need for error-prone manual operations. 
+- The service scales with your infrastructure so you can easily deploy to one instance or thousands.
 
 - We want to deploy our application automatically
-- Works with EC2 Instances
-- Works with On-Premises Servers
-- Hybrid Service
-- Severs/Instances must be provisioned and configured ahead of time with the CodeDeploy/Agent
+- Works with **EC2 Instances**
+- Works with **On-Premises Servers**
+- **Hybrid Service**
+- Severs/Instances **must be provisioned** and **configured** ahead of time with the CodeDeploy/Agent
     ![Alt text](image-5.png)
 
 ## AWS CodeCommit
 - Before pushing the application code to servers, it needs to be stored 
 somewhere
-
-- Developers usually store code in a repository, using the Git technology
+- Developers usually store code in a **repository**, using the Git technology
 - A famous public offering is GitHub, AWS’ competing product is CodeCommit
 
 - CodeCommit:
     - Source-control service that hosts Git-based repositories
-    - Makes it easy to collaborate with others on code
-    - The code changes are automatically versioned 
+    - Makes it easy to **collaborate** with others on code
+    - The code changes are **automatically versioned** 
 - Benefits: 
-    - Fully managed
+    - **Fully managed**
     - Scalable & highly available
     - Private, Secured, Integrated with AWS
 
 
 ## AWS CodeBuild
-- AWS CodeBuild is a fully managed build service that compiles source code, runs tests, and produces
-software packages that are ready to deploy. With CodeBuild, you don’t need to provision, manage, and
-scale your own build servers. 
+- AWS CodeBuild is a **fully managed** build service that **compiles source code**, **runs tests**, and **produces software packages** that are ready to deploy. 
+- With CodeBuild, you don’t need to provision, manage, and scale your own build servers. 
 
-- CodeBuild scales continuously and processes multiple builds concurrently, so your builds are not left waiting in a queue. You can get started quickly by using prepackaged build environments, or you can create custom build environments that use your own build tools.
+- CodeBuild *scales continuously* and *processes multiple builds concurrently*, so your builds are not left waiting in a queue. You can get started quickly by using prepackaged build environments, or you can create custom build environments that use your own build tools.
 
 - Code building service in the cloud (name is obvious)
-- Compiles source code, run tests, and produces packages that are ready to be deployed (by CodeDeploy for example)
     ![Alt text](image-6.png)
 
 - Benefits:
-    - Fully managed, serverless
+    - Fully managed, **serverless**
     - Continuously scalable & highly available
     - Secure
     - Pay-as-you-go pricing – only pay for the build time
 
-----------------
 
 ## AWS CodePipeline
-- AWS CodePipeline is a fully managed continuous delivery service that helps you automate your release
-pipelines for fast and reliable application and infrastructure updates. 
+- AWS CodePipeline is a **fully managed continuous delivery service** that helps you **automate your release pipelines** for fast and reliable application and infrastructure updates. 
 
-- CodePipeline automates the build, test, and deploy phases of your release process every time there is a code change, based on the release model you define. This enables you to rapidly and reliably deliver features and updates. 
+- CodePipeline **automates the build, test**, and **deploy phases** of your release process every time there is a code change, based on the release model you define. This enables you to rapidly and reliably deliver features and updates. 
 
-- You can easily integrate CodePipeline with third-party services such as GitHub or with your own custom plugin. 
-- With AWS CodePipeline, you only pay for what you use. There are no upfront fees or long-term commitments.
+- You can easily *integrate CodePipeline with third-party services* such as GitHub or with your own custom plugin. 
+- With AWS CodePipeline, you only pay for what you use. There are **no upfront fees or long-term commitments.**
 
 - Orchestrate the different steps to have the code automatically pushed to production
     - Code => Build => Test => Provision => Deploy
-    - Basis for CICD (Continuous Integration & Continuous Delivery
+    - Basis for CICD (**Continuous Integration & Continuous Delivery**)
     
 - Benefits:
-    - Fully managed, compatible with CodeCommit, CodeBuild, CodeDeploy, Elastic Beanstalk, 
-CloudFormation, GitHub, 3rd-party services (GitHub…) & custom plugins…
+    - Fully managed, *compatible with CodeCommit, CodeBuild, CodeDeploy, Elastic Beanstalk, 
+CloudFormation, GitHub, 3rd-party services (GitHub…)* & custom plugins…
     - Fast delivery & rapid updates
-
         ![Alt text](image-7.png)
 
 
 ## AWS CodeArtifact
-- AWS CodeArtifact is a fully managed artifact repository service that makes it easy for organizations of
-any size to securely store, publish, and share software packages used in their software development process. 
+- AWS CodeArtifact is a **fully managed artifact repository** service that makes it easy for organizations of any size to **securely store, publish,** and **share software packages used** in their software development process. 
 
-- CodeArtifact can be configured to automatically fetch software packages and dependencies from public artifact repositories so developers have access to the latest versions. 
+- CodeArtifact can be configured to *automatically fetch software packages* and *dependencies from public artifact repositories* so developers have access to the latest versions. 
 
-- CodeArtifact works with commonly used package managers and build tools like Maven, Gradle, npm, yarn, twine, pip, and NuGet making it easy to integrate into existing development workflows.
+- CodeArtifact works with commonly used package managers and build tools like **Maven**, **Gradle, npm, yarn, twine, pip**, and **NuGet** making it easy to integrate into existing development workflows.
 
-- Software packages depend on each other to be built (also called code 
-dependencies), and new ones are created
-- Storing and retrieving these dependencies is called artifact management
+- Software packages depend on each other to be built (also called code dependencies), and new ones are created
+- Storing and retrieving these **dependencies** is called **artifact management**
 - Traditionally you need to setup your own artifact management system
-- CodeArtifact is a secure, scalable, and cost-effective artifact management for 
-software development
-- Works with common dependency management tools such as Maven, Gradle, 
-npm, yarn, twine, pip, and NuGet
+- CodeArtifact is a *secure*, *scalable, and cost-effective artifact management for 
+software development*
 - Developers and CodeBuild can then retrieve dependencies straight from 
 CodeArtifact
 
 ## AWS CodeStar
-- AWS CodeStart enables you to quickly develop, build, and deploy applications on AWS. 
+- AWS CodeStart enables you to **quickly develop, build, and deploy applications on AWS**. 
+- AWS CodeStar provides a unified user interface, enabling you to easily manage your software development activities in one place. 
 
-- AWS CodeStar provides a unified user interface, enabling you to easily manage your software development activities
-in one place. With AWS CodeStar, you can set up your entire continuous delivery toolchain in minutes,
-allowing you to start releasing code faster. 
+- With AWS CodeStar, you can *set up your entire continuous delivery toolchain* in minutes,
+allowing you to *start releasing code faster*. 
 
-- AWS CodeStar makes it easy for your whole team to work
-together securely, allowing you to easily manage access and add owners, contributors, and viewers to your projects. 
+- AWS CodeStar makes it easy for your whole team to work together securely, allowing you to easily manage access and add owners, contributors, and viewers to your projects. 
 
-- Each AWS CodeStar project comes with a project management dashboard, including an integrated issue tracking capability powered by Atlassian JIRA Software. 
+- Each AWS CodeStar project *comes with a project management dashboard*, including an *integrated issue tracking* capability powered by **Atlassian JIRA Software**. 
 
-- With the AWS CodeStar project dashboard, you can easily track progress across your entire software development process, from your backlog of work items to teams’ recent code deployments. For more information, see AWS CodeStar
-features
-
-- Unified UI to easily manage software development activities in one place
-- “Quick way” to get started to correctly set-up CodeCommit, CodePipeline, 
-CodeBuild, CodeDeploy, Elastic Beanstalk, EC2, etc… 
+- With the AWS CodeStar project dashboard, you can easily **track progress** across your entire software development process, from your backlog of work items to teams’ recent code deployments. 
 - Can edit the code ”in-the-cloud” using AWS Cloud9
-
     ![Alt text](image-8.png)
 
---------------------
 
 ## AWS Cloud9
-- AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and
-debug your code with just a browser. 
+- AWS Cloud9 is a **cloud-based integrated development environment (IDE)** that lets you write, run, and debug your code with just a browser. 
 
-- It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP,
-and more, so you don’t need to install files or configure your development machine to start new projects.
+- It includes a *code editor, debugger, and terminal*. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP,
+and more, so you *don’t need to install files or configure your development machine* to start new projects.
 
-- Since your Cloud9 IDE is cloud-based, you can work on your projects from your office, home, or anywhere
-using an internet-connected machine. 
+- Since your *Cloud9 IDE is cloud-based*, you can work on your projects from your office, home, or anywhere using an internet-connected machine. 
 
-- Cloud9 also provides a seamless experience for developing
-serverless applications enabling you to easily define resources, debug, and switch between local and
+- Cloud9 also provides a *seamless experience for developing serverless applications* enabling you to easily define resources, debug, and switch between local and
 remote execution of serverless applications. 
 
-- With Cloud9, you can quickly share your development environment with your team, enabling you to pair program and track each other's inputs in real time.
+- With Cloud9, you can *quickly share your development environment with your team*, enabling you to **pair program** and track each other's inputs in real time.
 
-- AWS Cloud9 is a cloud IDE (Integrated 
-Development Environment) for writing, running 
+- AWS Cloud9 is a cloud IDE (Integrated Development Environment) for writing, running 
 and debugging code
-- “Classic” IDE (like IntelliJ, Visual Studio Code…) 
-are downloaded on a computer before being 
-used
-- A cloud IDE can be used within a web browser, 
-meaning you can work on your projects from 
-your office, home, or anywhere with internet 
-with no setup necessary
-- AWS Cloud9 also allows for code collaboration 
-in real-time (pair programming)
-
     ![Alt text](image-9.png)
 
-------------------------
-
 ## AWS Systems Manager (SSM)
-- Helps you manage your EC2 and On-Premises systems at scale
+- Helps you **manage your EC2 and On-Premises systems** at scale
 - Another Hybrid AWS service
-- Get operational insights about the state of your infrastructure
+- Get **operational insights** about the *state of your infrastructure* using the provided unified user interface
 - Suite of 10+ products
 - Most important features are:
     - Patching automation for enhanced compliance
@@ -2052,25 +2006,18 @@ in real-time (pair programming)
 ### How System Manager Works?
 - We need to install the SSM agent onto the systems we 
 control
-- Installed by default on Amazon Linux AMI & some Ubuntu AMI
-- If an instance can’t be controlled with SSM, it’s 
-probably an issue with the SSM agent!
-- Thanks to the SSM agent, we can run commands, patch & 
-configure our server
-
+- Installed by *default on Amazon Linux AMI* & some *Ubuntu AMI*
+- If an instance can’t be controlled with SSM, it’s probably an issue with the SSM agent!
+- Thanks to the SSM agent, we can run commands, patch & configure our server
     ![Alt text](image-10.png)
 
 #### Systems Manager -- SM Session Manager
-- Allows you to start a secure shell on your EC2 and 
-on-premises servers
+- Allows you to start a secure shell on your EC2 and on-premises servers
 - No SSH access, bastion hosts, or SSH keys needed
 - No port 22 needed (better security)
 - Supports Linux, macOS, and Windows
 - Send session log data to S3 or CloudWatch Logs
-
 ![Alt text](image-11.png)
-
------------------
 
 ## Systems Manager Parameter Store
 - Secure storage for configuration and secrets
@@ -2078,31 +2025,29 @@ on-premises servers
 • Serverless, scalable, durable, easy SDK
 • Control access permissions using IAM
 • Version tracking & encryption (optional)
-
     ![Alt text](image-12.png)
 
--------------
-
 ## AWS OpsWorks
-- AWS OpsWorks is a configuration management service that provides managed instances of Chef and Puppet. 
+- AWS OpsWorks is a **configuration management service** that *provides managed instances* of **Chef** and **Puppet**. 
 
 - Chef and Puppet are automation platforms that allow you to use code to automate the configurations of your servers. 
 
-- OpsWorks lets you use Chef and Puppet to automate how servers are configured, deployed, and managed across your Amazon EC2 instances or on-premises compute environments.
+- OpsWorks lets you *use Chef and Puppet to automate* how servers are configured, deployed, and managed across your Amazon EC2 instances or on-premises compute environments.
 
-- Chef & Puppet help you perform server configuration automatically, or repetitive actions
+- **Chef** & **Puppet** help you *perform server configuration automatically*, or repetitive actions
 - They work great with EC2 & On-Premises VM
-- AWS OpsWorks = Managed Chef & Puppet
-- It’s an alternative to AWS SSM
+- **AWS OpsWorks = Managed Chef & Puppet**
+- It’s an *alternative to AWS SSM*
 - Only provision standard AWS resources:
     - EC2 Instances, Databases, Load Balancers, EBS volumes…
 - In the exam: Chef or Puppet needed --> AWS OpsWorks
 
-## OpsWorks Architecture
+### OpsWorks Architecture
 ![Alt text](image-13.png)
 
 ---------------
 
+# Global Infrastructure
 ##  Why make a global application?
 - A global application is an application deployed in multiple geographies
 - On AWS: this could be Regions and / or Edge Locations

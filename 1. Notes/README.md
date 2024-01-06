@@ -2712,8 +2712,8 @@ The **key difference** between a security group and a network ACL is the **secur
 - **Customer Responsibility** - **Security in the Cloud**
 	- For EC2 instance, customer is responsible for management of the guest OS (including security patches and updates), firewall & network configuration, IAM 
 	- Encrypting application data 
-- Shared controls:
-	- Patch Management, Configuration Management, Awareness & Training
+    - Shared controls:
+        - Patch Management, Configuration Management, Awareness & Training
 
 ## Example, for RDS
 ### AWS responsibility:
@@ -2764,12 +2764,12 @@ The **key difference** between a security group and a network ACL is the **secur
 ## AWS Shield
 ### AWS Shield Standard:
 - **Free** service that is activated for every AWS customer
-- Provides protection from attacks such as SYN/UDP Floods, Reflection attacks and other layer 3/layer 4 attacks
+- Provides *protection from attacks such as SYN/UDP Floods*, Reflection attacks and other *layer 3/layer 4 attacks*
 
 ### AWS Shield Advanced: 
-- Optional DDoS mitigation service ($3,000 per month per organization) 
-- Protect against more sophisticated attack on Amazon EC2, Elastic Load Balancing (ELB), Amazon CloudFront, AWS Global Accelerator, and Route 53
-- 24/7 access to AWS DDoS response team (DRP)
+- Optional **DDoS mitigation service** (*$3,000 per month per organization*) 
+- *Protect against more sophisticated attack on Amazon EC2*, Elastic Load Balancing (ELB), Amazon CloudFront, AWS Global Accelerator, and Route 53
+- **24/7** access to AWS DDoS response team (DRP)
 - Protect against higher fees during usage spikes due to DDoS
 
 ### AWS WAF - Web Application Firewall

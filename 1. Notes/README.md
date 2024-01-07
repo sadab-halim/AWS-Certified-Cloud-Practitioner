@@ -718,10 +718,12 @@ Magnetic per month
 
 
 ## EBS Snapshots
+- EBS snapshots is an **incremental backup**
 - Make a backup (snapshot) of your EBS volume at a point in time
 - Not necessary to detach volume to do snapshot, but recommended
 - Can copy snapshots across AZ or Region
     ![Alt text](image-180.png)
+    ![Alt text](image-222.png)
 
 ## EBS Snapshots Features
 - EBS Snapshot Archive
@@ -939,13 +941,40 @@ Load balancers are servers that **forward internet traffic** to **multiple serve
 
 # Amazon S3
 
+## Amazon EBS
+- Amazon Elastic Block Store (Amazon EBS) is a service that provides **block-level storage volumes** that you can use with any running EC2 instances and use it like a hard drive. 
+
+- If you stop or terminate an Amazon EC2 instance, all the data on the attached EBS volume remains available.
+
+- With EBS, you can create virtual hard drives that we call EBS volumes that you can attach to 
+your EC2 instances
+
+- The data that you write to an EBS volume persists between stops and starts of an EC2 instance
+
+    ![Alt text](image-221.png)
+
+- You can take incremental backups of EBS volumes by creating [Amazon EBS snapshots](#ebs-snapshots). 
+- It's very important that you take regular snapshots of your EBS volumes. 
+- This way, if a drive ever becomes corrupted, you haven't lost your data. 
+- And you can restore that data from a snapshot
+
+## Object Storage
+- Store and retrieve an unlimited amount of data at any scale.
+- Data is stored as objects
+- In object storage, each object consists of data, metadata, and a key
+- Key is its unique identifier.
+
 ## Introduction
-- Amazon Simple Storage Service (Amazon S3) is **storage** for the internet. 
+- Amazon Simple Storage Service (Amazon S3) is **storage** *(object-level)* for the internet. 
+- Amazon S3 stores data as objects in **buckets**.
 - You can use Amazon S3 to **store** and **retrieve** any amount of data at any time, from anywhere on the web.
 - Amazon S3 is one of the main building blocks of AWS
-- It’s advertised as ”*infinitely scaling*” storage 
-- Many websites use Amazon S3 as a backbone
+- It’s advertised as ”*infinitely scaling*” storage; *unlimited storage*
+- Maximum file size for an object in Amazon S3 is 5 TB. 
 - Many AWS services use Amazon S3 as an integration as well
+- Amazon S3, lets you set permissions to control visibility and access whenever you upload a file.
+- Amazon S3 versioning feature is used to track changes to your objects over time.
+- S3 is **static website hosting**.
 
 ## Amazon S3 Use Cases
 - Backup and Storage 
@@ -958,16 +987,11 @@ Load balancers are servers that **forward internet traffic** to **multiple serve
 - Software Delivery 
 - Static Website
 
-## Amazon EBS
-- Amazon Elastic Block Store (Amazon EBS) is a service that provides **block-level storage volumes** that you can use with any running EC2 instances and use it like a hard drive. 
-
-- If you stop or terminate an Amazon EC2 instance, all the data on the attached EBS volume remains available.
-
 ## Amazon S3 - Buckets
 - Amazon S3 allows people to **store objects (files)** in “*buckets*” (directories)
 - Buckets must have a **globally unique name** (across all regions all accounts)
-- Buckets are defined at the region level 
-- S3 looks like a global service but buckets are created in a region
+- Buckets are defined at the *region level* 
+- S3 looks like a global service but *buckets are created in a region*
 - Naming convention
     - No uppercase, No underscore
     - 3-63 characters long
@@ -1006,11 +1030,11 @@ Load balancers are servers that **forward internet traffic** to **multiple serve
 - **Encryption**: encrypt objects in Amazon S3 using encryption keys
 
 ## S3 Bucket Policies
-- JSON based policies
-    - Resources: buckets and objects 
-    - Effect: Allow / Deny 
-    - Actions: Set of API to Allow or Deny 
-    - Principal: The account or user to apply the 
+- **JSON based policies**
+    - **Resources**: buckets and objects 
+    - **Effect**: Allow / Deny 
+    - **Actions**: Set of API to Allow or Deny 
+    - **Principal**: The account or user to apply the 
 policy to
 
 - Use S3 bucket for policy to: 
@@ -1047,10 +1071,10 @@ the Internet
     ![Alt text](image-120.png)
 
 ## Amazon S3 - Versioning
-- You can version your files in Amazon S3
-- It is enabled at the bucket level
+- You can **version your files** in Amazon S3
+- It is *enabled at the bucket level*
 - Same key overwrite will change the *“version”*: 1, 2, 3….
-- It is best practice to version your buckets
+- It is *best practice* to version your buckets
     - Protect against unintended deletes (ability to restore a version)
     - Easy roll back to previous version 
 - Notes:
@@ -1075,13 +1099,18 @@ have version “null”
 
 
 ## S3 Storage Classes
-- Amazon S3 Standard : General Purpose
-- Amazon S3 Standard-Infrequesnt Access (IA)
-- Amazon S3 One Zone-Infrequent Access
-- Amazon S3 Glacier Instant Retrieval
-- Amazon S3 Glacier Flexible Retrieval
-- Amazon S3 Glacier Deep Archive
-- Amazon S3 Intelligent Tiering
+When selecting an Amazon S3 storage class, consider these two factors:
+- *How often you plan to retrieve your data*
+- *How available you need your data to be*
+
+Types of Storage Classes:
+- S3 Standard : General Purpose
+- S3 Standard-Infrequesnt Access (IA)
+- S3 One Zone-Infrequent Access
+- S3 Glacier Instant Retrieval
+- S3 Glacier Flexible Retrieval
+- S3 Glacier Deep Archive
+- S3 Intelligent Tiering
 
 <br/>
 
@@ -1100,26 +1129,48 @@ have version “null”
 ## S3 Standard : General Purpose
 - 99.99% Availability
 - Used for **frequently accessed data**
+- Stores data in a **min 3 AZs**
 - Low latency and high throughput
-- Sustain 2 concurrent facility failures
-- Use CasesL Big Data Analytics, Mobile & Gaming Applications, Content Distribution..
+- Data is stored in **at least 3 facilities**; multiple copies reside across locations
+- Use Cases: Big Data Analytics, Mobile & Gaming Applications, Content Distribution..
 
 ## S3 Storage Classes : Infrequent Access
 - For data that is less frequently accessed, but **required rapid access when needed**
 - Lower cost than S3 standard
 
-### Amazon S3 Standard-Infrequent Access (S3 Standard-IA)
+### Amazon S3 Standard-Infrequent Access **(S3 Standard-IA)**
+- Ideal for infrequently accessed data
+- Level of Availability: Similar to S3 Standard but has a lower storage price and higher retrieval price
 - 99.9% Availability
-- Use cases; Disaster Recovery, backups
+- Stores data in a **min 3 AZs**
+- Use cases; Disaster Recovery, backups, long-term storage
 
-### Amazon S3 One Zone-Infrequent Access (S3 One Zone-IA)
-- High durability (99.999999999%) in a single AZ; *data lost when AZ is destroyed*
+### Amazon S3 One Zone-Infrequent Access **(S3 One Zone-IA)**
+- High durability (99.999999999%) in a **single AZ**; *data lost when AZ is destroyed*
+- Has a lower storage price than S3 Standard-IA
 - 99.5% Availability
-- Use Cases: Storing secondary backup copies of on-premise data, or data you can recreate
+- Use Cases: Storing secondary backup copies of on-premise data, or data you can recreate; easily reproduce your data, save costs on storage
+
+## S3 Intelligent - Tiering
+- Ideal for data with known or unknown access patterns
+- Small monthly monitoring and auto-tiering fee per object
+- Moves objects automatically between Access Tiers based on usage
+- There are no retrieval charges in S3 Intelligent-Tiering
+- Amazon S3 monitors objects’ access patterns. If 
+you haven’t accessed an object for 30 consecutive days, Amazon S3 automatically moves it to the infrequent access tier, S3 Standard-IA. 
+
+- If you access an object in the infrequent access tier, Amazon S3 automatically moves it to the frequent access tier, S3 Standard.
 
 ## Amazon S3 Glacier Storage Classes
 - *Low-cost* object storage meant for **archiving/backup**
+- Able to retrieve objects within a **few minutes to hours**
+- Use Cases: Retain data for several years for auditing
 - Pricing: price for storage + object retrieval cost
+
+## Amazon S3 Glacier Deep Archive** – *for long term storage*:
+- Lowest-cost object storage class ideal for archiving
+- Able to retrieve objects within; Standard (12 hours), Bulk (48 hours)
+- **Minimum storage** duration of **180 days**
 
 ### Amazon S3 Glacier Instant Retrieval
 - Millisecond retrieval, great for data accessed *once a quarter*
@@ -1129,16 +1180,8 @@ have version “null”
 - Expedited (1 to 5 minutes), Standard (3 to 5 hours), Bulk (5 to 12 hours) – free
 - **Minimum storage** duration of **90 days**
 
-### Amazon S3 Glacier Deep Archive** – *for long term storage*:
-- Standard (12 hours), Bulk (48 hours)
-- M**inimum storage** duration of **180 days**
 
-## S3 Intelligent - Tiering
-- Small monthly monitoring and auto-tiering fee
-- Moves objects automatically between Access Tiers based on usage
-- There are no retrieval charges in S3 Intelligent-Tiering
-
-<br/>
+---------------------------------------
 
 - *Frequent Access tier (automatic):* default tier
 - *Infrequent Access tier (automatic):* objects not accessed for 30 days
@@ -1167,12 +1210,12 @@ have version “null”
 
 
 ## S3 Encryption
-By default ther Server-Side Encryption is always ON.
+By *default* ther *Server-Side Encryption* is always **ON**.
     ![Alt text](image-122.png)
 
 ## IAM Access Analyzer for S3
-- Ensures that only intended people have access to your S3 buckets
-- Example: publicly accessible bucket, bucket shared with other AWS account
+- Ensures that *only intended people have access to your S3 buckets*
+- *Example*: publicly accessible bucket, bucket shared with other AWS account
 - Evaluates S3 Bucket Policies, S3 ACLs, S3 Access Point Policies
 
 ## Shared Responsibility Model for S3
@@ -1189,10 +1232,81 @@ By default ther Server-Side Encryption is always ON.
 - S3 Storage Classes
 - Data Encryption at rest and in transit
 
-## AWS Snow Family Overview
-- The AWS Snow Family is a service that helps customers who need to run operations in austere, non-data center environments, and in locations where there's no consistent network connectivity. 
+## 6 Strategies of Migration
+When migrating applications to the cloud, six of the most common migration strategies that 
+you can implement are:
+- Rehosting
+- Replatforming
+- Refactoring/Re-Architecting
+- Repurchasing
+- Retaining
+- Retiring
 
-- You can use these devices to locally and cost-effectively access the storage and compute power of the AWS Cloud in places where an internet connection might not be an option.
+### Rehosting
+Rehosting also known as **“lift-and-shift”** involves moving applications without changes.
+
+
+In the scenario of a large legacy migration, in which the company is looking to implement its 
+migration and scale quickly to meet a business case, the majority of applications are 
+rehosted.
+
+### Replatforming
+Replatforming, also known as **“lift, tinker, and shift,”** involves making a few cloud 
+optimizations to realize a tangible benefit. 
+
+Optimization is achieved **without** changing the 
+core architecture of the application i.e. you are not touching any core code in the process, 
+and no new dev efforts are involved here. 
+
+*For example*, you could take your existing MySQL 
+database and replatform it onto RDS MySQL, without any code changes at all. Or even 
+consider upgrading to Amazon Aurora. This gives significant benefit to your DBA team as 
+well as improved performance without any code changes.
+
+### Refactoring
+Refactoring (also known as **re-architecting**) involves reimagining how an application is 
+architected and developed by using cloud-native features. 
+
+Refactoring is driven by a **strong business need to add features, scale, or performance** that would otherwise be difficult to 
+achieve in the application’s existing environment. 
+
+**Dramatic changes** to your architecture 
+can be very beneficial to your enterprise but this will come at the **highest initial cost** in 
+terms of planning and human effort.
+
+### Repurchasing
+**Repurchasing** involves **moving from a traditional license to a software-as-a-service** model 
+i.e. it involves replacing an existing application with a cloud-based version, such as software 
+found in AWS Marketplace. 
+
+This is common for companies looking to **abandon legacy software vendors** and get a fresh start as part of migration. 
+
+*For example*, a business might 
+choose to implement the repurchasing strategy by migrating from a customer relationship 
+management (CRM) system to Salesforce.com. The total upfront expense of the step 
+therefore goes up, but the potential benefits could be substantial.
+
+### Retaining
+Retaining consists of keeping applications that are critical for the business in the source 
+environment. This might include applications that are **about to be deprecated**, and **require 
+major refactoring before they can be migrated**, or, work that can be postponed until a later 
+time.
+
+### Retiring
+Retiring is the process of removing applications that are no longer needed. Some parts of 
+your enterprise IT portfolio are just no longer needed. We found as much as 10% to 20% of 
+companies’ application portfolios include applications that are no longer being used or 
+already have replacements live and functional. Using the AWS migration plan as the 
+opportunity to actually end-of-life these applications can save significant cost and effort for
+your team. Sometimes you just have to turn off the lights.
+
+## AWS Snow Family Overview
+- The AWS Snow Family is a collection of physical devices that help to physically transport up 
+to exabytes of data into and out of AWS.
+
+- The AWS Snow Family is a service that helps customers who need to **run operations** in austere, **non-data center environments**, and **in locations where there's no consistent network connectivity**. 
+
+- You can use these devices to locally and cost-effectively *access* the storage and compute power of the AWS Cloud in places where an *internet connection might not be an option*.
 - Highly-secure, portable devices to **collect and process data at the edge**, and **migrate data into and out of AWS**
     ![Alt text](image-123.png)
 
@@ -1205,35 +1319,42 @@ By default ther Server-Side Encryption is always ON.
 - Connection stability
     ![Alt text](image-124.png)
 
-AWS Snow Family: offline devices to perform data migrations: If it takes more than a week to transfer over the network, use Snowball devices!
+**AWS Snow Family**: offline devices to perform data migrations: If it takes more than a week to transfer over the network, use Snowball devices!
+
+AWS Snow Family is composed of AWS Snowcone, AWS Snowball, and AWS Snowmobile.
+
+The hardware and software is 
+cryptographically signed, and all data stored is automatically encrypted using 256-bit encryption keys, owned and managed by you, the customer. You can even use AWS Key 
+Management Service to generate and manage keys
 
 ## Diagrams
 ![Alt text](image-125.png)
-
-## Snowball Edge (for data transfers)
-- Physical data transport solution: move TBs or PBs of data in or out of AWS
-- Alternative to moving data over the network (and paying network 
-fees)
-- Pay per data transfer job • Provide block storage and Amazon S3 compatible object storage
-- **Snowball Edge Storage Optimized**
-    - *80 TB of HDD capacity* for block volume and S3 compatible object storage
-- **Snowball Edge Compute Optimized**
-    - *42 TB of HDD or 28TB NVMe capacity* for block volume and S3 compatible object storage
-- Use cases: large data cloud migrations, DC decommission, disaster recovery
 
 ## AWS Snowcone & Snowcone SSD
 - Small, portable computing, anywhere, rugged & 
 secure, withstands harsh environments
 - Light (4.5 pounds, 2.1 kg) 
-- Device used for edge computing, storage, and data transfer
+- Device used for **edge computing**, storage, and **data transfer**
 - **Snowcone** : **8 TB** of *HDD Storage*
 - **Snowcone SSD** : **14 TB** of *SSD Storage*
 - Use Snowcone where Snowball does not fit (space constrained environment)
 - Must provide your own battery / cables
 - Can be sent back to AWS offline, or connect it to  internet and use AWS DataSync to send data
 
+## Snowball Edge (for data transfers)
+- Physical data transport solution: move TBs or PBs of data in or out of AWS
+- Alternative to moving data over the network (and paying network 
+fees)
+- Pay per data transfer job 
+- Provide block storage and Amazon S3 compatible object storage
+- **Snowball Edge Storage Optimized**
+    - *80 TB of HDD capacity* for block volume and S3 compatible object storage
+- **Snowball Edge Compute Optimized**
+    - *42 TB of HDD or 28TB NVMe capacity* for block volume and S3 compatible object storage
+- Use cases: large data cloud migrations, DC decommission, disaster recovery
+
 ## AWS Snowmobile
-- Transfer exabytes of data (1 EB = 1,000 PB = 1,000,000 TBs)
+- Transfer **exabytes** of data (1 EB = 1,000 PB = 1,000,000 TBs)
 - Each Snowmobile has **100 PB of capacity** (use multiple in parallel)
 - High security: temperature controlled, GPS, 24/7 video surveillance
 - Better than Snowball if you transfer more than 10 PB

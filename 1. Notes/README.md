@@ -943,16 +943,11 @@ Load balancers are servers that **forward internet traffic** to **multiple serve
 
 ## Amazon EBS
 - Amazon Elastic Block Store (Amazon EBS) is a service that provides **block-level storage volumes** that you can use with any running EC2 instances and use it like a hard drive. 
-
-- If you stop or terminate an Amazon EC2 instance, all the data on the attached EBS volume remains available.
-
+- If you stop or terminate an Amazon EC2 instance, all the data on the attached **EBS volume** remains available.
 - With EBS, you can create virtual hard drives that we call EBS volumes that you can attach to 
 your EC2 instances
-
 - The data that you write to an EBS volume persists between stops and starts of an EC2 instance
-
     ![Alt text](image-221.png)
-
 - You can take incremental backups of EBS volumes by creating [Amazon EBS snapshots](#ebs-snapshots). 
 - It's very important that you take regular snapshots of your EBS volumes. 
 - This way, if a drive ever becomes corrupted, you haven't lost your data. 
@@ -961,7 +956,7 @@ your EC2 instances
 ## Object Storage
 - Store and retrieve an unlimited amount of data at any scale.
 - Data is stored as objects
-- In object storage, each object consists of data, metadata, and a key
+- In object storage, each object consists of *data, metadata, and a key*
 - Key is its unique identifier.
 
 ## Introduction
@@ -972,8 +967,8 @@ your EC2 instances
 - It’s advertised as ”*infinitely scaling*” storage; *unlimited storage*
 - Maximum file size for an object in Amazon S3 is 5 TB. 
 - Many AWS services use Amazon S3 as an integration as well
-- Amazon S3, lets you set permissions to control visibility and access whenever you upload a file.
-- Amazon S3 versioning feature is used to track changes to your objects over time.
+- Amazon S3, lets you **set permissions to control visibility** and *access* whenever you upload a file.
+- Amazon S3 **versioning** feature is used to *track changes* to your objects over time.
 - S3 is **static website hosting**.
 
 ## Amazon S3 Use Cases
@@ -1158,7 +1153,6 @@ Types of Storage Classes:
 - There are no retrieval charges in S3 Intelligent-Tiering
 - Amazon S3 monitors objects’ access patterns. If 
 you haven’t accessed an object for 30 consecutive days, Amazon S3 automatically moves it to the infrequent access tier, S3 Standard-IA. 
-
 - If you access an object in the infrequent access tier, Amazon S3 automatically moves it to the frequent access tier, S3 Standard.
 
 ## Amazon S3 Glacier Storage Classes
@@ -1167,16 +1161,16 @@ you haven’t accessed an object for 30 consecutive days, Amazon S3 automaticall
 - Use Cases: Retain data for several years for auditing
 - Pricing: price for storage + object retrieval cost
 
-## Amazon S3 Glacier Deep Archive** – *for long term storage*:
+## Amazon S3 Glacier Deep Archive – *for long term storage*:
 - Lowest-cost object storage class ideal for archiving
 - Able to retrieve objects within; Standard (12 hours), Bulk (48 hours)
 - **Minimum storage** duration of **180 days**
 
-### Amazon S3 Glacier Instant Retrieval
+## Amazon S3 Glacier Instant Retrieval
 - Millisecond retrieval, great for data accessed *once a quarter*
 - **Minimum storage** duration of **90 days**
 
-### Amazon S3 Glacier Flexible Retrieval (*formerly Amazon S3 Glacier*):
+## Amazon S3 Glacier Flexible Retrieval (*formerly Amazon S3 Glacier*):
 - Expedited (1 to 5 minutes), Standard (3 to 5 hours), Bulk (5 to 12 hours) – free
 - **Minimum storage** duration of **90 days**
 
@@ -3715,7 +3709,7 @@ of AWS services, and alerts when your resources are impacted
 
 ----------------------------
 
-# Advanced Identityy
+# Advanced Identity
 
 ## AWS STS (Security Token Service)
 - Enables you to **create temporary, limited-privileges credentials** to access your AWS resources

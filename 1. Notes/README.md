@@ -4000,13 +4000,13 @@ delivery schedules, highly-targeted segments, and full campaigns
     - Don’t use just EC2
     - Use managed services, databases, serverless, etc !
 
-## Well Architected Framework 6 Pillars
-1. Operational Excellence
-2. Security
-3. Reliability
-4. Performance Efficiency
-5. Cost Optimization
-6. Sustainability
+## Well Architected Framework 6 Pillars (O-S-R-P-C-S)
+1. **O**perational Excellence
+2. **S**ecurity
+3. **R**eliability
+4. **P**erformance Efficiency
+5. **C**ost Optimization
+6. **S**ustainability
 
 ## Pillar 1: Operational Excellence
 - Includes the **ability to run and monitor systems** to deliver business value and to continually improve **supporting processes and procedures**
@@ -4024,7 +4024,7 @@ delivery schedules, highly-targeted segments, and full campaigns
 ## Pillar 2: Security
 - Includes the ability to **protect information**, systems, and assets while delivering business value through risk assessments and mitigation strategies
 - Design Principles
-    - **Implement a strong identity foundation** - Centralize privilege management and reduce (or even eliminate) reliance on long-term credentials - Principle of least privilege - IAM
+    - **Implement a strong identity foundation** - Centralize privilege management and reduce (or even eliminate) reliance on long-term credentials ; Principle of least privilege - IAM
     
     - **Enable traceability** - Integrate logs and metrics with systems to automatically respond and take action
     - **Apply security at all layers** - Like edge network, VPC, subnet, load balancer, every instance, operating system, and application
@@ -4094,26 +4094,59 @@ delivery schedules, highly-targeted segments, and full campaigns
     ![Alt text](image-54.png)
 
 ## AWS Well-Architected Tool
-- Free tool to review your architectures against the 6 pillars Well-Architected Framework and adopt architectural best practices
+- Free tool to **review your architectures against the 6 pillars** Well-Architected Framework and adopt architectural best practices
 - How does it work?
-    - Select your workload and answer questions
+    - Select your **workload** and answer questions
     - Review your answers against the 6 pillars
     - Obtain advice: get videos and documentations, generate a report, see the results in a dashboard
 
 ## AWS Cloud Adoption Framework (CAF)
-- Helps you build and then execute a comprehensive plan for your digital transformation through innovative use of AWS
+- The **AWS Cloud Adoption Framework (AWS CAF)** organizes guidance 
+into six areas of focus, called **Perspectives**. 
+- Helps you *build* and then *execute a comprehensive plan* for your *digital transformation* through innovative use of AWS
 - Created by AWS Professionals by taking advantage of AWS Best Practices and lessons learned from 1000s of customers
 - AWS CAF identifies specific organizational capabilities that underpin successful cloud transformations
 - AWS CAF groups its capabilities in six perspectives: 
-Business, People, Governance, Platform, Security, and Operations
+    - **Business Capabilities**: Business, People, Governance
+    - **Technical Capabilities**: Platform, Security, and Operations
 
-## CAF Perspectives and Foundational Capabilities Business Capabilities
-- **Business Perspective** helps ensure that your cloud investments accelerate your digital transformation ambitions and business outcomes. 
+## Business Capabilities
+### **Business Perspective** 
+- The Business Perspective ensures that IT aligns with business needs and that IT investments link to key business results.
 
-- **People Perspective** serves as a bridge between technology and business, accelerating the cloud journey to help organizations more rapidly evolve to a culture of continuous growth, learning, and where change becomes business-as-normal, with focus on culture, organizational structure, leadership, and workforce. 
+- Business Perspective helps ensure that your cloud investments accelerate your *digital transformation ambitions* and business outcomes. 
 
-- **Governance Perspective** helps you orchestrate your cloud initiatives while maximizing organizational benefits and minimizing transformation-related risks.
+- Use the Business Perspective to **create a strong business case** for cloud adoption and prioritize cloud adoption intiatives.
 
+- Common **Roles** in Business Perspective include:
+    - Business Managers
+    - Finance Managers
+    - Budget Owners
+    - Strategy Stakeholdes
+
+### **People Perspective**
+- The People Perspective supports *development of an organization-wide change management* strategy for successful cloud adoption.
+
+- People Perspectives *serves as a bridge between technology and business*, accelerating the cloud journey to help organizations more rapidly evolve to a culture of continuous growth, learning (*training/staffing*), and where *change* (organizational) becomes business-as-normal, with focus on culture, organizational structure, leadership, and workforce. 
+
+- Common **Roles** in the People Perspective:
+    - Human Resources
+    - Staffing
+    - People Managers
+
+### **Governance Perspective** 
+- The Governance Perspective focuses on the **skills and processes to align IT strategy with business strategy**. This ensures that you maximize the business value and minimize risks.
+
+- Governance Perspectives helps you orchestrate your cloud initiatives while *maximizing organizational benefits* and *minimizing transformation-related risks*.
+
+- Common **Roles** in the Government Perspective include:
+    - Chief Information Office (CIO)
+    - Program Managers
+    - Enterprise Architects
+    - Business Analytics
+    - Portfolio Managers
+
+### Comparision b/w three Perspectives of Business Cap...
 | Business | People | Governance |
 | -------- | ------ | ---------- |
 | Strategy Management | Culture Evolution | Program and Project Management |
@@ -4124,14 +4157,43 @@ Business, People, Governance, Platform, Security, and Operations
 | Business Insight | Organization Design | Data Governance |
 | Data Science | Organizational Alignment | Data Curation |
 
-## CAF Perspectives and Foundational Capabilities Technical Capabilities
+## Technical Capabilities
+### **Platform Perspective** 
+- The Platform Perspective includes **principles and patterns for implementing new solutions on the cloud**, and **migrating on-premises workloads** to the cloud.
 
-- **Platform Perspective** helps you build an enterprise-grade, scalable, hybrid cloud platform; modernize existing workloads; and implement new cloud-native solutions. 
+- Platform Perspective helps you build an enterprise-grade, scalable, hybrid cloud platform; modernize existing workloads; and **implement new cloud-native solutions.**
 
-- **Security Perspective** helps you achieve the confidentiality, integrity, and availability of your data and cloud workloads. 
+- Use a variety of architectural models to understand and communicate the structure of IT systems and their relationships.
 
-- **Operations Perspective** helps ensure that your cloud services are delivered at a level that meets the needs of your business. 
+- Common **Roles** in Platform Perspective include:
+    - Chief Technology Officer (CTO)
+    - IT Managers
+    - Solutions Architects
 
+### **Security Perspective** 
+- The Security Perspective ensures that the **organization meets security objectives** for *visibility, auditability, control, and agility*.
+
+- Use the AWS CAF to **structure the selection and implementation of security controls** and **permissions** that meet the organization’s needs.
+
+- Security Perspective helps you **achieve the confidentiality**, **integrity**, and **availability** of your data and cloud workloads. 
+
+- Common **Roles** in the Security Perspective include:
+    - Chief Information Security Officer (CISO)
+    - IT Security Managers
+    - IT Security Analysts
+
+### **Operations Perspective** 
+- The Operations Perspective helps you to **enable, run, use, operate, and recover IT workloads** to the level agreed upon with your **business stakeholders**.
+
+- Operations Perspective helps ensure that your cloud services are delivered at a level that meets the needs of your business. 
+
+- The AWS CAF helps these stakeholders define current **operating procedures** and identify the **process changes** and training needed to implement successful cloud adoption.
+
+- Common **Roles** in the Operations Perspective include:
+    - IT Operations Managers
+    - IT Support Managers
+
+### Comparision b/w three Perspectives of Technical Cap...
 | Platform | Security | Operations |
 | -------- | -------- | ---------- |
 | Platform Architecture | Security Governance | Observability |
@@ -4149,7 +4211,7 @@ Business, People, Governance, Platform, Security, and Operations
 
 ## AWS CAF – Transformation Domains
 - **Technology** - using the cloud to migrate and modernize legacy infrastructure, applications, data and analytics platforms…
-- **Process** - digitizing, automating, and optimizing yourbusiness operations
+- **Process** - digitizing, automating, and optimizing your business operations
     - leveraging new data and analytics platforms to create actionable insights
     - using machine learning (ML) to improve your customer service experience…
 - **Organization** - Reimagining your operating model 
@@ -4165,25 +4227,25 @@ Business, People, Governance, Platform, Security, and Operations
 
 ## AWS Right Sizing
 - EC2 has many instance types, but choosing the most powerful instance type isn’t the best choice, because the cloud is **elastic**
-- Right sizing is the process of matching instance types and sizes to your workload performance and capacity requirements **at the lowest possible cost**
+- Right sizing is the *process of matching instance types and sizes to your workload performance and capacity requirements* **at the lowest possible cost**
 - **Scaling up is easy so always start small**
 - It’s also the process of looking at deployed instances and identifying opportunities to eliminate or downsize without compromising capacity or other requirements, which results in lower costs
 - It’s important to Right Size…
-    - **before a Cloud Migration**
-    - **continuously after the cloud onboarding process (requirements change over time)**
+    - *before a Cloud Migration
+    - *continuously after the cloud onboarding process (requirements change over time)*
 - CloudWatch, Cost Explorer, Trusted Advisor, 3rd party tools can help
 
 ## AWS Ecosystem - AWS Support
 ![Alt text](image-56.png)
 
 ## AWS Marketplace
-- Digital catalog with thousands of software listings from **independent software vendors** (3rd party)
+- **Digital catalog** with thousands of software listings from **independent software vendors** *(3rd party)*
 - Example:
     - Custom AMI (custom OS, firewalls, technical solutions…)
     - CloudFormation templates
     - Software as a Service
     - Containers
-- If you buy through the AWS Marketplace, it goes into your AWS bill
+- *If you buy through the AWS Marketplace, it goes into your AWS bill*
 - You can **sell your own solutions** on the AWS Marketplace
 
 ## AWS Training
@@ -4210,32 +4272,29 @@ Contains the most frequent & common questions and requests
 
 
 ## AWS IQ
-- Quickly find professional help for your AWS projects
-- Engage and pay AWS Certified 3rd party experts for on-demand project work
+- Quickly find **professional help** for your AWS projects
+- **Engage** and *pay AWS Certified 3rd party experts* for **on-demand** project work
 - Video-conferencing, contract management, secure collaboration, integrated billing
-
     ![Alt text](image-58.png)
 
 ## AWS re:Post
 - **AWS-managed Q&A service** offering crowd-sourced, 
 expert-reviewed answers to your technical questions about AWS that replaces the original AWS Forums
 
-- Part of the AWS Free Tier • Community members can earn reputation points to build up their community expert status by providing accepted answers and reviewing answers from other users
+- Part of the AWS Free Tier 
+- Community members can earn reputation points to build up their community expert status by providing accepted answers and reviewing answers from other users
 
 - **Questions from AWS Premium Support customers that do not receive a response from the community are passed on to AWS Support engineers**
 
-- AWS re:Post is not intended to be used for questions 
-that are time-sensitive or involve any proprietary 
-information
+- AWS re:Post is not intended to be used for questions that are time-sensitive or involve any proprietary information
 
 ## AWS Managed Services
-- Provides infrastructure and application support on AWS.
-- **AMS offers a team of AWS experts** who manage and operate your infrastructure for security, reliability, and availability
+- **Provides infrastructure and application support on AWS**.
+- **AMS offers a team of AWS experts** who *manage and operate your infrastructure* for security, reliability, and availability
 - Helps organizations offload routine management tasks and focus on their business objectives.
-- Fully managed service, so AWS handles common activities such as change requests, monitoring, patch management, security, and backup services
+- **Fully managed service**, so AWS handles common activities such as *change requests, monitoring, patch management, security, and backup services*
 - Implements best practices and maintains your AWS infrastructure to reduce your operational overhead and risk
 - AMS business hours are 24/365
-
     ![Alt text](image-108.png)
 
-## Quiz: AWS Architecting & Ecosystem 
+## Summary

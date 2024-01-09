@@ -4056,13 +4056,11 @@ Basic Support: Free
     - **Identity federation**: manage user identities in  external systems, and provide them with STS tokens to access AWS resources
     - **IAM Roles for cross/same account access**
     - **IAM Roles for Amazon EC2**: provide temporary credentials for EC2 instances to access AWS resources
-
         ![Alt text](image-78.png)
 
 ## Amazon Cognito (*simplified*)
 - **Identity** for your **Web** and **Mobile applications users** (potentially millions)
 - Instead of creating them an IAM user, you create a user in Cognito
-
     ![Alt text](image-79.png)
 
 ## What is Microsoft Active Directory (AD)?
@@ -4070,22 +4068,18 @@ Basic Support: Free
 - **Database of objects**: User Accounts, Computers, Printers, File Shares, Security Groups
 - Centralized security management, create account, 
 assign permissions
-
     ![Alt text](image-80.png)
 
 ## AWS Directory Services
 - **AWS Managed Microsoft AD**
     - Create your own AD in AWS, manage users locally, supports MFA
     - Establish “trust” connections with your on- premise AD
-
 - **AD Connector**
     - Directory Gateway (proxy) to redirect to on-premise AD, supports MFA
     - Users are managed on the on-premise AD
-
 - **Simple AD**
     - AD-compatible managed directory on AWS
     - Cannot be joined with on-premise AD
-
         ![Alt text](image-81.png)
 
 ## AWS IAM Identity Center (*successor to AWS SSO*)
@@ -4094,7 +4088,6 @@ assign permissions
     - Business cloud applications (e.g., Salesforce, Box, Microsoft 365, …)
     - SAML2.0-enabled applications
     - EC2 Windows Instances
-
 - Identity providers
     - Built-in identity store in IAM Identity Center
     - 3rd party: Active Directory (AD), OneLogin, Okta…

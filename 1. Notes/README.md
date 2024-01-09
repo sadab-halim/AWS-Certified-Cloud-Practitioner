@@ -2,20 +2,74 @@
 
 ## From Exam Guide
 ### Analytics
+- **Amazon Athena** : Query data in Amazon S3 using SQL
+
+- **AWS Data Exchange** : Find, subscribe to, and use third-party data in the cloud
+
+- **Amazon EMR** : Hosted Hadoop framework
+
+- **AWS Glue** : is a scalable, serverless data integration.
+
+- **Amazon Kinesis** : Analyze real-time video and data streams
+
+- **Amazon MSK** : Fully managed Apache Kafka Service
+
+- **Amazon OpenSearch Service** : Deploy, operate, and scale OpenSearch clusters in the AWS Cloud
+
+- **Amazon QuickSight** : is a fast business analytics service to **build visualizations**, **perform ad hoc analysis**, and quickly get **business insights** from your data.
+
+- **Amazon Redshift** : Fast, simple, cost-effective **data warehouse** service.
 
 ### Application Integration
+- **Amazon EventBridge** : Serverless event bus for SaaS apps and AWS services
+
+- **Amazon SNS** : **Pub/sub**, SMS, email, and mobile push **notifications**
+
+- **Amazon SQS** : Managed message **queue**
+
+- **AWS Step Functions**: Coordination for distributed applications
 
 ### Business Applications
+- **Amazon Connect** : is a contact center as a service (CCaaS) solution that offers easy, self-service configuration and enables dynamic, personal, and natural customer engagement at any scale. 
+
+- **Amazon SES** : is a reliable, scalable, and cost-effective email service. Digital marketers and application developers can use Amazon SES to send marketing, notification, and transactional emails.
 
 ### Cloud Financial Management
+- **AWS Billing Conductor** : 
+- **AWS Budgets** :
+- **AWS Cost and Usage Report**:
+- **AWS Cost Explorer** :
+- **AWS Marketplace** : Buy or sell software that runs on AWS
 
 ### Compute
+- **AWS Batch** : enables you to **run batch computing workloads** on the AWS Cloud.
 
-### Compliance
+- **Amazon EC2** : Create and run virtual servers in the cloud
+
+- **AWS Elastic Beanstalk** :   
+    - Quickly deploy and manage applications in the AWS Cloud without worrying about the infrastructure that runs those applications. 
+
+    - AWS Elastic Beanstalk reduces management complexity without restricting choice or control. 
+    
+    - You simply upload your application, and AWS Elastic Beanstalk automatically handles the details of *capacity provisioning, load balancing, scaling, and application health monitoring*.
+
+- **Amazon Lightsail** : Launch and manage virtual private servers.
+
+- **AWS Local Zones** : Run latency sensitive applications closer to end users
+
+- **AWS Outposts** : Run AWS infrastructure on-premises
+
+- **AWS Wavelength** : Deliver ultra-low latency applications for 5G devices
 
 ### Containers
+- **Amazon ECR** : Easily store, manage, and deploy container images
+
+- **Amazon ECS** : Highly secure, reliable, and scalable way to run containers
+
+- **Amazon EKS** : Run Kubernetes on AWS without operating your own Kubernetes clusters
 
 ### Customer Engagement
+- **AWS Activate for Startups** : 
 
 ### Databases
 
@@ -32,6 +86,7 @@
 ### Management and Governance
 
 ### Migration and Transfer
+
 
 ### Networking and Content Delivery
 - **Amazon API Gateway** : Build, deploy and manage APIs

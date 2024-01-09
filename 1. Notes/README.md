@@ -4315,8 +4315,8 @@ delivery schedules, highly-targeted segments, and full campaigns
 5. **C**ost Optimization
 6. **S**ustainability
 
-## Pillar 1: Operational Excellence
-- Includes the **ability to run and monitor systems** to deliver business value and to continually improve **supporting processes and procedures**
+## Pillar 1: Operational (run and monitor) Excellence
+- Includes the ability to **run and monitor systems** to *deliver business value* and to *continually improve* supporting processes and procedures
 - Design Principles
     - **Perform operations as code** - Infrastructure as code 
     - **Annotate documentation** - Automate the creation of annotated documentation after every build
@@ -4326,10 +4326,12 @@ delivery schedules, highly-targeted segments, and full campaigns
     - **Learn from all operational failures**
 
 ### Operational Excellence AWS Services
-![Alt text](image-49.png)
+- **Prepare**: CloudFormation, Config
+- **Operate**: CloudFormation, Config, CloudTrail, CloudWatch, X-Ray
+- **Evolve**: CloudFormation, CodeBuild, CodeCommit, CodeDeploy, CodePipeline
 
-## Pillar 2: Security
-- Includes the ability to **protect information**, systems, and assets while delivering business value through risk assessments and mitigation strategies
+## Pillar 2: Security (protect)
+- Includes the ability to **protect information**, systems, and assets while *delivering business value* through **risk assessments** and mitigation strategies
 - Design Principles
     - **Implement a strong identity foundation** - Centralize privilege management and reduce (or even eliminate) reliance on long-term credentials ; Principle of least privilege - IAM
     
@@ -4342,7 +4344,11 @@ delivery schedules, highly-targeted segments, and full campaigns
 - **Shared Responsibility Model**
 
 ### Security AWS Services
-![Alt text](image-50.png)
+- **Identity and Access Management**: IAM, AWS-STS, MFA Token, Organizations
+- **Detective Controls**: Config, CloudTrail, CloudWatch
+- **Infrastructure Protectiton**: CloudFront, VPC, Shield, WAF, Inspector
+- **Data Protection**: KMS, S3, ELB, EBS, RDS
+- **Incident Response**: IAM, CloudFormation, CloudWatch Events
 
 ## Pillar 3: Reliability
 - Ability of a system to **recover** from infrastructure or service disruptions, dynamically acquire computing resources to meet demand, and mitigate disruptions such as misconfigurations or transient network issues

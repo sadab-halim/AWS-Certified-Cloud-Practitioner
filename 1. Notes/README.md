@@ -4308,12 +4308,12 @@ delivery schedules, highly-targeted segments, and full campaigns
     - Use managed services, databases, serverless, etc !
 
 ## Well Architected Framework 6 Pillars (O-S-R-P-C-S)
-1. **O**perational Excellence
-2. **S**ecurity
-3. **R**eliability
-4. **P**erformance Efficiency
-5. **C**ost Optimization
-6. **S**ustainability
+1. **O**perational Excellence 
+2. **S**ecurity 
+3. **R**eliability 
+4. **P**erformance Efficiency 
+5. **C**ost Optimization 
+6. **S**ustainability 
 
 ## Pillar 1: Operational (run and monitor) Excellence
 - Includes the ability to **run and monitor systems** to *deliver business value* and to *continually improve* supporting processes and procedures
@@ -4350,7 +4350,7 @@ delivery schedules, highly-targeted segments, and full campaigns
 - **Data Protection**: KMS, S3, ELB, EBS, RDS
 - **Incident Response**: IAM, CloudFormation, CloudWatch Events
 
-## Pillar 3: Reliability
+## Pillar 3: Reliability (recover)
 - Ability of a system to **recover** from infrastructure or service disruptions, dynamically acquire computing resources to meet demand, and mitigate disruptions such as misconfigurations or transient network issues
 - Design Principles
     - **Test recovery procedures** - Use automation to simulate different failures or to recreate scenarios that led to failures before
@@ -4360,10 +4360,12 @@ delivery schedules, highly-targeted segments, and full campaigns
     - **Manage change in automation** - Use automation to make changes to infrastructure
 
 ### Reliability AWS Services
-![Alt text](image-51.png)
+- **Foundations**: IAM, VPC, Service Quotas, Trusted Advisor
+- **Change Management**: Auto Scaling, CloudWatch, CloudTrail, Config
+- **Failure Management**: Backups, CloudFormation, S3, S3 Glacier, Route 53
 
 ## Pillar 4: Performance Efficiency
-- Includes the ability to **use computing resources efficiently** to meet system requirements, and to maintain that efficiency as demand changes and technologies evolve
+- Includes the ability to **use computing resources efficiently** to meet system requirements, and to maintain that efficiency as demand changes and *technologies* evolve
 - Design Principles
     - **Democratize advanced technologies** - Advance technologies become services and hence you can focus more on product development
     - **Go global in minutes** - Easy deployment in multiple regions
@@ -4372,7 +4374,10 @@ delivery schedules, highly-targeted segments, and full campaigns
     - **Mechanical sympathy** - Be aware of all AWS services
 
 ### Performance Efficiency AWS Services
-![Alt text](image-52.png)
+- **Selection** : Auto Scaling, Lambda, EBS, S3, RDS
+- **Review** : CloudFormation
+- **Monitoring** : CloudWatch, Lambda
+- **Trade off** : RDS, ElastiCache, Snowball, CloudFront
 
 ## Pillar 5: Cost Optimization
 - Includes the ability to run systems to deliver business value at the **lowest price point**
@@ -4384,7 +4389,10 @@ delivery schedules, highly-targeted segments, and full campaigns
     - **Use managed and application level services to reduce cost of ownership** - As managed services operate at cloud scale, they can offer a lower cost per transaction or service
 
 ### Cost Optimization AWS Services
-![Alt text](image-53.png)
+- **Expenditure Awareness**: Budgets, Cost and Usage Report, Cost Explorer, Reserved Instance Reporting
+- **Cost-Effective Resources**: Spot Instance, Reserved Instance, S3 Glacier
+- **Matching supply and demand**: Auto Scaling, Lambda
+- **Optimizing over time**: Trusted Advisor, Cost and Usage Report
 
 ## Pillar 6: Sustainability
 - The sustainability pillar focuses on **minimizing the environmental impacts** of running cloud workloads. 
@@ -4407,7 +4415,7 @@ delivery schedules, highly-targeted segments, and full campaigns
     ![Alt text](image-54.png)
 
 ## AWS Well-Architected Tool
-- Free tool to **review your architectures against the 6 pillars** Well-Architected Framework and adopt architectural best practices
+- Free tool to **review your architectures against the 6 pillars** Well-Architected Framework and **adopt architectural best practices**
 - How does it work?
     - Select your **workload** and answer questions
     - Review your answers against the 6 pillars
@@ -4426,11 +4434,8 @@ into six areas of focus, called **Perspectives**.
 ## Business Capabilities
 ### **Business Perspective** 
 - The Business Perspective ensures that IT aligns with business needs and that IT investments link to key business results.
-
 - Business Perspective helps ensure that your cloud investments accelerate your *digital transformation ambitions* and business outcomes. 
-
 - Use the Business Perspective to **create a strong business case** for cloud adoption and prioritize cloud adoption intiatives.
-
 - Common **Roles** in Business Perspective include:
     - Business Managers
     - Finance Managers
@@ -4439,9 +4444,7 @@ into six areas of focus, called **Perspectives**.
 
 ### **People Perspective**
 - The People Perspective supports *development of an organization-wide change management* strategy for successful cloud adoption.
-
 - People Perspectives *serves as a bridge between technology and business*, accelerating the cloud journey to help organizations more rapidly evolve to a culture of continuous growth, learning (*training/staffing*), and where *change* (organizational) becomes business-as-normal, with focus on culture, organizational structure, leadership, and workforce. 
-
 - Common **Roles** in the People Perspective:
     - Human Resources
     - Staffing
@@ -4449,9 +4452,7 @@ into six areas of focus, called **Perspectives**.
 
 ### **Governance Perspective** 
 - The Governance Perspective focuses on the **skills and processes to align IT strategy with business strategy**. This ensures that you maximize the business value and minimize risks.
-
 - Governance Perspectives helps you orchestrate your cloud initiatives while *maximizing organizational benefits* and *minimizing transformation-related risks*.
-
 - Common **Roles** in the Government Perspective include:
     - Chief Information Office (CIO)
     - Program Managers
@@ -4609,5 +4610,3 @@ expert-reviewed answers to your technical questions about AWS that replaces the 
 - Implements best practices and maintains your AWS infrastructure to reduce your operational overhead and risk
 - AMS business hours are 24/365
     ![Alt text](image-108.png)
-
-## Summary

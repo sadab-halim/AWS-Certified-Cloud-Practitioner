@@ -70,8 +70,14 @@
 
 ### Customer Engagement
 - **AWS Activate for Startups** : 
+- **AWS IQ** : enables customers to quickly find, engage, and pay AWS Certified third-party experts for on-demand project work. AWS IQ enables AWS Certified experts to help customers and get paid for their AWS Certification expertise.
+
+- **AWS Managed Services** : Infrastructure operations management for AWS
+
+- **AWS Support** : Learn about the components and features that AWS Support provides
 
 ### Databases
+- 
 
 ### Developer Tools
 

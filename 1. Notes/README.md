@@ -2639,9 +2639,7 @@ Increase transfer speed by transferring file to an AWS edge location which will 
 ## Introduction
 - When we start deploying multiple applications, they will inevitably need to communicate with one another
 - There are two patterns of application communication
-
     ![Alt text](image-28.png)
-
 - Synchronous between applications can be problematic if there are sudden spikes of traffic
 - What if you need to suddenly encode 1000 videos but usually it’s 10?
 - In that case, it’s better to decouple your applications: 
@@ -2652,7 +2650,6 @@ Increase transfer speed by transferring file to an AWS edge location which will 
 
 ## Amazon SQS - Simple Queue Service
 ![Alt text](image-29.png)
-
 - Oldest AWS offering (over 10 years old)
 - Fully managed service (~**serverless**), use to decouple applications
 - Scales from 1 message per second to 10,000s per second
@@ -2684,19 +2681,16 @@ Messages are produced in the order by the consumer
 
 ## Amazon SNS
 - Amazon SNS is a highly available, durable, secure, fully managed **pub/sub** messaging service that enables you to decouple microservices, distributed systems, and serverless applications. 
-
 - Amazon SNS provides topics for high-throughput, push-based, **many-to-many messaging**. Using Amazon SNS topics, your publisher systems can fan out messages to a large number of subscriber endpoints for parallel processing, including Amazon SQS queues, AWS Lambda functions, and HTTP/S webhooks. 
-
 - Additionally, SNS can be used to fan out **notifications** to end users using mobile push, SMS, and email
 
-What if you want to send one message to many receivers?
+### What if you want to send one message to many receivers?
 ![Alt text](image-33.png)
 
 - The “event publishers” only sends message to one SNS topic
 - As many “event subscribers” as we want to listen to the SNS topic notifications
 - Each subscriber to the topic will get all the messages
 - Up to 12,500,000 subscriptions per topic, 100,000 topics limit
-
     ![Alt text](image-34.png)
 
 ## Amazon MQ

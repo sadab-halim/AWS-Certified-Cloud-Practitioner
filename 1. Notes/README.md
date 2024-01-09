@@ -2696,10 +2696,10 @@ What if you want to send one message to many receivers?
 
 # Cloud Monitoring
 ## Amazon CloudWatch
-- Amazon CloudWatch is a web service that enables you to **monitor** and manage various metrics and configure alarm actions based on data from those metrics.
+- Amazon CloudWatch is a web service that enables you to **monitor** and *manage various metrics* and *configure alarm actions* based on data from those metrics.
 - CloudWatch uses **metrics** to represent the data points for your resources. 
 - AWS services send metrics to CloudWatch. 
-- CloudWatch then uses these metrics to create graphs automatically that show how **performance** has changed over time.
+- CloudWatch then *uses these metrics to create graphs automatically* that show how **performance** has changed over time.
 
 ## Amazon CloudWatch Metrics
 - CloudWatch is a monitory and management service built for developers, system operators, sre and it managers.
@@ -2727,7 +2727,6 @@ What if you want to send one message to many receivers?
     - **Auto Scaling:** increase or decrease EC2 instances “desired” count
     - **EC2 Actions:** stop, terminate, reboot or recover an EC2 instance
     - **SNS notifications:** send a notification into an SNS topic
-
 - Various options (sampling, %, max, min, etc…)
 - Can choose the period on which to evaluate an alarm
 - Example: create a billing alarm on the CloudWatch Billing metric
@@ -2749,7 +2748,6 @@ What if you want to send one message to many receivers?
 - You need to run a CloudWatch agent on EC2 to push the log files you want
 - Make sure IAM permissions are correct
 - The CloudWatch log agent can be setup on-premises too.
-
     ![Alt text](image-36.png)
 
 ### CloudWatch Dashboard
@@ -2759,7 +2757,6 @@ resources applications, and services that run on AWS and on-premises servers.
 
 - Use a CloudWatch dashboard to monitor the CPU utilization of an Amazon EC2 instance, the 
 total number of requests made to an Amazon S3 bucket, and more.
-
     ![Alt text](image-210.png)
 
 ## Amazon EventBridge (*formerly CloudWatch Events*)
@@ -2785,10 +2782,8 @@ total number of requests made to an Amazon S3 bucket, and more.
 
 ## AWS CloudTrail
 - AWS CloudTrail is a web service that **records AWS API calls** for your account and **delivers log files** to you. 
-
 - The **recorded information** includes the **identity** of the API caller, the **time** of the API call, the **source IP address** of the API caller, the **request parameters**, and the **response elements** returned by the AWS service.
 - Provides governance, compliance and audit for your AWS Account
-
 - CloudTrail is enabled by **default**!
 - Get an history of events / API calls made within your AWS Account by:
     - Console
@@ -2798,7 +2793,6 @@ total number of requests made to an Amazon S3 bucket, and more.
 - Can put logs from CloudTrail into CloudWatch Logs or S3
 - A trail can be applied to All Regions (default) or a single Region.
 - If a resource is deleted in AWS, investigate CloudTrail first!
-
 - You can think of CloudTrail as a "trail" of breadcrumbs (*or a log of actions*) that someone has left behind them.
 - With CloudTrail, you can **view a complete history of user activity** and **API calls** of your applications and resources.
 - Events are typically updated in CloudTrail within 15 minutes after an API call.
@@ -2812,9 +2806,7 @@ Within CloudTrail, you can also enable CloudTrail Insights. This optional featur
 
 ## AWS X-Ray
 - AWS X-Ray helps developers **analyze** and **debug** distributed applications in production or under development, such as those built using a microservices architecture.
-
 - With X-Ray, you can understand how your application and its underlying services are performing so you can identify and troubleshoot the root cause of performance issues and errors.
-
 - Debugging in Production, the good old way:
     - Test locally
     - Add log statements everywhere
@@ -2878,13 +2870,9 @@ Within CloudTrail, you can also enable CloudTrail Insights. This optional featur
 ### AWS Health Dashboard -  Your Account
 - Previously called AWS Personal Health Dashboard (PHD)
 - AWS Account Health Dashboard provides **alerts** and **remediation guidance** when AWS is experiencing events that may impact you.
-
 - While the Service Health Dashboard displays the general status of AWS services, Account Health Dashboard gives you a personalized view into the **performance** and **availability** of the **AWS services** underlying your AWS resources.
-
 - The dashboard displays relevant and timely information to help you manage events in progress and provides proactive notification to help you plan for scheduled activities. 
-
 - Can aggregate data from an entire AWS Organization
-
 - Global service
 - Shows how AWS outages directly impact you & your AWS resources.
 - Alert, remediation, proactive, scheduled activites

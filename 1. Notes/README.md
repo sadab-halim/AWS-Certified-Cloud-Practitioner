@@ -1222,8 +1222,7 @@ Load balancers are servers that **forward internet traffic** to **multiple serve
 ## Amazon EBS
 - Amazon Elastic Block Store (Amazon EBS) is a service that provides **block-level storage volumes** that you can use with any running EC2 instances and use it like a hard drive. 
 - If you stop or terminate an Amazon EC2 instance, all the data on the attached **EBS volume** remains available.
-- With EBS, you can create virtual hard drives that we call EBS volumes that you can attach to 
-your EC2 instances
+- With EBS, you can create *virtual hard drives* that we call **EBS volumes** that you can attach to your EC2 instances
 - The data that you write to an EBS volume persists between stops and starts of an EC2 instance
     ![Alt text](image-221.png)
 - You can take incremental backups of EBS volumes by creating [Amazon EBS snapshots](#ebs-snapshots). 
@@ -1243,7 +1242,7 @@ your EC2 instances
 - You can use Amazon S3 to **store** and **retrieve** any amount of data at any time, from anywhere on the web.
 - Amazon S3 is one of the main building blocks of AWS
 - It’s advertised as ”*infinitely scaling*” storage; *unlimited storage*
-- Maximum file size for an object in Amazon S3 is 5 TB. 
+- Maximum file size for an object in Amazon S3 is **5 TB**. 
 - Many AWS services use Amazon S3 as an integration as well
 - Amazon S3, lets you **set permissions to control visibility** and *access* whenever you upload a file.
 - Amazon S3 **versioning** feature is used to *track changes* to your objects over time.
@@ -1265,7 +1264,7 @@ your EC2 instances
 - Buckets must have a **globally unique name** (across all regions all accounts)
 - Buckets are defined at the *region level* 
 - S3 looks like a global service but *buckets are created in a region*
-- Naming convention
+- Naming convention:
     - No uppercase, No underscore
     - 3-63 characters long
     - Not an IP
@@ -1305,11 +1304,9 @@ your EC2 instances
 ## S3 Bucket Policies
 - **JSON based policies**
     - **Resources**: buckets and objects 
-    - **Effect**: Allow / Deny 
+    - **Effect**: Allow/Deny 
     - **Actions**: Set of API to Allow or Deny 
-    - **Principal**: The account or user to apply the 
-policy to
-
+    - **Principal**: The account or user to apply the policy to
 - Use S3 bucket for policy to: 
     - Grant public access to the bucket 
     - Force objects to be encrypted at upload 
@@ -1335,8 +1332,7 @@ policy to
 - Can be set at the account level
 
 ## Amazon S3 - Static Website Hosting
-- S3 can host static websites and have them accessible on 
-the Internet
+- S3 can host static websites and have them accessible on the Internet
 - The website URL will be (depending on the region)
     - http://bucket-name.s3-website**-**aws-region.amazonaws.com
     - **OR** http://bucket-name.s3-website**.**aws-region.amazonaws.com
@@ -1351,8 +1347,7 @@ the Internet
     - Protect against unintended deletes (ability to restore a version)
     - Easy roll back to previous version 
 - Notes:
-    - Any file that is not versioned prior to enabling versioning will 
-have version “null”
+    - Any file that is not versioned prior to enabling versioning will have version “null”
     - Suspending versioning does not delete the previous version
     ![Alt text](image-121.png)
 
@@ -1380,21 +1375,21 @@ Types of Storage Classes:
 - S3 Standard : General Purpose
 - S3 Standard-Infrequesnt Access (IA)
 - S3 One Zone-Infrequent Access
+- S3 Intelligent Tiering
 - S3 Glacier Instant Retrieval
 - S3 Glacier Flexible Retrieval
 - S3 Glacier Deep Archive
-- S3 Intelligent Tiering
 
 <br/>
 
 - Can move between classes manually or using S3 Lifecycle configurations
 
 ## S3 Durability and Ability
-- Durability
+- **Durability**
     - High Durability (99.999999999%, 11 9's) of objects across multiple AZ
     - If you store 10,000,000 objects with Amazon S3, you can on average expect to incur a loss of a single object once every 10,000 years.
     - Same for all storage classes
-- Availability
+- **Availability**
     - Measures how much readily available a service is
     - Varies depending on storage class
     - Example: S3 standard has 99.99% availability = not available 53 minuted a year.
@@ -1403,49 +1398,49 @@ Types of Storage Classes:
 - 99.99% Availability
 - Used for **frequently accessed data**
 - Stores data in a **min 3 AZs**
-- Low latency and high throughput
+- *Low latency* and high throughput
 - Data is stored in **at least 3 facilities**; multiple copies reside across locations
-- Use Cases: Big Data Analytics, Mobile & Gaming Applications, Content Distribution..
+- **Use Cases**: Big Data Analytics, Mobile & Gaming Applications, Content Distribution..
 
 ## S3 Storage Classes : Infrequent Access
-- For data that is less frequently accessed, but **required rapid access when needed**
+- For data that is *less frequently accessed*, but **required rapid access when needed**
 - Lower cost than S3 standard
 
 ### Amazon S3 Standard-Infrequent Access **(S3 Standard-IA)**
-- Ideal for infrequently accessed data
-- Level of Availability: Similar to S3 Standard but has a lower storage price and higher retrieval price
+- Ideal for *infrequently accessed data*
+- Level of Availability: Similar to S3 Standard but has a **lower storage price** and **higher retrieval price**
 - 99.9% Availability
 - Stores data in a **min 3 AZs**
-- Use cases; Disaster Recovery, backups, long-term storage
+- **Use cases**: Disaster Recovery, backups, long-term storage
 
-### Amazon S3 One Zone-Infrequent Access **(S3 One Zone-IA)**
+### Amazon S3 **One** Zone-Infrequent Access **(S3 **One** Zone-IA)**
 - High durability (99.999999999%) in a **single AZ**; *data lost when AZ is destroyed*
-- Has a lower storage price than S3 Standard-IA
-- 99.5% Availability
-- Use Cases: Storing secondary backup copies of on-premise data, or data you can recreate; easily reproduce your data, save costs on storage
+- Has a *lower storage price than S3 Standard-IA*
+- **99.5% Availability**
+- **Use Cases**: *Storing secondary backup copies* of on-premise data, or data you can recreate; easily reproduce your data, *save costs on storage*
 
-## S3 Intelligent - Tiering
-- Ideal for data with known or unknown access patterns
-- Small monthly monitoring and auto-tiering fee per object
+## S3 **Intelligent** - Tiering
+- Ideal for *data with known or unknown access patterns*
+- **Small monthly monitoring** and auto-tiering fee per object
 - Moves objects automatically between Access Tiers based on usage
-- There are no retrieval charges in S3 Intelligent-Tiering
-- Amazon S3 monitors objects’ access patterns. If 
-you haven’t accessed an object for 30 consecutive days, Amazon S3 automatically moves it to the infrequent access tier, S3 Standard-IA. 
+- There are *no retrieval charges* in S3 Intelligent-Tiering
+- Amazon S3 monitors objects’ access patterns. 
+- If you haven’t accessed an object for 30 consecutive days, Amazon S3 automatically moves it to the infrequent access tier, S3 Standard-IA. 
 - If you access an object in the infrequent access tier, Amazon S3 automatically moves it to the frequent access tier, S3 Standard.
 
 ## Amazon S3 Glacier Storage Classes
 - *Low-cost* object storage meant for **archiving/backup**
 - Able to retrieve objects within a **few minutes to hours**
-- Use Cases: Retain data for several years for auditing
+- **Use Cases**: *Retain data for several years for auditing*
 - Pricing: price for storage + object retrieval cost
 
 ## Amazon S3 Glacier Deep Archive – *for long term storage*:
-- Lowest-cost object storage class ideal for archiving
-- Able to retrieve objects within; Standard (12 hours), Bulk (48 hours)
+- Lowest-cost object storage class ideal for **archiving**
+- Able to retrieve objects within; **Standard (12 hours), Bulk (48 hours)**
 - **Minimum storage** duration of **180 days**
 
 ## Amazon S3 Glacier Instant Retrieval
-- Millisecond retrieval, great for data accessed *once a quarter*
+- **Millisecond retrieval**, great for data accessed *once a quarter*
 - **Minimum storage** duration of **90 days**
 
 ## Amazon S3 Glacier Flexible Retrieval (*formerly Amazon S3 Glacier*):
@@ -1515,69 +1510,43 @@ you can implement are:
 - Retiring
 
 ### Rehosting
-Rehosting also known as **“lift-and-shift”** involves moving applications without changes.
+- Rehosting also known as **“lift-and-shift”** involves *moving applications without changes*.
 
-
-In the scenario of a large legacy migration, in which the company is looking to implement its 
-migration and scale quickly to meet a business case, the majority of applications are 
-rehosted.
+#### Example
+*In the scenario of a large legacy migration, in which the company is looking to implement its migration and scale quickly to meet a business case, the majority of applications are rehosted.*
 
 ### Replatforming
-Replatforming, also known as **“lift, tinker, and shift,”** involves making a few cloud 
-optimizations to realize a tangible benefit. 
+- Replatforming, also known as **“lift, tinker, and shift,”** involves *making a few cloud optimizations* to realize a tangible benefit. 
+- Optimization is achieved **without** changing the core architecture of the application i.e. you are not touching any core code in the process, and no new dev efforts are involved here. 
 
-Optimization is achieved **without** changing the 
-core architecture of the application i.e. you are not touching any core code in the process, 
-and no new dev efforts are involved here. 
-
-*For example*, you could take your existing MySQL 
-database and replatform it onto RDS MySQL, without any code changes at all. Or even 
-consider upgrading to Amazon Aurora. This gives significant benefit to your DBA team as 
-well as improved performance without any code changes.
+### Example
+*you could take your existing MySQL database and replatform it onto RDS MySQL, without any code changes at all. Or even consider upgrading to Amazon Aurora. This gives significant benefit to your DBA team as well as improved performance without any code changes.*
 
 ### Refactoring
-Refactoring (also known as **re-architecting**) involves reimagining how an application is 
-architected and developed by using cloud-native features. 
-
-Refactoring is driven by a **strong business need to add features, scale, or performance** that would otherwise be difficult to 
-achieve in the application’s existing environment. 
-
-**Dramatic changes** to your architecture 
-can be very beneficial to your enterprise but this will come at the **highest initial cost** in 
-terms of planning and human effort.
+- Refactoring (also known as **re-architecting**) involves *reimagining how an application is architected* and developed by using cloud-native features. 
+- Refactoring is driven by a **strong business need to add features, scale, or performance** that would otherwise be difficult to achieve in the application’s existing environment. 
+- **Dramatic changes** to your architecture can be very beneficial to your enterprise but this will come at the **highest initial cost** in terms of planning and human effort.
 
 ### Repurchasing
-**Repurchasing** involves **moving from a traditional license to a software-as-a-service** model 
-i.e. it involves replacing an existing application with a cloud-based version, such as software 
-found in AWS Marketplace. 
+- **Repurchasing** involves **moving from a traditional license to a software-as-a-service** model i.e. it involves replacing an existing application with a cloud-based version, such as software found in AWS Marketplace. 
+- This is common for companies looking to **abandon legacy software vendors** and get a fresh start as part of migration. 
 
-This is common for companies looking to **abandon legacy software vendors** and get a fresh start as part of migration. 
-
-*For example*, a business might 
-choose to implement the repurchasing strategy by migrating from a customer relationship 
-management (CRM) system to Salesforce.com. The total upfront expense of the step 
-therefore goes up, but the potential benefits could be substantial.
+#### Example
+*a business might choose to implement the repurchasing strategy by migrating from a customer relationship management (CRM) system to Salesforce.com. The total upfront expense of the step therefore goes up, but the potential benefits could be substantial.*
 
 ### Retaining
-Retaining consists of keeping applications that are critical for the business in the source 
-environment. This might include applications that are **about to be deprecated**, and **require 
-major refactoring before they can be migrated**, or, work that can be postponed until a later 
-time.
+Retaining consists of keeping applications that are critical for the business in the source environment. This might include applications that are **about to be deprecated**, and **require major refactoring before they can be migrated**, or, work that can be postponed until a later time.
 
 ### Retiring
-Retiring is the process of removing applications that are no longer needed. Some parts of 
-your enterprise IT portfolio are just no longer needed. We found as much as 10% to 20% of 
-companies’ application portfolios include applications that are no longer being used or 
-already have replacements live and functional. Using the AWS migration plan as the 
-opportunity to actually end-of-life these applications can save significant cost and effort for
+- Retiring is the process of **removing applications** that are no longer needed. Some parts of your enterprise IT portfolio are just no longer needed. We found as much as 10% to 20% of companies’ application portfolios include applications that are no longer being used or 
+already have replacements live and functional. 
+
+- Using the AWS migration plan as the opportunity to actually end-of-life these applications can save significant cost and effort for
 your team. Sometimes you just have to turn off the lights.
 
 ## AWS Snow Family Overview
-- The AWS Snow Family is a collection of physical devices that help to physically transport up 
-to exabytes of data into and out of AWS.
-
+- The AWS Snow Family is a collection of physical devices that help to physically transport up to exabytes of data into and out of AWS.
 - The AWS Snow Family is a service that helps customers who need to **run operations** in austere, **non-data center environments**, and **in locations where there's no consistent network connectivity**. 
-
 - You can use these devices to locally and cost-effectively *access* the storage and compute power of the AWS Cloud in places where an *internet connection might not be an option*.
 - Highly-secure, portable devices to **collect and process data at the edge**, and **migrate data into and out of AWS**
     ![Alt text](image-123.png)
@@ -1591,39 +1560,36 @@ to exabytes of data into and out of AWS.
 - Connection stability
     ![Alt text](image-124.png)
 
-**AWS Snow Family**: offline devices to perform data migrations: If it takes more than a week to transfer over the network, use Snowball devices!
+------------
 
-AWS Snow Family is composed of AWS Snowcone, AWS Snowball, and AWS Snowmobile.
-
-The hardware and software is 
-cryptographically signed, and all data stored is automatically encrypted using 256-bit encryption keys, owned and managed by you, the customer. You can even use AWS Key 
-Management Service to generate and manage keys
+- **AWS Snow Family**: offline devices to perform data migrations: If it takes more than a week to transfer over the network, use Snowball devices!
+- AWS Snow Family is composed of AWS Snowcone, AWS Snowball, and AWS Snowmobile.
+- The hardware and software is cryptographically signed, and all data stored is automatically encrypted using 256-bit encryption keys, owned and managed by you, the customer. 
+- You can even use AWS KMS to generate and manage keys
 
 ## Diagrams
 ![Alt text](image-125.png)
 
 ## AWS Snowcone & Snowcone SSD
-- Small, portable computing, anywhere, rugged & 
-secure, withstands harsh environments
+- Small, portable computing, anywhere, rugged & secure, withstands harsh environments
 - Light (4.5 pounds, 2.1 kg) 
 - Device used for **edge computing**, storage, and **data transfer**
 - **Snowcone** : **8 TB** of *HDD Storage*
 - **Snowcone SSD** : **14 TB** of *SSD Storage*
-- Use Snowcone where Snowball does not fit (space constrained environment)
+- Use Snowcone where Snowball does not fit (*space constrained environment*)
 - Must provide your own battery / cables
 - Can be sent back to AWS offline, or connect it to  internet and use AWS DataSync to send data
 
 ## Snowball Edge (for data transfers)
 - Physical data transport solution: move TBs or PBs of data in or out of AWS
-- Alternative to moving data over the network (and paying network 
-fees)
+- Alternative to moving data over the network (and paying network fees)
 - Pay per data transfer job 
 - Provide block storage and Amazon S3 compatible object storage
 - **Snowball Edge Storage Optimized**
     - *80 TB of HDD capacity* for block volume and S3 compatible object storage
 - **Snowball Edge Compute Optimized**
     - *42 TB of HDD or 28TB NVMe capacity* for block volume and S3 compatible object storage
-- Use cases: large data cloud migrations, DC decommission, disaster recovery
+- **Use cases**: large data cloud migrations, DC decommission, disaster recovery
 
 ## AWS Snowmobile
 - Transfer **exabytes** of data (1 EB = 1,000 PB = 1,000,000 TBs)
@@ -1636,7 +1602,7 @@ fees)
 
 ## Snow Family - Usage Process
 1. Request Snowball devices from the AWS console for delivery
-2. Install the snowball client / AWS OpsHub on your servers
+2. Install the snowball client/AWS OpsHub on your servers
 3. Connect the snowball to your servers and copy files using the client
 4. Ship back the device when you’re done (goes to the right AWS facility)
 5. Data will be loaded into an S3 bucket
@@ -1670,18 +1636,16 @@ fees)
 - Long-term deployment options: 1 and 3 years discounted pricing
 
 ## AWS OpsHub
-- Historically, to use Snow Family devices, you 
-needed a CLI (Command Line Interface tool)
-- Today, you can use AWS OpsHub (*a software you install on your computer/laptop*) to **manage your Snow Family Device**
+- Historically, *to use Snow Family devices, you needed a CLI (Command Line Interface tool)*
+- Today, you can use **AWS OpsHub** (*a software you install on your computer/laptop*) to **manage your Snow Family Device**
     - Unlocking and configuring single or clustered devices
     - Transferring files
     - Launching and managing instances running on Snow Family Devices
-    - Monitor device metrics (storage capacity, active 
-instances on your device)
-    - Launch compatible AWS services on your devices (ex: Amazon EC2 instances, AWS DataSync, Network File System (NFS)
+    - Monitor device metrics (storage capacity, active instances on your device)
+    - Launch compatible AWS services on your devices (ex: Amazon EC2 instances, AWS DataSync, Network File System (NFS))
 
 ## Snowball Edge Pricing
-- You pay for **device usage** and dat**a transfer** out of AWS
+- You pay for **device usage** and **data transfer** out of AWS
 - Data transfer IN to Amazon S3 is $0.00 per GB
 - **On-Demand**
     - Includes a one-time service fee per job, which includes:
@@ -1691,7 +1655,7 @@ instances on your device)
     - Pay per day for any additional days
 - **Committed Upfront**
     - Pay in advance for monthly, 1-year, and 3-years of usage (**Edge Computing**)
-    - Up to 62% discounted pricing
+    - Up to **62% discounted** pricing
 
 ## Storage Gateway Overview
 AWS Storage Gateway is a service that **connects** an *on-premises software appliance with cloud-based storage* to provide seamless and secure integration between your on-premises IT environment and the AWS storage infrastructure in the AWS Cloud.
@@ -1712,11 +1676,10 @@ AWS Storage Gateway is a service that **connects** an *on-premises software appl
 ![Alt text](image-127.png)
 
 ### AWS Storage Gateway
-- Bridge between on-premise data and cloud data in S3
-- Hybrid storage service to allow on-premises to seamlessly use the AWS Cloud 
-- Use cases: disaster recovery, backup & 
-restore, tiered storage
-- Types of Storage Gateway:
+- **Bridge between on-premise data and cloud data in S3**
+- **Hybrid storage service** to allow on-premises to seamlessly use the AWS Cloud 
+- **Use cases**: disaster recovery, backup & restore, tiered storage
+- **Types of Storage Gateway**:
     - File Gateway 
     - Volume Gateway
     - Tape Gateway

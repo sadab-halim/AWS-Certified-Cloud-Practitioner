@@ -2010,46 +2010,38 @@ during the migration
 
 ## Where Docker Images are stored?
 - Docker images are stored in Docker Repositories
-- Public: Docker Hub https://hub.docker.com/ 
+- **Public: Docker Hub** https://hub.docker.com/ 
     - Find base images for many technologies or OS:
     - Ubuntu 
     - MySQL 
     - NodeJS, Java…
-- Private: Amazon ECR (Elastic Container Registry)
+- **Private: Amazon ECR (Elastic Container Registry)**
 
 ## Docker versus Virtual Machines
 - Docker is ”sort of” a virtualization technology, but not exactly
 - Resources are shared with the host => many containers on one server
     ![Alt text](image-149.png)
 
-## ECS
+## Amazon ECS
 - ECS = Elastic Container Service
-- Launch Docker containers on 
-AWS
-- You must provision & maintain 
-the infrastructure (the EC2 
-instances)
-- AWS takes care of starting / 
-stopping containers
-- Has integrations with the 
-Application Load Balancer
+- Launch Docker containers on AWS
+- You must provision & maintain the infrastructure (the EC2 instances)
+- AWS takes care of starting/stopping containers
+- *Has integrations with the Application Load Balancer*
     ![Alt text](image-150.png)
 
-## Fargate
+## AWS Fargate
 - Launch Docker containers on 
 AWS
-- You do not provision the infrastructure (no EC2 
-instances to manage) – simpler!
-- Serverless offering 
-- AWS just runs containers for you based on the CPU / RAM 
-you need.
+- *You do not provision the infrastructure (no EC2 instances to manage)* – simpler!
+- **Serverless** offering 
+- AWS just runs containers for you based on the CPU/RAM you need.
     ![Alt text](image-151.png)
 
-## ECR
+## Amazon ECR
 - Elastic Container Registry 
-- Private Docker Registry on AWS
-- This is where you store your Docker images so they can 
-be run by ECS or Fargate
+- **Private Docker Registry** on AWS
+- This is where you store your Docker images so they can be run by ECS or Fargate
     ![Alt text](image-152.png)
 
 ## What's serverless?
@@ -2096,10 +2088,10 @@ it means you just don’t manage / provision / see them
 
 ### AWS Lambda Pricing : Example
 - You can find overall pricing information here: https://aws.amazon.com/lambda/pricing/
-- Pay per calls:
-    - First 1,000,000 requests are free 
-    - $0.20 per 1 million requests thereafter ($0.0000002 per request)
-- Pay per duration: (in increment of 1 ms)
+- **Pay per calls**:
+    - *First 1,000,000 requests are free* 
+    - **$0.20 per 1 million requests** thereafter ($0.0000002 per request)
+- **Pay per duration**: (in increment of 1 ms)
     - 400,000 GB-seconds of compute time per month for FREE
     - == 400,000 seconds if function is 1GB RAM 
     - == 3,200,000 seconds if function is 128 MB RAM • 
@@ -2107,23 +2099,23 @@ it means you just don’t manage / provision / see them
 - It is usually very cheap to run AWS Lambda so it’s very popula
 
 ## Amazon API Gateway
+- **Build, deploy and manage API**
 - Example: building a serverless API
     ![Alt text](image-156.png)
-- Fully managed service for developers to easily create, publish, maintain, 
-monitor, and secure APIs
-- Serverless and scalable
-- Supports RESTful APIs and WebSocket APIs
+- Fully managed service for developers to easily create, publish, maintain, monitor, and secure APIs
+- **Serverless** and scalable
+- Supports **RESTful APIs** and **WebSocket APIs**
 - Support for security, user authentication, API throttling, API keys, monitoring... 
 
 ## AWS Batch
-- Fully managed batch processing at any scale
-- Efficiently run 100,000s of computing batch jobs on AWS
+- **Fully managed** batch processing at any scale
+- Efficiently *run 100,000s of computing batch jobs* on AWS
 - A “batch” job is a job with a start and an end (opposed to continuous)
-- Batch will dynamically launch EC2 instances or Spot Instances
-- AWS Batch provisions the right amount of compute / memory
+- *Batch will dynamically launch EC2 instances or Spot Instances*
+- AWS Batch provisions the right amount of compute/memory
 - You submit or schedule batch jobs and AWS Batch does the rest!
-- Batch jobs are defined as Docker images and run on ECS
-- Helpful for cost optimizations and focusing less on the infrastructure
+- *Batch jobs are defined as Docker images and run on ECS*
+- Helpful for **cost optimizations** and **focusing less on the infrastructure**
 
 ## AWS Batcch - Simplified Example
 ![Alt text](image-157.png)
@@ -2132,16 +2124,40 @@ monitor, and secure APIs
 ![Alt text](image-158.png)
 
 ## Amazon Lightsail
-- Virtual servers, storage, databases, and networking 
-- Low & predictable pricing
-- Simpler alternative to using EC2, RDS, ELB, EBS, Route 53…
+- **Launch and manage virtual private servers**
+- storage, databases, and networking 
+- *Low & predictable pricing*
+- Simpler alternative to using **EC2, RDS, ELB, EBS, Route 53…**
 - Great for people with little cloud experience!
 - Can setup notifications and monitoring of your Lightsail resources
-- Use cases:
+- **Use cases**:
     - Simple web applications (has templates for LAMP, Nginx, MEAN, Node.js…)
     - Websites (templates for WordPress, Magento, Plesk, Joomla)
     - Dev / Test environment 
-- Has high availability but no auto-scaling, limited AWS integrations
+- Has **high availability but no auto-scaling**, *limited AWS integrations*
+
+## Summary
+### Other Compute
+- **Docker**: container technology to run applications
+- **ECS**: run Docker containers on EC2 instances
+- **Fargate**: 
+    - Run Docker containers without provisioning the infrastructure
+    - Serverless offering (no EC2 instances)
+- **ECR**: Private Docker Images Repository
+- **Batch**: run batch jobs on AWS across managed EC2 instances
+- **Lightsail**: predictable & low pricing for simple application & DB stacks Lambda is Serverless, Function as a Service, seamless scaling, reactive
+
+### Lambda
+- Lambda is Serverless, FaaS (function as a service), seamless scaling, reactive
+- **Lambda Billing**:
+    - By the time run x by the RAM provisioned
+    - By the number of invocations
+- **Language Support**: many programming languages except (arbitrary) Docker
+- **Invocation time**: up to 15 minutes
+- **Use cases**:
+    - Create Thumbnails for images uploaded onto S3
+    - Run a Serverless cron job
+- **API Gateway**: expose Lambda functions as HTTP API
 
 
 --------------------------------------------------------

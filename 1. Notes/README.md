@@ -77,17 +77,75 @@
 - **AWS Support** : Learn about the components and features that AWS Support provides
 
 ### Databases
-- 
+- **Amazon Aurora** : High performance managed relational database engine. PostgreSQL and MySQL
+
+- **Amazon DynamoDB** : Managed NoSQL Database
+
+- **Amaozn MemoryDB for Redis** : Redis-compatible, durable, in-memory database service
+
+- **Amazon Neptune** : Fully managed graph database service
+
+- **Amazon RDS** : Set up, operate, and scale a relational database in the cloud
 
 ### Developer Tools
+- **AWS AppConfig** : Quickly deploy application configurations to applications of any size. AWS AppConfig supports controlled deployments and includes built-in validation checks and monitoring.
+
+- **AWS CLI** : Command line interface tool to manage AWS services
+
+- **AWS Cloud9** : Write, run, and debug code on a cloud IDE
+
+- **AWS CloudShell** : Command line access to AWS resources and tools directly from a browser
+
+- **AWS CodeArtifact** : Artifact management for software development
+
+- **AWS CodeBuild** : Build and test code
+
+- **AWS CodeCommit** : Store code in private Git repositories
+
+- **AWS CodeDeploy** : Automate code deployments
+
+- **AWS CodePipeline** : Release software using continuous delivery
+
+- **AWS CodeStar** : Develop and deploy AWS applications
+
+- **AWS X-Ray** : Analyze and debug your applications
 
 ### End User Computing
+- **Amazon AppStream 2.0** : Stream desktop applications securely to a browser
+
+- **Amazon Workspaces** : Virtual desktops in the cloud
+
+- **Amazon Workspaces Web** : Provide secure access to internal websites and SaaS applications
 
 ### Frontend Web and Mobile
+- **AWS Amplify** : Build, deploy, host, and manage scalable web and mobile apps
+
+- **AWS AppSync** : Accelerate app development with fully-managed, scalable **GraphQL APIs**
+
+- **AWS Device Farm** : Test Android, iOS, and web apps on real devices in the AWS Cloud
 
 ### Internet of Things (IoT)
+- **AWS IoT Core** : Connect devices to the cloud
+- **AWS IoT Greengrass** : Local compute, messaging, and sync for devices
 
 ### Machine Learning
+- **Amazon Comprehend** : Discover insights and relationships in text
+
+- **Amazon Kendra** : Reinvent enterprise search with ML
+
+- **Amazon Lex** : Build voice and chatbots
+
+- **Amaozn Polly** : Turn text into *life-like speech*
+
+- **Amazon Rekognition**: Analyze image and video
+
+- **Amazon SageMaker** : Build, train, and deploy machine learning models at scale
+
+- **Amazon Textract** : Extract text and data from documents
+
+- **Amazon Transcribe** : Automatic speech recognition
+
+- **Amazon Translate** : Natural and fluent language translation
 
 ### Management and Governance
 

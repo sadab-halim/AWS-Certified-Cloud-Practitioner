@@ -261,4 +261,3 @@
 - **Amazon S3 Glacier** : provides durable and extremely **low-cost storage** for **infrequently used data** with *security features* for **data archiving and backup**.
 
 - **AWS Storage Gateway** : is a service that **connects an on-premises software appliance with cloud-based storage** to provide seamless and secure **integration** between your on-premises IT environment and the AWS storage infrastructure in the AWS Cloud.
- nn

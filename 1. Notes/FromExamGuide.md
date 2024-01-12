@@ -245,19 +245,4 @@
 - **Amazon EBS** : 
     - It **provides block level storage volumes** for use with Amazon Elastic Compute Cloud instances. 
     
-    - Amazon EBS volumes are **highly available** and **reliable storage volumes** that *can be attached to any running instance* and *used like a hard drive*.
-
-- **Amazon EFS** :
-    - It is a simple, **serverless, elastic, set-and-forget** file system that **automatically grows and shrinks** as you add and remove files with **no need for management or provisioning**. 
-    
-    - You can *use Amazon EFS with Amazon EC2, AWS Lambda, Amazon ECS, Amazon EKS and other AWS compute instances*, or with *on-premises servers*.
-
-- **AWS Elastic Disaster Recover** : **minimizes** downtime and **data loss** with fast, reliable recovery of on-premises and cloud-based applications using affordable storage, minimal compute, and **point-in-time recovery**.
-
-- **Amazon FSx** : makes it **easy** and **cost effective** to **launch, run, and scale feature-rich, high-performance file systems** in the cloud.
-
-- **Amazon S3** : is used to store *(object storage)* and **retrieve any amount of data** at any time, from **anywhere** on the web.
-
-- **Amazon S3 Glacier** : provides durable and extremely **low-cost storage** for **infrequently used data** with *security features* for **data archiving and backup**.
-
-- **AWS Storage Gateway** : is a service that **connects an on-premises software appliance with cloud-based storage** to provide seamless and secure **integration** between your on-premises IT environment and the AWS storage infrastructure in the AWS Cloud.
+    - Amazon EBS volumes are **highly available** and **reliable storage volumes** that *can be attached to any running instance* and 

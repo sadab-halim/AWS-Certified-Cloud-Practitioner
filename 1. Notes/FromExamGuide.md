@@ -226,23 +226,16 @@
 
 ### Serverless
 - **AWS Fargate** : Serverless compute for containers
-
 - **AWS Lambda** :
     - You can run code without provisioning or managing servers. 
-    
-    - You pay only for the compute time that you consume—there's no charge when your code isn't running. 
-    
+    - You pay only for the compute time that you consume—there's no charge when your code isn't running.     
     - You can run code for virtually any type of application or backend service—all with zero administration. 
-    
     - Just upload your code and Lambda takes care of everything required to run and scale your code with high availability.
 
 ---------------------
 
 ### Storage
 - **AWS Backup** : is a **fully managed backup** service that makes it easy to **centralize** and **automate the backup of data** across AWS services in the cloud as well as on premises.
-
-
 - **Amazon EBS** : 
     - It **provides block level storage volumes** for use with Amazon Elastic Compute Cloud instances. 
-    
     - Amazon EBS volumes are **highly available** and **reliable storage volumes** that *can be attached to any running instance* and 

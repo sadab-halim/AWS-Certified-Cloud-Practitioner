@@ -1,5 +1,4 @@
 # Short Notes
-
 ## EC2 Instance Storage
 - **EBS Volumes**:
 	- Network drives attached to one EC2 instance at a time
@@ -13,9 +12,7 @@
 - **EFS** : network file system, can be attached to 100s of instances in a region
 - **EFS-IA**: cost-optimized storage class for infrequent accessed files
 - **FSx for Windows**: network file system for windows servers
-- **FSx for Lustre**: high performance computing linux file system
-
-
+- **FSx for Lustre**: high performance computing linux file sys
 ## ELB & ASG
 - **High Availability** vs **Scalability** (vertical and horizontal) vs **Elasticity** vs **Agility** in the Cloud
 - **Elastic Load Balancers (ELB)**:

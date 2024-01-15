@@ -18,7 +18,7 @@
 - **Elastic Load Balancers (ELB)**:
 	- Distribute traffic across backend EC2 instances, can be Multi-AZ
 	- Supports health checks
-	- 4 TypesL
+	- 4 Types:
 		- **Classic (old)**
 		- **Application** : HTTP - Layer 7
 		- **Network** : TCP - Layer 4

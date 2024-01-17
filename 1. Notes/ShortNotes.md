@@ -60,8 +60,6 @@
 - **Database Migration**: DMS
 - **Neptune**: Graph Database
 
-
-
 ## Other Compute
 - **Docker**: container technology to run applications
 - **ECS**:  run Docker containers on EC2 instances
@@ -71,8 +69,6 @@
 - **ECR**: private docker images repository
 - **Barch**: run batch jobs on AWS across managed EC2 instances
 - **Lightsail**: predictable & low pricing for simple application & DB stacks
-
-
 
 ## Lambda
 - Lambda is Serverless, Function as a Serivce, seamless scaling, reactive 
@@ -86,8 +82,6 @@
 	- Run a serverless cron job
 - **API Gateway**: expose Lambda functions as HTTP API
 
-
-
 ## Deployment
 - **CloudFormation** (AWS only):
 	- Infrastructure as Code, works with almost all of AWS resources
@@ -99,8 +93,6 @@
 - **Systems Manager** (hybrid): patch, configure and run commands at scale
 - **OpsWorks** (hybrid): managed Chef and Puppet in AWS
 
-
-
 ## Developer
 - **CodeCommit** : store code in private git repository (version controlled)
 - **CodeBuild** : build & test code in AWS
@@ -110,8 +102,6 @@
 - **CodeStar** : unified view for allowing developers to do CICD and code
 - **Cloud9** : Cloud IDE (Integrated Development Environment) with collab
 - **AWS CDK** : define your cloud infrastructure using a programming language
-
-
 
 ## Global Applications
 - **Global DNS: Route 53**
@@ -132,8 +122,6 @@
 	- Bring AWS resources (compute, database, storage, ..) closer to your users
 	- Good for latency-sensitive applications
 
-
-
 ## Integration
 - **SQS**:
 	- Queue service in AWS
@@ -148,8 +136,6 @@
 - **Kinesis**: real-time data streaming, persistence and analysis
 - **Amazon MQ**: managed message broker for ActiveMQ and Rabbit MQ in the cloud (MQTT, AMQP.. protocols)
 
-
-
 ## Monitoring
 - **CloudWatch**
 	- **Metrics**: monitor the performance of AWS services and billing metrics
@@ -163,8 +149,6 @@
 - **AWS Account Health Dashboard**: AWS events that impact your infrastructure 
 - **Amazon CodeGuru**: automated code reviews and application performance recommendations
 	
-
-
 ## VPC
 - **VPC**: Virtual Private Cloud
 - **Subnets**: tied to an AZ, network partition of the VPC
@@ -181,8 +165,6 @@
 - **Client VPN**: OpenVPN connection from your computer into your VPC
 - **Direct Connect**: direct private connection to AWS
 - **Transit Gateway**: connect thousands of VPC and on-premises networks together
-
-
 
 ## Security & Compliance
 - **Shared Responsibility on AWS**
@@ -208,8 +190,6 @@
 	- Register as a seller in the Reserved Instance Marketplace
 - **IAM Access Analyzer**: identify which resources are shared externally
 
-
-
 ## Machine Learning
 - **Rekognition**: face detection, labeling, celebrity recognition
 - **Transcribe**: audio to text (ex: subtitles)
@@ -223,7 +203,6 @@
 - **Kendra**: ML-powered search engine
 - **Personalize**: real-time personalized recommendations
 - **Textract**: detect text and data in documents
-
 
 ## Account Best Practices
 - Opeare multiple accounts using **Organizations**
@@ -239,8 +218,6 @@
 - **If your account is compromised**: change the root password, delete and rotate all password/keys, contact the AWS support
 - Allow uses to create pre-defined stacks defined by admins using **AWS Service Catalog**
 
-
-
 ## Billing and Costing Tools
 - **Compute Optimizer**: recommends resources' configurations to reduce cost
 - **Pricing Calculator**: cost of services on AWS
@@ -253,8 +230,6 @@
 - **Savings Plans**: easy way to save based on long-term usage of AWS
 - **Cost Anomaly Detection**: detect unusual spends using Machine Learning
 - **Service Quotas**: notify you when you're close to service quota thresold
-
-
 
 ## Advanced Identity
 - **IAM**:

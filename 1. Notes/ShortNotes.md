@@ -230,7 +230,6 @@
 - **Savings Plans**: easy way to save based on long-term usage of AWS
 - **Cost Anomaly Detection**: detect unusual spends using Machine Learning
 - **Service Quotas**: notify you when you're close to service quota thresold
-
 ## Advanced Identity
 - **IAM**:
 	- Identity and Access Management inside your AWS account

@@ -176,14 +176,15 @@
 
 
 # Storage
-- AWS Backup
-- Amazon Elastic Block Store (Amazon EBS)
-- Amazon Elastic File System (Amazon EFS)
-- AWS Elastic Disaster Recovery
-- Amazon FSx
-- Amazon S3
-- Amazon S3 Glacier
-- AWS Storage Gateway
+| AWS Services | Description |
+| ------------ | ----------- |
+| [**AWS Backup**](#aws-backup) | centralized backup across AWS services, managed backup service |
+| [**Amazon EBS**](#amazon-ebs) | block storage volumes |
+| [**Amazon EFS**](#amazon-efs) | fully managed file system for Amazon EC2 |
+| [**AWS Elastic Disaster Recovery**](#aws-elastic-disaster-recovery) | scalable, cost-effective application recovery to AWS |
+| [**Amazon FSx**](#amazon-fsx) | launch, run, and scale feature-rich and high-performing file systems that can be used by Windows or Linux (Lustre) |
+| [**Amazon S3**](#amazon-s3) | object storage built to retrieve any amount of data from anywhere |
+| [**AWS Storage Gateway**](#aws-storage-gateway) | hybrid cloud storage service that extends your on-pemise storage to the cloud; bridge b/w on-premise data & cloud data in S3 |
 
 ------------------------------------------------
 
@@ -979,10 +980,292 @@ Protects you against Layer 3 (network), 4 (transport) and 7 (app) attacks
 -------------------------------------------------------
 
 # AWS Backup
-# Amazon Elastic Block Store (Amazon EBS)
-# Amazon Elastic File System (Amazon EFS)
+- Fully manage service to centrally manage and automate backupus across AWS services
+- On-demand and scheduled backups
+- Supports PITR (Point-in-time Recovery)
+- Retention Periods, Lifecycle Management, Backup Policies, …
+- Cross-Region Backup
+- Cross-Account Backup (using AWS Organizations)
+
+# Amazon EBS
+- EBS stands for Elastic Block Store
+- Amazon EC2 block storage volumes
+- Provides scalable, high-performane block-storage resources that you can use with your Amazon EC2 instances
+
+# Amazon EFS
+- EFS stands for Elastic File System
+- Fully managed file system for Amazon EC2
+- File is stored with data and metadata, multiple connections via a network share, supports multiple reads, writing locks the file.
+
+- When u need a file-share where multiple users or VMs need to access the same drive, cloud native-NFS file system service, file storage u can mount to multiple EC2 instances at the same time.
+- When you need to share files between multiple servers
+
 # AWS Elastic Disaster Recovery
+- Scalable, cost-effective application recovery to AWS
+- Used to be named “CloudEndure Disaster Recovery”
+- Quickly and easily recover your physical, virtual, and cloud-based servers into AWS
+- Example: protect your most critical databases (including Oracle, MySQL, and SQL Server), enterprise apps (SAP), protect your data from ransomware attacks, …
+- Continuous block-level replication for your servers
+
 # Amazon FSx
+- Launch, run, and scale feature-rich and high-performing file systems that can be used by Windows or Linux (Lustre)
+- Fully managed service
+
+## Amazon FSx for Windows File Server
+- A fully managed, highly reliable, and scalable Windows native shared file system
+- Built on Windows File Server
+- Supports SMB protocol & Windows NTFS
+- Integrated with Microsoft Active Directory
+- Can be accessed from AWS or your on-premise infrastructure
+
+## Amazon FSx for Lustre
+- A fully managed, high-performance, scalable file storage for High Performance Computing (HPC)
+- The name Lustre is derived from “Linux” and “cluster”
+- Machine Learning, Analytics, Video Processing, Financial Modeling, …
+- Scales up to 100s GB/s, millions of IOPS, sub-ms latencies
+
 # Amazon S3
-# Amazon S3 Glacier
+- Object storage built to retrieve any amount of data from anywhere
+- Object is stored with data, metadata and unique id, supports multiple reads and writes (no locks)
+- S3 provides you with unlimited (infinitely scaling) storage
+- You can store an individual object from 0 bytes to 5 terabytes in size
+- Serverless object storage service
+
+<br/>
+
+Use Cases:
+- Backup and storage 
+- Disaster Recovery 
+- Archive 
+- Hybrid Cloud storage
+- Application hosting 
+- Media hosting 
+- Data lakes & big data analytics 
+- Software delivery 
+- Static website
+
+## Amazon S3 - Buckets
+- Amazon S3 allows people to store objects (files) in “buckets" *(directories)*
+- Buckets must have a globally unique name (across all regions all accounts)
+- S3 looks like a global service but buckets are created in a region
+- Naimg convention:
+    - No uppercase, No underscore
+    - 3-63 characters long
+    - Not an IP
+    - Must start with lowercase letter or number
+    - Must NOT start with the prefix xn--
+    - Must NOT end with the suffix -s3alias
+
+## Amazon S3 - Objects
+- Object values are the content of the body:
+- Max. Object Size is 5TB (5000GB)
+- If uploading more than 5GB, must use “multi-part upload
+
+## Amazon S3 - Security
+- User-Based
+    - IAM Policies – which API calls should be allowed for a specific user from IAM
+- Resource-Based
+    - Bucket Policies – bucket wide rules from the S3 console - allows cross account
+    - Object Access Control List (ACL) – finer grain (can be disabled)
+    - Bucket Access Control List (ACL) – less common (can be disabled)
+- Note: an IAM principal can access an S3 object if
+    - The user IAM permissions ALLOW it OR the resource policy ALLOWS it
+    - AND there’s no explicit DENY
+- Encryption: encrypt objects in Amazon S3 using encryption keys
+
+## S3 Bucket Policies
+- JSON based policies 
+    - Resources: buckets and objects 
+    - Effect: Allow / Deny 
+    - Actions: Set of API to Allow or Deny 
+    - Principal: The account or user to apply the policy to
+- Use S3 bucket for policy to:
+    - Grant public access to the bucket
+    - Force objects to be encrypted at upload
+    - Grant access to another account (Cross
+Account)
+
+## Amazon S3 - Static Website Hosting
+- S3 can host static websites and have them accessible on the Internet
+- The website URL will be (depending on the region)
+    - http://bucket-name.s3-website-aws-region.amazonaws.com (OR)
+    - http://bucket-name.s3-website.aws-region.amazonaws.com
+- If you get a 403 Forbidden error, make sure the bucket
+policy allows public reads!
+
+## Amazon S3 - Versioning
+- You can version your files in Amazon S3
+- It is enabled at the bucket level
+- Same key overwrite will change the “version”: 1, 2, 3….
+- It is best practice to version your buckets
+    - Protect against unintended deletes (ability to restore a version)
+    - Easy roll back to previous version
+- Notes:
+    - Any file that is not versioned prior to enabling versioning will have version “null”
+    - Suspending versioning does not delete the previous versions
+
+## Amazon S3 - Replication (CRR & SRR)
+- Must enable Versioning in source and destination buckets
+- Cross-Region Replication (CRR)
+- Same-Region Replication (SRR)
+- Buckets can be in different AWS accounts
+- Copying is asynchronous
+- Must give proper IAM permissions to S3
+- Use cases:
+    - CRR – compliance, lower latency access, replication across accounts
+    - SRR – log aggregation, live replication between production and test accounts
+
+## S3 Storage Classes
+- [S3 Standard - Genral Purpose](#s3-standard---genral-purpose)
+- [S3 Standard - Infrequent Access](#s3-standard---infrequent-access)
+- [S3 One Zone - Infrequent Access](#s3-one-zone---infrequent-access)
+- [S3 Intelligent Tiering](#s3-intelligent-tiering)
+- [S3 Glacier Instant Retrieval](#s3-glacier-instant-retrieval)
+- [S3 Glacier Flexible Retrieval](#s3-glacier-flexible-retrieval-formerly-amazon-s3-glacier)
+- [S3 Glacier Deep Archive](#s3-glacier-deep-archive-for-long-term-storage)
+
+Can move between classes manually or using S3 Lifecycle configurations
+
+## S3 Durability & Availability
+- **Durability**
+    - High durability (99.999999999%, 11 9’s) of objects across multiple AZ
+    - Same for all storage classes
+- **Availability**
+    - Measures how readily available a service is
+    - Varies depending on storage class
+    - Example: S3 standard has 99.99% availability = not available 53 minutes a year
+
+## S3 Standard - Genral Purpose
+- Fast, 99.99% availability
+- Used for frequently accessed data
+- Replicated across at least 3 AZs
+- Low latency and high throughput
+- Sustain 2 concurrent facility failures
+- Use Cases: Big Data analytics, mobile & gaming applications, content
+distribution…
+
+## S3 Standard - Infrequent Access
+- For data that is less frequently accessed, but requires rapid access when needed
+- Lower cost than S3 Standard
+- 99.9% Availability
+- Additional retrieval fee is applied
+- 50% less than Standard (reduced availability)
+- Use Cases: Disaster Recovery, Backups
+
+## S3 One Zone - Infrequent Access
+- For data that is less frequently accessed, but requires rapid access when needed
+- Lower cost than S3 Standard
+- High durability (99.999999999%) in a single AZ; data lost when AZ is destroyed
+- 99.5% availability
+- Cheaper than Standard-IA by 20% less (reduced durability)
+- A retrieval fee is applied
+- Use Cases: Storing secondary backup copies of on-premise data, or data you can recreate
+
+
+## S3 Intelligent Tiering
+- Small monthly monitoring and auto-tiering fee
+- Uses ML to analyze object usage and determine the appropriate storage class
+- Moves objects automatically between Access Tiers based on usage
+- There are no retrieval charges in S3 Intelligent-Tiering
+
+<br/>
+
+- **Frequent Access Tier** *(automatic)* : default tier
+- **Infrequent Access Tier** *(automatic)* : objects not accessed for 30 days
+- **Archive Instant Access Tier** *(automatic)* : objects not accessed for 90 days
+- **Archive Access Tier** *(optional)* : configurable from 90 days to 700+ days
+- **Deep Archive Access Tier** *(optional)* : configurable from 180 days to 700+ days
+
+## S3 Glacier Instant Retrieval
+- Low-cost object storage meant for archiving / backup
+- Pricing: price for storage + object retrieval cost
+- ms retrieval
+- great for data accessed once a quarter
+- Min Storage Duration: 90 days
+
+## S3 Glacier Flexible Retrieval *(formerly Amazon S3 Glacier)*
+- Low-cost object storage meant for archiving / backup
+- Pricing: price for storage + object retrieval cost
+- Expedited (1 to 5 minutes), Standard (3 to 5 hours), Bulk (5 to 12 hours) – free
+- Min Storage Duration: 90 days
+
+## S3 Glacier Deep Archive *(for long term storage)*
+- Low-cost object storage meant for archiving / backup
+- Pricing: price for storage + object retrieval cost
+- Standard (12 hours), Bulk (48 hours)
+- Min Storage Duration: 180 days
+
+## S3 Encryption
+- **Server-Side Encryption** *(default)*: Server encrypts the file after receiving it
+- **Client-Side Encryption**: User encrypts the file befor uploading it
+
+## Shared Responsibility Model for S3
+| AWS | User |
+| --- | ---- |
+| Infrastructure (global security, durability, availability, sustain concurrent loss of data in two facilities) | S3 Versioning, S3 Bucket Policies, S3 Replication Setup, S3 Storage Classes |
+| Configuration and vulnerability analysis | Logging and Monitoring |
+| Compliance validation | Data encryption at rest and in transit |
+
+## AWS Snow Family
+- AWS Snow Family are storage and compute devices used to physically move large amounts of data in or out of the cloud
+- Highly-secure, portable devices to collect and process data at the edge, and migrate data into and out of AWS
+- Data Migration:
+    - Snowcone
+    - Snowball Edge
+    - Snowmobile
+- Edge Compuging:
+    - Snowcone
+    - Snowball Edge
+
+*If it takes more than a week to transfer over the network, use Snowball devices*
+
+## AWS Snowcone
+- Small, portable computing, anywhere, rugged & secure, withstands harsh environments
+- Lightweight (4.5 pounds, 2.1 kg)
+- Device used fir edge compuging, storage, and data transfer
+- **Snowcone**: 8TB of HDD Storage
+- **Snowcode (SSD)**: 14 TB of SSD Storage
+- Use Snowcone where Snowball does not fit *(space-constrained environment*)
+- Must provide your own battery/cables
+- Can be sent back to AWS offline, or connect it to internet and use **AWS DataSync** to send data
+
+## AWS Snowball Edge *(for data transfers)*
+- Physical data transport solution: move TBs or PBs of data in or out of AWS
+- Alternative to moving data over the network (and paying network fees)
+- Pay per data transfer job
+- Provide block storage and Amazon S3-compatible object storage
+- **Snowball Edge (Storage Optimized)**: 80TB of HDD capacity for block volume and S3 compatible object storage
+- **Snowball Edge (Compute Optimized)**: 42 TB of HDD or 28TB NVMe capacity for block volume and S3 compatible object storage.
+- Use cases: large data cloud migrations, DC decommission, disaster recovery
+
+## Snowmobile
+- Transfer exabytes of data (1 EB = 1,000 PB = 1,000,000 TBs)
+- Each Snowmobile has 100 PB of capacity (use multiple in parallel)
+- High security: temperature controlled, GPS, 24/7 video surveillance
+- Better than Snowball if you transfer more than 10 PB
+- Cargo Container filled with racks of storage and compute that is transported via a semi-trailer tractor truck to transfer 100 PB of data per trailer
+
+|    | Snowcone | Snowball Edge | Snowmobile |
+| -- | -------- | ------------- | ---------- |
+| Storage Capacity | 8 TB HDD, 14 TB SSD | 80 TB usable | < 100 PB |
+| Migration Size | upto 24 TB, online & offline | upto petabytes, offline | upto exabytes, offline |
+| DataSync agent | pre-installed | |
+
+### Snow Family - Usage Process
+1. Request Snowball devices from the AWS console for delivery
+2. Install the snowball client / AWS OpsHub on your servers
+3. Connect the snowball to your servers and copy files using the client
+4. Ship back the device when you’re done (goes to the right AWS
+facility)
+5. Data will be loaded into an S3 bucket
+6. Snowball is completely wiped
+
 # AWS Storage Gateway
+- Bridge between on-premise data and cloud data in S3
+- Hybrid storage service to allow onpremises to seamlessly use the AWS Cloud
+- Use cases: disaster recovery, backup &
+restore, tiered storage
+- Types of Storage Gateway:
+    - File Gateway
+    - Volume Gateway
+    - Tape Gateway

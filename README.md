@@ -57,11 +57,13 @@
 - AWS Support
 
 # Databases
-- Amazon Aurora
-- Amazon DynamoDB
-- Amazon MemoryDB for Redis
-- Amazon Neptune
-- Amazon RDS
+| AWS Services | Description |
+| ------------ | ----------- |
+| [**Amazon Aurora**](#amazon-aurora) | |
+| [**Amazon DynamoDB**](#amazon-dynamodb) | |
+| [**Amazon MemoryDB for Redis**](#amazon-memorydb-for-redis) | |
+| [**Amazon Neptune**](#) | |
+| [**Amazon RDS**]() | |
 
 # Developer Tools
 | AWS Services | Description |
@@ -79,29 +81,39 @@
 | [**AWS X-Ray**](#aws-x-ray) | analyze and debug applications; distributed tracing system |
 
 # End-User Computing
-- Amazon AppStream 2.0
-- Amazon WorkSpaces
-- Amazon WorkSpaces Web
+| AWS Services | Description |
+| ------------ | ----------- |
+| [**Amazon AppStream 2.0**](#amazon-appstream-20) | stream desktop applications securely to a browser| 
+| [**Amazon WorkSpaces**](#amazon-appstream-20) | virtual desktops in the cloud | 
+| [**Amazon WorkSpaces Web**](#amazon-appstream-20-vs-workspaces) | provide secure access to internal websites and SaaS applications | 
 
 # Frontend Web-Mobile Services
-- AWS Amplify
-- AWS AppSync
-- AWS Device Farm
+| AWS Services | Description |
+| ------------ | ----------- |
+| [**AWS Amplify**](#aws-amplify) | build, deploy, host, and manage scalable web and mobile apps, mobile and web-app framework |
+| [**AWS AppSync**](#aws-appsync) | build, deploy, host, and manage scalable web and mobile apps, mobile and web-app framework |
+| [**AWS Device Farm**](#aws-device-farm) | test android, iOS, and web apps on real devices in the AWS Cloud |
 
 # IoT
-- AWS IoT Core
-- AWS IoT Greengrass
+| AWS Services | Description |
+| ------------ | ----------- |
+| [**AWS IoT Core**](#aws-iot-core) | connect devices ot the AWS cloud over MQTT, HTTPS, and LoRaWAN |
+| [**AWS IoT Greengrass**](#aws-iot-greengrass) | local compute, messaging, and sync for devices |
 
 # ML & AI
-- Amazon Comprehend
-- Amazon Kendra
-- Amazon Lex
-- Amazon Polly
-- Amazon Rekognition
-- Amazon SageMaker
-- Amazon Textract
-- Amazon Transcribe
-- Amazon Translate
+| AWS Services | Description |
+| ------------ | ----------- 
+| [**Amazon Comprehend**](#amazon-comprehend) | NLP service, discover insights and relationships in text |
+| [**Amazon Kendra**](#amazon-kendra) | enterprise machine learning search engine service, uses natural language to search unstructured text; document |
+| [**Amazon Lex**](#amazon-lex) | conversational interface service, build voice and text chatbotx like Alexa |
+| [**Amazon Polly**](#amazon-polly) | turn text into life-like speech; Text-to-Speech |
+| [**Amazon Rekognition**](#amazon-rekognition) | analyze image and video, facial analysis and facial recognition |
+| [**Amazon SageMaker**](#amazon-sagemaker) | build, train, and deploy machine learning models at scale |
+| [**Amazon Textract**](#amazon-textract) | extract (scan) text and data from documents; OCR |
+| [**Amazon Transcribe**](#amazon-transcribe) | speech recognition; Speech-to-Text |
+| [**Amazon Translate**](#amazon-translate) | neural machine translation service for translating text to and from English across a breadth of supported languages |
+| [**Amazon Forecast**](#amazon-forecast) | Fully managed service that uses ML to deliver highly accurate forecasts |
+| [**Amazon Personalize**](#amazon-personalize) | Fully managed ML-service to build apps with real-time personalized recommendations |
 
 # Management & Governance
 | AWS Services | Description |
@@ -290,7 +302,7 @@ messages are deleted after they're read by cuss
 -------------------------------------------------------
 
 # Amazon Connect
-- Receive calls, create contact flows, cloud-based virtual contact center 
+- Receive calls, create contact flows, cloud-based **virtual contact center** 
 - Can integrate with other CRM systems or AWS 
 - No upfront payments, 80% cheaper than traditional contact center solutions
 
@@ -414,31 +426,151 @@ messages are deleted after they're read by cuss
 -------------------------------------------------------
 
 # Amazon AppStream 2.0
+- Desktop Application Streaming Service
+- Deliver to any computer, without acquiring, provisioning infrastructure
+- The application is delivered from within a **web browser**
+
 # Amazon WorkSpaces
-# Amazon WorkSpaces Web
+- Managed Desktop as a Service (DaaS) solution to easily **provision Windows or Linux desktops**
+- **Great to eliminate management of on-premise VDI** *(Virtual Desktop Infrastructure)*
+- Fast and quickly scalable to thousands of users
+- Secured data – integrates with KMS
+- Pay-as-you-go service with monthly or hourly rates
+
+# Amazon AppStream 2.0 vs WorkSpaces
+- **Workspaces**
+    - Fully managed VDI and desktop available
+    - The users connect to the VDI and open native or WAM applications
+    - Workspaces are on-demand or always on
+- **AppStream 2.0**
+    -  Stream a desktop application to web browsers (no need to connect to a VDI)
+    - Works with any device (that has a web browser)
+    - Allow to configure an instance type per application type (CPU, RAM, GPU)
 
 -------------------------------------------------------
 
 # AWS Amplify
+- A set of tools and services that helps you **develop** and **deploy** scalable **full stack web** and **mobile applications**
+
+- Authentication, Storage, API (REST, GraphQL), CI/CD, PubSub, Analytics, AI/ML Predictions, Monitoring, Source Code from AWS, GitHub, etc…
+
 # AWS AppSync
+- Store and sync data across mobile and web apps in real-time
+- Makes use of **GraphQL** *(mobile technology from Facebook)*
+- Client Code can be generated automatically
+- Integrations with DynamoDB / Lambda
+- Real-time subscriptions
+- Offline data synchronization (replaces Cognito Sync)
+- Fine Grained Security
+- AWS Amplify can leverage AWS AppSync in the background!
+
 # AWS Device Farm
+- **Fully-managed service** that t**ests your web and mobile apps** against desktop browsers, real mobile devices, and tablets
+- Run tests concurrently on multiple devices *(speed up execution)*
+- Ability to configure device settings (GPS, language, Wi-Fi, Bluetooth, …)
 
 -------------------------------------------------------
 
 # AWS IoT Core
+- IoT stands for “Internet of Things” – the network of internet-connected devices that are able to collect and transfer data
+- AWS IoT Core allows you to **easily connect IoT devices to the AWS Cloud**
+- **Serverless, secure & scalable** to billions of devices and trillions of messages
+- Your applications can communicate with your devices even when they aren’t connected
+- Integrates with a lot of AWS services (Lambda, S3, SageMaker, etc.)
+- Build IoT applications that gather, process,
+analyze, and act on data
+
 # AWS IoT Greengrass
+- Local compute, messaging, and sync for devices
 
 -------------------------------------------------------
 
 # Amazon Comprehend
+- For Natural Language Processing – **NLP**
+- Fully managed and serverless service
+- Uses machine learning to find insights and relationships in text
+    - Language of the text
+    - Extracts key phrases, places, people, brands, or events
+    - Understands how positive or negative the text is
+    - Analyzes text using tokenization and parts of speech
+    - Automatically organizes a collection of text files by topic
+- Sample use cases:
+    - analyze customer interactions (emails) to find what leads to a positive or negative experience
+    - Create and groups articles by topics that Comprehend will uncover
+
 # Amazon Kendra
+- Fully managed **document search service** powered by Machine Learning
+- Extract answers from within a document *(text, pdf, HTML, PowerPoint, MS Word, FAQs…)*
+- Natural language search capabilities
+- Learn from user interactions/feedback to promote preferred results *(Incremental Learning)*
+- Ability to manually fine-tune search results *(importance of data, freshness, custom, …)*
+
 # Amazon Lex
+- same technology that powers Alexa
+- Automatic Speech Recognition (ASR) to convert speech to text
+- Natural Language Understanding to recognize the intent of text, callers
+- Helps build chatbots, call center bots
+
 # Amazon Polly
+- Turn text into lifelike speech using deep learning
+- Allowing you to create applications that talk
+
 # Amazon Rekognition
+- Find **objects, people, text, scenes** in **images** and **videos** using ML
+- **Facial analysis** and **facial search** to do user verification, people counting
+- Create a database of “familiar faces” or compare against celebrities
+- Use cases:
+    - Labeling
+    - Content Moderation
+    - Text Detection
+    - Face Detection and Analysis (gender, age range, emotions…)
+    - Face Search and Verification
+    - Celebrity Recognition
+    - Pathing (ex: for sports game analysis)
+
 # Amazon SageMaker
+- Fully managed service for developers / data scientists to build ML models
+- Typically, difficult to do all the processes in one place + provision servers
+- Machine learning process (simplified): predicting your exam score
+
 # Amazon Textract
+- Automatically extracts text, handwriting, and data from any scanned documents using AI and ML
+- Extract data from forms and tables
+- Read and process any type of document (PDFs, images, …)
+- Use cases:
+    - Financial Services (e.g., invoices, financial reports)
+    - Healthcare (e.g., medical records, insurance claims)
+    - Public Sector (e.g., tax forms, ID documents, passports)
+
 # Amazon Transcribe
+- Automatically **convert speech to text**
+- Uses a **deep learning process** called **automatic speech recognition (ASR)** to convert speech to text quickly and accurately
+- Automatically remove *Personally Identifiable Information* *(PII)* using Redaction
+- S*upports Automatic Language Identification* for multi-lingual audio
+- Use cases:
+    - transcribe customer service calls
+    - automate closed captioning and subtitling
+    - generate metadata for media assets to create a fully searchable archive
+
 # Amazon Translate
+- Natural and accurate **language translation**
+- Amazon Translate allows you to **localize content** - such as websites and applications - for **international users**, and to easily translate large volumes of text efficiently
+
+# Amazon Forecast
+- Fully managed service that uses ML to **deliver highly accurate forecasts**
+- Example: predict the future sales of a raincoat
+- 50% more accurate than looking at the data itself
+- Reduce forecasting time from months to hours
+- Use cases: Product Demand Planning, Financial Planning, Resource Planning, …
+
+# Amazon Personalize
+- Fully managed ML-service to **build apps with real-time personalized recommendations**
+- Example: personalized product recommendations/re-ranking, customized direct marketing
+- Example: User bought gardening tools, provide recommendations on the next one to buy
+- Same technology used by Amazon.com
+- Integrates into existing websites, applications, SMS, email marketing systems, …
+- Implement in days, not months (you don’t need to build, train, and deploy ML solutions)
+- Use cases: retail stores, media and entertainment…
 
 -------------------------------------------------------
 
@@ -1134,7 +1266,7 @@ Protects you against Layer 3 (network), 4 (transport) and 7 (app) attacks
 # AWS Elastic Disaster Recovery
 - Scalable, cost-effective application recovery to AWS
 - Used to be named “CloudEndure Disaster Recovery”
-- Quickly and easily recover your physical, virtual, and cloud-based servers into AWS
+- Quickly and easily **recover** your physical, virtual, and cloud-based servers into AWS
 - Example: protect your most critical databases (including Oracle, MySQL, and SQL Server), enterprise apps (SAP), protect your data from ransomware attacks, …
 - Continuous block-level replication for your servers
 
@@ -1346,3 +1478,58 @@ restore, tiered storage
     - File Gateway
     - Volume Gateway
     - Tape Gateway
+
+
+
+
+
+------------------------
+
+# AWS DataSync
+- Move large amount of data from on-premises to AWS
+- Can synchronize to: Amazon S3 (any storage classes – including Glacier), Amazon EFS, Amazon FSx for Windows
+- Replication tasks can be scheduled hourly, daily, weekly
+- The replication tasks are incremental after the first full load
+
+# AWS Fault Injection Simulator (FIS)
+- A fully managed service for **running fault injection experiments** on AWS workloads
+- Based on **Chaos Engineering** – stressing an application by creating disruptive events (e.g., sudden increase in CPU or memory), observing how the system responds, and implementing improvements
+- Helps you uncover hidden bugs and performance bottlenecks
+- Supports the following AWS services: EC2, ECS, EKS, RDS…
+- Use pre-built templates that generate the desired disruptions
+
+# AWS Ground Station
+- Fully managed service that lets you control
+satellite communications, process data, and scale your satellite operations
+- Provides a global network of satellite ground stations near AWS regions
+- Allows you to download satellite data to your AWS VPC within seconds
+- Send satellite data to S3 or EC2 instance
+- Use cases: weather forecasting, surface imaging, communications, video broadcasts
+
+# Amazon Pinpoint
+- **Marketing campaign management** service, *sends targeted email* via SMS, push notifications and voice messages
+- Scalable 2-way (outbound/inbound) marketing
+communications service
+- Supports email, SMS, push, voice, and in-app messaging
+- Ability to segment and personalize messages with the right content to customers
+- Possibility to receive replies
+- Scales to billions of messages per day
+- Use cases: run campaigns by sending marketing, bulk, transactional SMS messages
+
+
+## Versus Amazon SNS or Amazon SES
+- In SNS & SES you managed each message's audience, content, and delivery schedule
+- In Amazon Pinpoint, you create message templates, delivery schedules, highly-targeted segments, and full campaigns
+
+# AWS STS
+- STS stands for Security Token Service
+- Enables you to create **temporary, limited privileges credentials** to access your AWS
+resources
+- Short-term credentials: you configure
+expiration period
+- Use Cases:
+    - **Identity federation**: manage user identities in external systems, and provide them with STS tokens to access AWS resources
+    - **IAM Roles for cross/same account access**
+    - **IAM Roles for Amazon EC2**: provide temporary
+credentials for EC2 instances to access AWS
+resources

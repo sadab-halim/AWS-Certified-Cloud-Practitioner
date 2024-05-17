@@ -126,22 +126,26 @@
 | [**AWS Well-Architected Tool**](#aws-well-architected-tool) | |
 
 # Migration & Transfer
-- AWS Application Discovery Service
-- AWS Application Migration Service
-- AWS Database Migration Service (AWS DMS)
-- AWS Migration Hub
-- AWS Schema Conversion Tool (AWS SCT)
-- AWS Snow Family
-- AWS Transfer Family
+| AWS Services | Description |
+| ------------ | ----------- |
+| [**AWS Application Discovery Service**](#aws-application-discovery-service) | discover on-premises applications to streamline migration |
+| [**AWS Application Migration Service**](#aws-application-migration-service) | automate application migration and modernization |
+| [**AWS Database Migration Service (AWS DMS)**](#aws-database-migration-service-aws-dms) | migrate databases with minimal downtime, u can mirate from: a. on-premise db to AWS, b. from 2 db in different or same AWS accounts using diff SQL engines, c. from a SQL to NoSQL db |
+| [**AWS Migration Hub**](#aws-migration-hub) | track migrations from a single place |
+| [**AWS Schema Conversion Tool (AWS SCT)**](#aws-schema-conversion-tool-aws-sct) | convert source database schema and most code to target-compatible format |
+| [**AWS Snow Family**](#aws-snow-family) | move petabytes of data to and from AWS, or process data at the edge |
+| [**AWS Transfer Family**](#aws-transfer-family) | fully managed SFTP, FTPS, and FTP service |
 
 # Networking & Content Delivery
-- Amazon API Gateway
-- Amazon CloudFront
-- AWS Direct Connect
-- AWS Global Accelerator
-- Amazon Route 53
-- Amazon VPC
-- AWS VPN
+| AWS Services | Description |
+| ------------ | ----------- |
+| [**Amazon API Gateway**](#amazon-api-gateway) | build, deploy, and manage APIs, creating secure APIs at any sacale |
+| [**Amazon CloudFront**](#amazon-cloudfront) | global content delivery network (CDN) |
+| [**AWS Direct Connect**](#aws-direct-connect) | dedicated gigabit network connection from on-premise data center to AWS (very fast connection) |
+| [**AWS Global Accelerator**](#aws-global-accelerator) | improve global application availability and performance |
+| [**Amazon Route 53**](#amazon-route-53) | highly available and scalable Domain Name System (DNS) web service |
+| [**Amazon VPC**](#amazon-vpc) | isolated cloud resources, logically isolated section of the AWS network |
+| [**AWS VPN**](#aws-vpn) | securely access your network resources between on-premise, remote offices, mobile employees |
 
 # Security, Identity & Compliance
 | AWS Service | Description |
@@ -636,22 +640,149 @@ your AWS resources
 -------------------------------------------------------
 
 # AWS Application Discovery Service
+- AWS Application Discovery Service helps systems integrators quickly and reliably plan application migration projects by automatically identifying applications running in on-premises data centers, their associated dependencies, and their performance profile.
+
+- Server utilization data and dependency mapping are important for migrations
+
+- **Agentless Discover (AWS Agentless Discovery Connector)**: VM inventory, configuration, and performance history such as CPU, memory, and disk usage
+
+- **Agent-based Discovery (AWS Application Discovery Agent)**: System configuration, system performance, running processes, and details of the network connections between systems
+
+- Resulting data can be viewed within AWS Migation Hub
+
 # AWS Application Migration Service
+- The “AWS evolution” of CloudEndure Migration, replacing AWS Server Migration Service (SMS)
+- Lift-and-shift (rehost) solution which simplify migrating applications to AWS
+- Converts your physical, virtual, and cloud-based servers to run natively on AWS
+- Supports wide range of platforms, Operating Systems, and databases
+- Minimal downtime, reduced costs
+
+### AWS Migration Evaluator
+- Helps you build a data-driven business case for migration to AWS
+- Provides a clear baseline of what your organization is running today
+- Install Agentless Collector to conduct broad-based discovery
+- Take a snapshot of on-premises foot-print, server dependepncies, …
+- Analyze current state, define target state, then develop migration plan
+
 # AWS Database Migration Service (AWS DMS)
+
 # AWS Migration Hub
+- Central location to collect servers and applications inventory data for the assessment, planning, and tracking of migrations to AWS
+- Helps accelerate your migration to AWS, automate lift-and-shift
+- AWS Migration Hub Orchestrator – provides pre-built templates to save time and effort migrating enterprise apps (e.g., SAP, Microsoft SQL Server…)
+- Supports migrations status updates from Application Migration Service (MGN) and Database Migration Service (DMS)
+
 # AWS Schema Conversion Tool (AWS SCT)
+- The AWS Schema Conversion Tool makes heterogeneous database migrations easy by automatically converting the source database schema and a majority of the custom code to a format compatible with the target database. 
+
+- The custom code that the tool converts includes views, stored procedures, and functions. 
+
+- Any code that the tool cannot convert automatically is clearly marked so that you can convert it yourself. 
+
+- For supported source and target databases, see the User Guide, following. 
+
 # AWS Snow Family
+- AWS Snow Family are storage and compute devices used to physically move large amounts of data in or out of the cloud
+- Highly-secure, portable devices to collect and process data at the edge, and migrate data into and out of AWS
+- Data Migration:
+    - Snowcone
+    - Snowball Edge
+    - Snowmobile
+- Edge Compuging:
+    - Snowcone
+    - Snowball Edge
+
+*If it takes more than a week to transfer over the network, use Snowball devices*
+
+## AWS Snowcone
+- Small, portable computing, anywhere, rugged & secure, withstands harsh environments
+- Lightweight (4.5 pounds, 2.1 kg)
+- Device used fir edge compuging, storage, and data transfer
+- **Snowcone**: 8TB of HDD Storage
+- **Snowcode (SSD)**: 14 TB of SSD Storage
+- Use Snowcone where Snowball does not fit *(space-constrained environment*)
+- Must provide your own battery/cables
+- Can be sent back to AWS offline, or connect it to internet and use **AWS DataSync** to send data
+
+## AWS Snowball Edge *(for data transfers)*
+- Physical data transport solution: move TBs or PBs of data in or out of AWS
+- Alternative to moving data over the network (and paying network fees)
+- Pay per data transfer job
+- Provide block storage and Amazon S3-compatible object storage
+- **Snowball Edge (Storage Optimized)**: 80TB of HDD capacity for block volume and S3 compatible object storage
+- **Snowball Edge (Compute Optimized)**: 42 TB of HDD or 28TB NVMe capacity for block volume and S3 compatible object storage.
+- Use cases: large data cloud migrations, DC decommission, disaster recovery
+
+## Snowmobile
+- Transfer exabytes of data (1 EB = 1,000 PB = 1,000,000 TBs)
+- Each Snowmobile has 100 PB of capacity (use multiple in parallel)
+- High security: temperature controlled, GPS, 24/7 video surveillance
+- Better than Snowball if you transfer more than 10 PB
+- Cargo Container filled with racks of storage and compute that is transported via a semi-trailer tractor truck to transfer 100 PB of data per trailer
+
+|    | Snowcone | Snowball Edge | Snowmobile |
+| -- | -------- | ------------- | ---------- |
+| Storage Capacity | 8 TB HDD, 14 TB SSD | 80 TB usable | < 100 PB |
+| Migration Size | upto 24 TB, online & offline | upto petabytes, offline | upto exabytes, offline |
+| DataSync agent | pre-installed | |
+
+### Snow Family - Usage Process
+1. Request Snowball devices from the AWS console for delivery
+2. Install the snowball client / AWS OpsHub on your servers
+3. Connect the snowball to your servers and copy files using the client
+4. Ship back the device when you’re done (goes to the right AWS
+facility)
+5. Data will be loaded into an S3 bucket
+6. Snowball is completely wiped
+
 # AWS Transfer Family
+- Fully managed SFTP, FTPS, and FTP service
 
 -------------------------------------------------------
 
 # Amazon API Gateway
+- Fully managed service for developers to easily create, publish, maintain, monitor, and secure APIs
+- Serverless and scalable
+- Supports RESTful APIs and WebSocket APIs
+- Support for security, user authentication, API throttling, API keys, monitoring...
+- Example: building a serverless API
+
 # Amazon CloudFront
+- Content Delivery Network (CDN)
+- Improves read performance, content is cached at the edge
+- Improves users experience
+- 216 Point of Presence globally (edge locations)
+- DDoS protection (because worldwide), integration with Shield, AWS WAF)
+
 # AWS Direct Connect
+- Establish a physical connection between on-premises and AWS
+- The connection is private, secure and fast
+- Goes over a private network
+- Takes at least a month to establish
+
 # AWS Global Accelerator
+- Improve global application availability and performance using the AWS global network
+- It can find the optimal path from the end user to your web-servers. 
+- Global Accelerator are deployed within Edge locations so you send user traffic to an Edge Location instead of directly to your web-application.
+
 # Amazon Route 53
+- Route53 is a Managed DNS (Domain Name System)
+- DNS is a collection of rules and records which helps clients understand how to reach a server through URLs
+- In AWS, the most common records are:
+    - www.google.com => 12.34.56.78 == A record (IPv4)
+    - www.google.com => 2001:0db8:85a3:0000:0000:8a2e:0370:7334 == AAAA IPv6
+    - search.google.com => www.google.com == CNAME: hostname to hostname
+    - example.com => AWS resource == Alias (ex: ELB, CloudFront, S3, RDS, etc…)
+
 # Amazon VPC
+- Isolated cloud resources, logically isolated section of the AWS network
+
 # AWS VPN
+- Securely access your network resources between on-premise, remote offices, mobile employees
+
+- **AWS Site-to-Site VPN**: securely connect on-premises network or branch office site to VPC
+
+- **AWS Client VPN**: securely connect users to AWS or on-premises networks
 
 -------------------------------------------------------
 
@@ -1205,60 +1336,6 @@ distribution…
 | Infrastructure (global security, durability, availability, sustain concurrent loss of data in two facilities) | S3 Versioning, S3 Bucket Policies, S3 Replication Setup, S3 Storage Classes |
 | Configuration and vulnerability analysis | Logging and Monitoring |
 | Compliance validation | Data encryption at rest and in transit |
-
-## AWS Snow Family
-- AWS Snow Family are storage and compute devices used to physically move large amounts of data in or out of the cloud
-- Highly-secure, portable devices to collect and process data at the edge, and migrate data into and out of AWS
-- Data Migration:
-    - Snowcone
-    - Snowball Edge
-    - Snowmobile
-- Edge Compuging:
-    - Snowcone
-    - Snowball Edge
-
-*If it takes more than a week to transfer over the network, use Snowball devices*
-
-## AWS Snowcone
-- Small, portable computing, anywhere, rugged & secure, withstands harsh environments
-- Lightweight (4.5 pounds, 2.1 kg)
-- Device used fir edge compuging, storage, and data transfer
-- **Snowcone**: 8TB of HDD Storage
-- **Snowcode (SSD)**: 14 TB of SSD Storage
-- Use Snowcone where Snowball does not fit *(space-constrained environment*)
-- Must provide your own battery/cables
-- Can be sent back to AWS offline, or connect it to internet and use **AWS DataSync** to send data
-
-## AWS Snowball Edge *(for data transfers)*
-- Physical data transport solution: move TBs or PBs of data in or out of AWS
-- Alternative to moving data over the network (and paying network fees)
-- Pay per data transfer job
-- Provide block storage and Amazon S3-compatible object storage
-- **Snowball Edge (Storage Optimized)**: 80TB of HDD capacity for block volume and S3 compatible object storage
-- **Snowball Edge (Compute Optimized)**: 42 TB of HDD or 28TB NVMe capacity for block volume and S3 compatible object storage.
-- Use cases: large data cloud migrations, DC decommission, disaster recovery
-
-## Snowmobile
-- Transfer exabytes of data (1 EB = 1,000 PB = 1,000,000 TBs)
-- Each Snowmobile has 100 PB of capacity (use multiple in parallel)
-- High security: temperature controlled, GPS, 24/7 video surveillance
-- Better than Snowball if you transfer more than 10 PB
-- Cargo Container filled with racks of storage and compute that is transported via a semi-trailer tractor truck to transfer 100 PB of data per trailer
-
-|    | Snowcone | Snowball Edge | Snowmobile |
-| -- | -------- | ------------- | ---------- |
-| Storage Capacity | 8 TB HDD, 14 TB SSD | 80 TB usable | < 100 PB |
-| Migration Size | upto 24 TB, online & offline | upto petabytes, offline | upto exabytes, offline |
-| DataSync agent | pre-installed | |
-
-### Snow Family - Usage Process
-1. Request Snowball devices from the AWS console for delivery
-2. Install the snowball client / AWS OpsHub on your servers
-3. Connect the snowball to your servers and copy files using the client
-4. Ship back the device when you’re done (goes to the right AWS
-facility)
-5. Data will be loaded into an S3 bucket
-6. Snowball is completely wiped
 
 # AWS Storage Gateway
 - Bridge between on-premise data and cloud data in S3

@@ -3,38 +3,38 @@
 # Analytics
 | AWS Services | Description |
 | ------------ | ----------- |
-| [**Amazon Athena**](#amazon-athena) | *serverless, interactive query service, query data in Amazon S3 using SQL* |
-| [**AWS Data Exchange**](#aws-data-exchange) | *find, subscribe to, and use third-party data in the cloud* |
-| [**Amazon EMR**](#amazon-emr) | *hosted hadoop framework, is used for data processing and analytics* |
-| [**AWS Glue**](#aws-glue) | *simple, scalable, and serverless data integration, is an extract, transform, Load (ETL) service* |
-| [**Amazon Kinesis**](#amazon-kinesis) | *analyze real-time video and data streams* |
-| [**Amazon MSK**]() | *fully managed Apache Kafka Service* |
-| [**Amazon OpenSearch Service**](#amazon-opensearch-service) | *deploy, operate, and scale OpenSearch clusters in the AWS Cloud* |
-| [**Amazon QuickSight**](#amazon-quicksight) | *fast business analytics service* |
-| [**Amazon Redshift**](#amazon-redshift) | *fast, simple, cost-effective petabyte data warehouse* |
+| [**Amazon Athena**](#amazon-athena) | serverless, interactive query service, query data in Amazon S3 using SQL |
+| [**AWS Data Exchange**](#aws-data-exchange) | find, subscribe to, and use third-party data in the cloud |
+| [**Amazon EMR**](#amazon-emr) | hosted hadoop framework, is used for data processing and analytics |
+| [**AWS Glue**](#aws-glue) | simple, scalable, and serverless data integration, is an extract, transform, Load (ETL) service |
+| [**Amazon Kinesis**](#amazon-kinesis) | analyze real-time video and data streams |
+| [**Amazon MSK**]() | fully managed Apache Kafka Service |
+| [**Amazon OpenSearch Service**](#amazon-opensearch-service) | deploy, operate, and scale OpenSearch clusters in the AWS Cloud |
+| [**Amazon QuickSight**](#amazon-quicksight) | fast business analytics service |
+| [**Amazon Redshift**](#amazon-redshift) | fast, simple, cost-effective petabyte data warehouse |
 
 # Application Integration
 | AWS Services | Description |
 | ------------ | ----------- |
-| [**Amazon EventBridge**](#amazon-eventbridge) | *serverless event bus for SaaS apps and AWS services, used for app integration by streaming real-time data to app.* |
-| [**Amazon SNS**](#amazon-sns) | *pub/sub, SMS, email, and mobile push notifications* |
-| [**Amazon SQS**](#amazon-sqs) | *fully managed message queueing service*|
-| [**AWS Step Functions**](#aws-step-functions) | *build serverless visual workflow to orchestrate your Lambda functions* |
+| [**Amazon EventBridge**](#amazon-eventbridge) | serverless event bus for SaaS apps and AWS services, used for app integration by streaming real-time data to app. |
+| [**Amazon SNS**](#amazon-sns) | pub/sub, SMS, email, and mobile push notifications |
+| [**Amazon SQS**](#amazon-sqs) | fully managed message queueing service |
+| [**AWS Step Functions**](#aws-step-functions) | build serverless visual workflow to orchestrate your Lambda functions |
 
 # Businesss Applications
 | AWS Services | Description |
 | ------------ | ----------- |
-| [**Amazon Connect**](#amazon-connect) | *virtual call center service* |
-| [**Amazon SES**](#amazon-ses) | *transactional email service (marketing & notification), integrate SES to your application to send mails* |
+| [**Amazon Connect**](#amazon-connect) | virtual call center service |
+| [**Amazon SES**](#amazon-ses) | transactional email service (marketing & notification), integrate SES to your application to send mails |
 
 # Cloud Financial Management
 | AWS Services | Description |
 | ------------ | ----------- |
-| [**AWS Billing Conductor**](#aws-billing-conductor) | *customize your billing data by account and rate share with your end users* |
-| [**AWS Budgets**](#aws-budgets) | *set custom budgets that alert u when ur cost and usage exceeds ur budgeted amount, set RI utilization or coverage targets and receive alerts when ur utilization drops below the thresold u define.* |
-| [**AWS Cost and Usage Report**](#aws-cost-and-usage-report) | *single resource for accessing comprehensive info about ur AWS cost and usage. it lists AWS usage for each service category used by an account and its users in hourly or daily line items* |
-| [**AWS Cost Explorer**](#aws-cost-explorer) | *visualize, understand & manage ur AWS costs and usage over time, create custom reports & analyze cost & usage data* |
-| [**AWS Marketplace**](#aws-marketplace) | *digital catalogue, buy or sell software that runs on AWS* |
+| [**AWS Billing Conductor**](#aws-billing-conductor) | customize your billing data by account and rate share with your end users |
+| [**AWS Budgets**](#aws-budgets) | set custom budgets that alert u when ur cost and usage exceeds ur budgeted amount, set RI utilization or coverage targets and receive alerts when ur utilization drops below the thresold u define. |
+| [**AWS Cost and Usage Report**](#aws-cost-and-usage-report) | single resource for accessing comprehensive info about ur AWS cost and usage. it lists AWS usage for each service category used by an account and its users in hourly or daily line items |
+| [**AWS Cost Explorer**](#aws-cost-explorer) | visualize, understand & manage ur AWS costs and usage over time, create custom reports & analyze cost & usage data |
+| [**AWS Marketplace**](#aws-marketplace) | digital catalogue, buy or sell software that runs on AWS |
 
 # Compute
 - AWS Batch
@@ -66,17 +66,17 @@
 # Developer Tools
 | AWS Services | Description |
 | ------------ | ----------- |
-| [**AWS AppConfig**](#aws-appconfig) | *quickly deploy application configurations to applications of any size* |
-| [**AWS CLI**](#aws-cli) | *command line interface tool to manage AWS services* |
-| [**AWS Cloud9**](#aws-cloud9) | *write, run, and debug code on a cloud IDE* |
-| [**AWS CloudShell**](#aws-cloudshell) | *command line access to AWS resources and tools directly from a browser* |
-| [**AWS CodeArtifact**](#aws-codeartifact) | *artifact management for software development* |
-| [**AWS CodeBuild**](#aws-codebuild) | *fully managed service, build and test code* |
-| [**AWS CodeCommit**](#aws-codecommit) | *store code in private git repositories* |
-| [**AWS CodeDeploy**](#aws-codedeploy) | *automate code deployments* |
-| [**AWS CodePipeline**](#aws-codepipeline) | *release software using continuous delivery* |
-| [**AWS CodeStar**](#aws-codestar) | *develop and deploy AWS applications* |
-| [**AWS X-Ray**](#aws-x-ray) | *analyze and debug applications; distributed tracing system* |
+| [**AWS AppConfig**](#aws-appconfig) | quickly deploy application configurations to applications of any size |
+| [**AWS CLI**](#aws-cli) | command line interface tool to manage AWS services |
+| [**AWS Cloud9**](#aws-cloud9) | write, run, and debug code on a cloud IDE |
+| [**AWS CloudShell**](#aws-cloudshell) | command line access to AWS resources and tools directly from a browser |
+| [**AWS CodeArtifact**](#aws-codeartifact) | artifact management for software development |
+| [**AWS CodeBuild**](#aws-codebuild) | fully managed service, build and test code |
+| [**AWS CodeCommit**](#aws-codecommit) | store code in private git repositories |
+| [**AWS CodeDeploy**](#aws-codedeploy) | automate code deployments |
+| [**AWS CodePipeline**](#aws-codepipeline) | release software using continuous delivery |
+| [**AWS CodeStar**](#aws-codestar) | develop and deploy AWS applications |
+| [**AWS X-Ray**](#aws-x-ray) | analyze and debug applications; distributed tracing system |
 
 # End-User Computing
 - Amazon AppStream 2.0
@@ -106,23 +106,23 @@
 # Management & Governance
 | AWS Services | Description |
 | ------------ | ----------- |
-| [**AWS Auto Scaling**](#aws-auto-scaling) | *scale multiple resources to meet demand* |
-| [**AWS CloudFormation**](#aws-cloudformation) | *create & manage resources with templates, infra modeling & provisioning service, templates: JSON or YAML, IaC* |
-| [**AWS CloudTrail**](#aws-cloudtrail) | *track and monitor activities by users, roles, or AWS services, tracks all API calls; "where-when-who-what"* |
-| [**Amazon CloudWatch**](#amazon-cloudwatch) | *monitor resources and applications* |
-| [**AWS Compute Optimizer**](#aws-compute-optimizer) | *identify optimal AWS compute resources, suggests how to reduce costs and improve performance by using ML* |
-| [**AWS Config**](#aws-config) | *track and evaluate configuration changes on a per region basis; Compliance-as-Code framework* |
-| [**AWS Control Tower**](#aws-control-tower) | *set up and govern a secure, compliant multi-account environment; replacement of retired AWS Landing Zones* |
-| [**AWS Health Dashboard**](#aws-health-dashboard) | *status of all AWS services across all regions* |
-| [**AWS Launch Wizard**](#aws-launch-wizard) | *easily size, configure, and deploy third-party applications on AWS* |
-| [**AWS License Manager**](#aws-license-manager) | *track and manage software licenses across multiple AWS Regions* |
-| [**AWS Management Console**](#aws-management-console) | *web-based user interface comprising multiple AWS service consoles* |
-| [**AWS Organizations**](#aws-organizations) | *central governance and management across AWS accounts* |
-| [**AWS Resource Groups**](#aws-resource-groups) | *see your resources across the AWS Regions in your AWS account* |
-| [**AWS Tag Editor**](#aws-tag-editor) | *add, edit, or delete tags on multiple AWS resources* |
-| [**AWS Service Catalog**](#aws-service-catalog) | *a quick self-service portal to launch a set of authorized products pre-defined by admins* |
-| [**AWS Systems Manager**](#aws-systems-manager) | *organize, monitor, and automate management tasks on your AWS resources.* |
-| [**AWS Trusted Advisor**](#aws-trusted-advisor) | *optimize performance and security; recommendation tool which automatically and actively monitors your AWS acc to provide actional recommendations across a series of categoris* |
+| [**AWS Auto Scaling**](#aws-auto-scaling) | scale multiple resources to meet demand |
+| [**AWS CloudFormation**](#aws-cloudformation) | create & manage resources with templates, infra modeling & provisioning service, templates: JSON or YAML, IaC |
+| [**AWS CloudTrail**](#aws-cloudtrail) | track and monitor activities by users, roles, or AWS services, tracks all API calls; "where-when-who-what" |
+| [**Amazon CloudWatch**](#amazon-cloudwatch) | monitor resources and applications |
+| [**AWS Compute Optimizer**](#aws-compute-optimizer) | identify optimal AWS compute resources, suggests how to reduce costs and improve performance by using ML |
+| [**AWS Config**](#aws-config) | track and evaluate configuration changes on a per region basis; Compliance-as-Code framework |
+| [**AWS Control Tower**](#aws-control-tower) | set up and govern a secure, compliant multi-account environment; replacement of retired AWS Landing Zones |
+| [**AWS Health Dashboard**](#aws-health-dashboard) | status of all AWS services across all regions |
+| [**AWS Launch Wizard**](#aws-launch-wizard) | easily size, configure, and deploy third-party applications on AWS |
+| [**AWS License Manager**](#aws-license-manager) | track and manage software licenses across multiple AWS Regions |
+| [**AWS Management Console**](#aws-management-console) | web-based user interface comprising multiple AWS service consoles |
+| [**AWS Organizations**](#aws-organizations) | central governance and management across AWS accounts |
+| [**AWS Resource Groups**](#aws-resource-groups) | see your resources across the AWS Regions in your AWS account |
+| [**AWS Tag Editor**](#aws-tag-editor) | add, edit, or delete tags on multiple AWS resources |
+| [**AWS Service Catalog**](#aws-service-catalog) | a quick self-service portal to launch a set of authorized products pre-defined by admins |
+| [**AWS Systems Manager**](#aws-systems-manager) | organize, monitor, and automate management tasks on your AWS resources. |
+| [**AWS Trusted Advisor**](#aws-trusted-advisor) | optimize performance and security; recommendation tool which automatically and actively monitors your AWS acc to provide actional recommendations across a series of categoris |
 | [**AWS Well-Architected Tool**](#aws-well-architected-tool) | |
 
 # Migration & Transfer
@@ -146,33 +146,33 @@
 # Security, Identity & Compliance
 | AWS Service | Description |
 | ----------- | ----------- |
-| [**AWS Artifact**](#aws-artifact) | *on-demand access to AWS compliance reports* |
-| [**AWS Audit Manager**](#aws-audit-manager) | *audit your AWS usage to simplify how you assess risk and compliance* |
-| [**AWS Certificate Manager**](#aws-certificate-manager-acm) | *provision, manage, and deploy SSL/TLS certificates* |
-| [**AWS CloudHSM**](#aws-cloudhsm) | *offers secure cryptographic key storage for customers* |
-| [**Amazon Cognito**](#amazon-cognito) | *identity for your web-mobile app users* |
-| [**Amazon Detective**](#amazon-detective) | *used to analyze, investigate and indentify potential security issues* |
-| [**AWS Directory Service**](#aws-directory-service) | *set up and run Microsoft Active Directory with AWS services* |
-| [**AWS Firewall Manager**](#aws-firewall-manager) | *deploy network security across your VPCs with just a few clicks* |
-| [**Amazon GuardDuty**](#amazon-guardduty) | *threat detection service, detects suspicious or malicious activity* |
-| [**AWS IAM**](#aws-identity-and-access-management-iam) | *securely manage access to services and resources, create and manage AWS users and groups, and use permissions to allow their access to AWS resources* |
-| [**AWS IAM Identity Center (SSO)**](#aws-iam-identity-center-aws-single-sign-on) | *manage single sign-on access to AWS accounts and apps* |
-| [**Amazon Inspector**](#amazon-inspector) | *automated and continual vulnerability management at scale* |
-| [**AWS KMS**](#aws-key-management-service-aws-kms) | *managed creation and control of encryption keys* |
-| [**Amazon Macie**](#amazon-macie) | *fully managed data security and data privacy service* |
-| [**AWS Network Firewall**](#aws-network-firewall) | *protect VPCs against network attacks* |
-| [**AWS RAM**](#aws-resource-access-manager-aws-ram) | *simple, secure service to share AWS resources* |
-| [**AWS Secrets Manager**](#aws-secrets-manager) | *rotate, manage, and retrieve secrets* |
-| [**AWS Security Hub**](#aws-security-hub) | *gather security findings from multiple AWS accounts* |
-| [**AWS Shield**](#aws-shield) | *managed DDoS protection that safeguards app running on AWS* |
-| [**AWS WAF**](#aws-waf) | *filter malicious web traffic* |
+| [**AWS Artifact**](#aws-artifact) | on-demand access to AWS compliance reports |
+| [**AWS Audit Manager**](#aws-audit-manager) | audit your AWS usage to simplify how you assess risk and compliance |
+| [**AWS Certificate Manager**](#aws-certificate-manager-acm) | provision, manage, and deploy SSL/TLS certificates |
+| [**AWS CloudHSM**](#aws-cloudhsm) | offers secure cryptographic key storage for customers |
+| [**Amazon Cognito**](#amazon-cognito) | identity for your web-mobile app users |
+| [**Amazon Detective**](#amazon-detective) | used to analyze, investigate and indentify potential security issues |
+| [**AWS Directory Service**](#aws-directory-service) | set up and run Microsoft Active Directory with AWS services |
+| [**AWS Firewall Manager**](#aws-firewall-manager) | deploy network security across your VPCs with just a few clicks |
+| [**Amazon GuardDuty**](#amazon-guardduty) | threat detection service, detects suspicious or malicious activity |
+| [**AWS IAM**](#aws-identity-and-access-management-iam) | securely manage access to services and resources, create and manage AWS users and groups, and use permissions to allow their access to AWS resources |
+| [**AWS IAM Identity Center (SSO)**](#aws-iam-identity-center-aws-single-sign-on) | manage single sign-on access to AWS accounts and apps |
+| [**Amazon Inspector**](#amazon-inspector) | automated and continual vulnerability management at scale |
+| [**AWS KMS**](#aws-key-management-service-aws-kms) | managed creation and control of encryption keys |
+| [**Amazon Macie**](#amazon-macie) | fully managed data security and data privacy service |
+| [**AWS Network Firewall**](#aws-network-firewall) | protect VPCs against network attacks |
+| [**AWS RAM**](#aws-resource-access-manager-aws-ram) | simple, secure service to share AWS resources |
+| [**AWS Secrets Manager**](#aws-secrets-manager) | rotate, manage, and retrieve secrets |
+| [**AWS Security Hub**](#aws-security-hub) | gather security findings from multiple AWS accounts |
+| [**AWS Shield**](#aws-shield) | managed DDoS protection that safeguards app running on AWS |
+| [**AWS WAF**](#aws-waf) | filter malicious web traffic |
 
 
 # Serverless
 | AWS Services | Description |
 | ------------ | ----------- |
-| [**AWS Fargate**](#aws-fargate) | *serverless, orchestration container service* |
-| [**AWS Lambda**](#aws-lambda) | *serverless functions service* |
+| [**AWS Fargate**](#aws-fargate) | serverless, orchestration container service |
+| [**AWS Lambda**](#aws-lambda) | serverless functions service |
 
 
 # Storage

@@ -1,32 +1,40 @@
 # AWS-Certified-Cloud-Practitioner
 
 # Analytics
-- Amazon Athena
-- AWS Data Exchange
-- Amazon EMR
-- AWS Glue
-- Amazon Kinesis
-- Amazon Managed Streaming for Apache Kafka (Amazon MSK)
-- Amazon OpenSearch Service
-- Amazon QuickSight
-- Amazon Redshift
+| AWS Services | Description |
+| ------------ | ----------- |
+| [**Amazon Athena**](#amazon-athena) | *serverless, interactive query service, query data in Amazon S3 using SQL* |
+| [**AWS Data Exchange**](#aws-data-exchange) | *find, subscribe to, and use third-party data in the cloud* |
+| [**Amazon EMR**](#amazon-emr) | *hosted hadoop framework, is used for data processing and analytics* |
+| [**AWS Glue**](#aws-glue) | *simple, scalable, and serverless data integration, is an extract, transform, Load (ETL) service* |
+| [**Amazon Kinesis**](#amazon-kinesis) | *analyze real-time video and data streams* |
+| [**Amazon MSK**]() | *fully managed Apache Kafka Service* |
+| [**Amazon OpenSearch Service**](#amazon-opensearch-service) | *deploy, operate, and scale OpenSearch clusters in the AWS Cloud* |
+| [**Amazon QuickSight**](#amazon-quicksight) | *fast business analytics service* |
+| [**Amazon Redshift**](#amazon-redshift) | *fast, simple, cost-effective petabyte data warehouse* |
 
 # Application Integration
-- Amazon EventBridge
-- Amazon Simple Notification Service (Amazon SNS)
-- Amazon Simple Queue Service (Amazon SQS)
-- AWS Step Functions
+| AWS Services | Description |
+| ------------ | ----------- |
+| [**Amazon EventBridge**](#amazon-eventbridge) | *serverless event bus for SaaS apps and AWS services, used for app integration by streaming real-time data to app.* |
+| [**Amazon SNS**](#amazon-sns) | *pub/sub, SMS, email, and mobile push notifications* |
+| [**Amazon SQS**](#amazon-sqs) | *fully managed message queueing service*|
+| [**AWS Step Functions**](#aws-step-functions) | *build serverless visual workflow to orchestrate your Lambda functions* |
 
 # Businesss Applications
-- Amazon Connect
-- Amazon Simple Email Service (Amazon SES)
+| AWS Services | Description |
+| ------------ | ----------- |
+| [**Amazon Connect**](#amazon-connect) | *virtual call center service* |
+| [**Amazon SES**](#amazon-ses) | *transactional email service (marketing & notification), integrate SES to your application to send mails* |
 
 # Cloud Financial Management
-- AWS Billing Conductor
-- AWS Budgets
-- AWS Cost and Usage Report
-- AWS Cost Explorer
-- AWS Marketplace
+| AWS Services | Description |
+| ------------ | ----------- |
+| [**AWS Billing Conductor**](#aws-billing-conductor) | *customize your billing data by account and rate share with your end users* |
+| [**AWS Budgets**](#aws-budgets) | *set custom budgets that alert u when ur cost and usage exceeds ur budgeted amount, set RI utilization or coverage targets and receive alerts when ur utilization drops below the thresold u define.* |
+| [**AWS Cost and Usage Report**](#aws-cost-and-usage-report) | *single resource for accessing comprehensive info about ur AWS cost and usage. it lists AWS usage for each service category used by an account and its users in hourly or daily line items* |
+| [**AWS Cost Explorer**](#aws-cost-explorer) | *visualize, understand & manage ur AWS costs and usage over time, create custom reports & analyze cost & usage data* |
+| [**AWS Marketplace**](#aws-marketplace) | *digital catalogue, buy or sell software that runs on AWS* |
 
 # Compute
 - AWS Batch
@@ -56,17 +64,19 @@
 - Amazon RDS
 
 # Developer Tools
-- AWS AppConfig
-- AWS CLI
-- AWS Cloud9
-- AWS CloudShell
-- AWS CodeArtifact
-- AWS CodeBuild
-- AWS CodeCommit
-- AWS CodeDeploy
-- AWS CodePipeline
-- AWS CodeStar
-- AWS X-Ray
+| AWS Services | Description |
+| ------------ | ----------- |
+| [**AWS AppConfig**](#aws-appconfig) | *quickly deploy application configurations to applications of any size* |
+| [**AWS CLI**](#aws-cli) | *command line interface tool to manage AWS services* |
+| [**AWS Cloud9**](#aws-cloud9) | *write, run, and debug code on a cloud IDE* |
+| [**AWS CloudShell**](#aws-cloudshell) | *command line access to AWS resources and tools directly from a browser* |
+| [**AWS CodeArtifact**](#aws-codeartifact) | *artifact management for software development* |
+| [**AWS CodeBuild**](#aws-codebuild) | *fully managed service, build and test code* |
+| [**AWS CodeCommit**](#aws-codecommit) | *store code in private git repositories* |
+| [**AWS CodeDeploy**](#aws-codedeploy) | *automate code deployments* |
+| [**AWS CodePipeline**](#aws-codepipeline) | *release software using continuous delivery* |
+| [**AWS CodeStar**](#aws-codestar) | *develop and deploy AWS applications* |
+| [**AWS X-Ray**](#aws-x-ray) | *analyze and debug applications; distributed tracing system* |
 
 # End-User Computing
 - Amazon AppStream 2.0
@@ -94,23 +104,26 @@
 - Amazon Translate
 
 # Management & Governance
-- AWS Auto Scaling
-- AWS CloudFormation
-- AWS CloudTrail
-- Amazon CloudWatch
-- AWS Compute Optimizer
-- AWS Config
-- AWS Control Tower
-- AWS Health Dashboard
-- AWS Launch Wizard
-- AWS License Manager
-- AWS Management Console
-- AWS Organizations
-- AWS Resource Groups and Tag Editor
-- AWS Service Catalog
-- AWS Systems Manager
-- AWS Trusted Advisor
-- AWS Well-Architected Tool
+| AWS Services | Description |
+| ------------ | ----------- |
+| [**AWS Auto Scaling**](#aws-auto-scaling) | *scale multiple resources to meet demand* |
+| [**AWS CloudFormation**](#aws-cloudformation) | *create & manage resources with templates, infra modeling & provisioning service, templates: JSON or YAML, IaC* |
+| [**AWS CloudTrail**](#aws-cloudtrail) | *track and monitor activities by users, roles, or AWS services, tracks all API calls; "where-when-who-what"* |
+| [**Amazon CloudWatch**](#amazon-cloudwatch) | *monitor resources and applications* |
+| [**AWS Compute Optimizer**](#aws-compute-optimizer) | *identify optimal AWS compute resources, suggests how to reduce costs and improve performance by using ML* |
+| [**AWS Config**](#aws-config) | *track and evaluate configuration changes on a per region basis; Compliance-as-Code framework* |
+| [**AWS Control Tower**](#aws-control-tower) | *set up and govern a secure, compliant multi-account environment; replacement of retired AWS Landing Zones* |
+| [**AWS Health Dashboard**](#aws-health-dashboard) | *status of all AWS services across all regions* |
+| [**AWS Launch Wizard**](#aws-launch-wizard) | *easily size, configure, and deploy third-party applications on AWS* |
+| [**AWS License Manager**](#aws-license-manager) | *track and manage software licenses across multiple AWS Regions* |
+| [**AWS Management Console**](#aws-management-console) | *web-based user interface comprising multiple AWS service consoles* |
+| [**AWS Organizations**](#aws-organizations) | *central governance and management across AWS accounts* |
+| [**AWS Resource Groups**](#aws-resource-groups) | *see your resources across the AWS Regions in your AWS account* |
+| [**AWS Tag Editor**](#aws-tag-editor) | *add, edit, or delete tags on multiple AWS resources* |
+| [**AWS Service Catalog**](#aws-service-catalog) | *a quick self-service portal to launch a set of authorized products pre-defined by admins* |
+| [**AWS Systems Manager**](#aws-systems-manager) | *organize, monitor, and automate management tasks on your AWS resources.* |
+| [**AWS Trusted Advisor**](#aws-trusted-advisor) | *optimize performance and security; recommendation tool which automatically and actively monitors your AWS acc to provide actional recommendations across a series of categoris* |
+| [**AWS Well-Architected Tool**](#aws-well-architected-tool) | |
 
 # Migration & Transfer
 - AWS Application Discovery Service
@@ -133,34 +146,34 @@
 # Security, Identity & Compliance
 | AWS Service | Description |
 | ----------- | ----------- |
-| **AWS Artifact** | *on-demand access to AWS compliance reports* |
-| **AWS Audit Manager** | *audit your AWS usage to simplify how you assess risk and compliance* |
-| **AWS Certificate Manager** | *provision, manage, and deploy SSL/TLS certificates* |
-| **AWS CloudHSM** | *offers secure cryptographic key storage for customers* |
-| **Amazon Cognito** | *identity for your web-mobile app users* |
-| **Amazon Detective** | *used to analyze, investigate and indentify potential security issues* |
-| **AWS Directory Service** | *set up and run Microsoft Active Directory with AWS services* |
-| **AWS Firewall Manager** | *deploy network security across your VPCs with just a few clicks* |
-| **Amazon GuardDuty** | *threat detection service, detects suspicious or malicious activity* |
-| **AWS IAM** | *securely manage access to services and resources, create and manage AWS users and groups, and use permissions to allow their access to AWS resources* |
-| **AWS IAM Identity Center (SSO)** | *manage single sign-on access to AWS accounts and apps* |
-| **Amazon Inspector** | *automated and continual vulnerability management at scale* |
-| **AWS KMS** | *managed creation and control of encryption keys* |
-| **Amazon Macie** | *fully managed data security and data privacy service* |
-| AWS Network Firewall | *protect VPCs against network attacks* |
-| **AWS RAM** | *simple, secure service to share AWS resources* |
-| **AWS Secrets Manager** | *rotate, manage, and retrieve secrets* |
-| **AWS Security Hub** | *gather security findings from multiple AWS accounts* |
-| **AWS Shield** | *managed DDoS protection that safeguards app running on AWS* |
-| **AWS WAF** | *filter malicious web traffic* |
+| [**AWS Artifact**](#aws-artifact) | *on-demand access to AWS compliance reports* |
+| [**AWS Audit Manager**](#aws-audit-manager) | *audit your AWS usage to simplify how you assess risk and compliance* |
+| [**AWS Certificate Manager**](#aws-certificate-manager-acm) | *provision, manage, and deploy SSL/TLS certificates* |
+| [**AWS CloudHSM**](#aws-cloudhsm) | *offers secure cryptographic key storage for customers* |
+| [**Amazon Cognito**](#amazon-cognito) | *identity for your web-mobile app users* |
+| [**Amazon Detective**](#amazon-detective) | *used to analyze, investigate and indentify potential security issues* |
+| [**AWS Directory Service**](#aws-directory-service) | *set up and run Microsoft Active Directory with AWS services* |
+| [**AWS Firewall Manager**](#aws-firewall-manager) | *deploy network security across your VPCs with just a few clicks* |
+| [**Amazon GuardDuty**](#amazon-guardduty) | *threat detection service, detects suspicious or malicious activity* |
+| [**AWS IAM**](#aws-identity-and-access-management-iam) | *securely manage access to services and resources, create and manage AWS users and groups, and use permissions to allow their access to AWS resources* |
+| [**AWS IAM Identity Center (SSO)**](#aws-iam-identity-center-aws-single-sign-on) | *manage single sign-on access to AWS accounts and apps* |
+| [**Amazon Inspector**](#amazon-inspector) | *automated and continual vulnerability management at scale* |
+| [**AWS KMS**](#aws-key-management-service-aws-kms) | *managed creation and control of encryption keys* |
+| [**Amazon Macie**](#amazon-macie) | *fully managed data security and data privacy service* |
+| [**AWS Network Firewall**](#aws-network-firewall) | *protect VPCs against network attacks* |
+| [**AWS RAM**](#aws-resource-access-manager-aws-ram) | *simple, secure service to share AWS resources* |
+| [**AWS Secrets Manager**](#aws-secrets-manager) | *rotate, manage, and retrieve secrets* |
+| [**AWS Security Hub**](#aws-security-hub) | *gather security findings from multiple AWS accounts* |
+| [**AWS Shield**](#aws-shield) | *managed DDoS protection that safeguards app running on AWS* |
+| [**AWS WAF**](#aws-waf) | *filter malicious web traffic* |
 
-- 
-- 
-- 
 
 # Serverless
-- **AWS Fargate**: *serverless, orchestration container service*
-- **AWS Lambda**: *serverless functions service*
+| AWS Services | Description |
+| ------------ | ----------- |
+| [**AWS Fargate**](#aws-fargate) | *serverless, orchestration container service* |
+| [**AWS Lambda**](#aws-lambda) | *serverless functions service* |
+
 
 # Storage
 - AWS Backup
@@ -176,39 +189,182 @@
 
 
 # Amazon Athena
+- **Serverless** **query** service to **analyze** data stored in Amazon S3
+- Uses standard **SQL** Langugae to query files
+- Supports: CSV, jSON, ORC, Avro, and Parquet
+- **Pricing**: $5.00 per TB of data scanned
+- Use compressed or columnar data for cost-savings *(less scan)*
+- **Use Cases**: BI/analytics/reporting/, analyze & query VPC Flow Logs, ELB logs, CloudTrail trails, etc..
+
 # AWS Data Exchange
+- Find, subscribe to, and use third-party data in the cloud
+
 # Amazon EMR
+- EMR stands for *Elastic Map Reduce*
+- Helps creating **Hadoop clusters** (Big Data) to *analyze* and *process* vast amount of *data*
+- The clusters can be made of hundreds of EC2 instances
+also supports Apache Spark, HBase, Presto, Flink..
+- EMR takes care of all the provisioning and configuration
+- Auto-Scaling and integrated with Spot Instances
+- **Use Cases**: data processing, machine learning, web indexing, big data.., analytics
+
 # AWS Glue
+- Simple, scalable, and serverless data integration, is mangaged extract, transform, Load (ETL) service
+- Useful to prepare and transform data for analytics
+
 # Amazon Kinesis
-# Amazon Managed Streaming for Apache Kafka (Amazon MSK)
+- Analyze real-time video and data (big) streams 
+- Managed service to collect, process, and analyze real-time streaming data at any scale
+- Types of Amazon Kinesis:
+    - Kinesis Data Streams 
+    - Kinesis Data Firehose
+    - Kinesis Dataanalytics 
+    - Kinesis Video Streams
+
+# Amazon MSK
+- MSK standa for Managed Streaming for Apache Kafka
+- Fully managed Apache Kafka service
+
 # Amazon OpenSearch Service
+- Deploy, operate, and scale OpenSearch clusters in the AWS Cloud
+
 # Amazon QuickSight
+- Serverless machine learning-powered business intelligence service to create interactive dashboards
+- Fast, automatically scalable, embeddable, with per-sessio pricing
+- Use Cases: business analytics, building visualizations, perform ad-hoc analysis, get business insights using data
+- Integrated with RDS, Aurora, Athena, Redshift, S3
+
 # Amazon Redshift
+- Fast, simple, cost-effective peta-byte data warehouse service
+- RedShift is based on PostgreSQL, but it's not used for OLTP
+- It's OLAP: Online Analytics Processing (analytics and data warehousing)
+- Load data once every hour, not second
+- 10x better performance than other data warehouses, scale to PBs of data
+- Columar storage of data (instead of row based)
+massively parallel query execution (MPP), high available
+- PAYG model based on instances provisioned
+- Has a SQL interface for performing the queries
+- BI tools such as AWS QuickSight or Tableau integrate with it
+
+## Amazon Redshift Serverless
+- Automatically provisons and scales data warehouse underlying capacity
+- Eun analytics workloads without managing data warehouse infra
+- pay for what u use (save costs)
+- Use Cases: reporting, dashboarding apps, real-time analytics
 
 -------------------------------------------------------
 
 # Amazon EventBridge
-# Amazon Simple Notification Service (Amazon SNS)
-# Amazon Simple Queue Service (Amazon SQS)
+- Serverless event bus for SaaS apps and AWS services, used for app integration by streaming real-time data to app. EventBridge was formerly called Amazon CloudWatch Events.
+- Formerly **CloudWatch Events**
+
+# Amazon SNS
+- Pub/Sub, SMS, email, and mobile push notifications
+- The event publishers only sends messages to one SNS topic
+- As many event subscribers as we want to listen to the SNS topic notifications
+- Each subscriber to the topic will get all the messages
+up to 12,500,000 subsccriptions per topics, 100,000 topics limit
+
+# Amazon SQS
+- Fully managed (serverless) message queueing service
+- Oldest aws offering (10 yrs old)
+- Scaled from 1 msg per sec to 10,000s per sec
+- Default retention of msgs: 4 days, max 14 days
+- No limit to how many msgs can be in the queue
+messages are deleted after they're read by cuss
+- Low latency < 10 ms on publish and recive
+- Consumers share the work to read messsages & scale horinzontelly
+
 # AWS Step Functions
+- Build serverless visual workflow to orchestrate your Lambda functions
+- Features: sequence, parallel, conditions, timeouts, error handling, … 
+- Can integrate with EC2, ECS, On -premises servers, API Gateway, SQS queues, etc … 
+- Possibility of implementing human approval feature 
+- Use cases: order fulfillment, data processing, web applications, any workflow
 
 -------------------------------------------------------
 
 # Amazon Connect
-# Amazon Simple Email Service (Amazon SES)
+- Receive calls, create contact flows, cloud-based virtual contact center 
+- Can integrate with other CRM systems or AWS 
+- No upfront payments, 80% cheaper than traditional contact center solutions
+
+# Amazon SES
+- SES stands for Simple Email Service
+- Transactional email service (marketing & notification), integrate SES to your application to send mails
 
 -------------------------------------------------------
 
 # AWS Billing Conductor
+- Customize your billing data by account and rate share with your end users
+
 # AWS Budgets
+- Set custom budgets that alert u when ur cost and usage exceeds ur budgeted amount, set RI utilization or coverage targets and receive alerts when ur utilization drops below the thresold u define. 
+- Budgets can be tracked at the monthly, quarterly, or yearly level. 
+- Budget alerts can be sent via email and/or SNS. 
+- Budgets can be created and tracked from the AWS Budgets dashboard or via the Budgets API
+- 4 types of budgets: Usage, Cost, Reservation, Savings Plan
+- For Reserved Instances (RI) 
+    - Track utilization 
+    - Supports EC2, ElastiCache, RDS, Redshift
+- Up to 5 SNS notifications per budget
+- Can filter by: Service, Linked Account, Tag, Purchase Option, Instance Type, Region, Availability Zone, API Operation, etc…
+- Same options as AWS Cost Explore
+- 2 budgets are free, then $0.02/day/budget
+
 # AWS Cost and Usage Report
+- Single resource for accessing comprehensive info about ur AWS cost and usage. 
+- It lists AWS usage for each service category used by an account and its users in hourly or daily line items
+- Includes additional metadata about AWS services, prciing, and reservatons (Amazon EC2, RI)
+- Can be integrated with Athena, Redshift, or Quicksight
+
 # AWS Cost Explorer
+- Visualize, understand & manage ur AWS costs and usage over time, create custom reports & analyze cost & usage data
+- Analyze your data at a high level: total costs and usage across all account Or Monthly, hourly, resource level granularity
+- Choose an optimal Savings Plan (to lower prices on your bill)
+- Forecast usage up to 12 months based on previous usage
+
 # AWS Marketplace
+- Digital Catalogue, buy or sell software that runs on AWS
+- The product can be free to use or can have an associated charge. 
+- The charge becomes part of your AWS bill, and once you pay, AWS Marketplace pays the provider.
+- The sales channel for ISVs and Consulting Partners allows you to sell your solutions to other AWS customers.
+- Products can be offered as:
+    - AMI
+    - AWS CloudFormation templates
+    - SaaS offerings
+    - Web ACL
+    - AWS WAF rules
+- If you buy through the AWS Marketplace, it goues into your AWS bill
+- You can sell your own solutions ton the AWS Marketplcae
 
 -------------------------------------------------------
 
 # AWS Batch
+- Plans, schedules, and execute (runs) your batch computing workloads across the full range of AWS compute services, can utilizie Spot instances to save money
+- Efficiently run 100,000s of computing batch jobs on AWS
+- A “batch” job is a job with a start and an end (opposed to continuous
+- Batch will dynamically launch EC2 instances or Spot Instances
+- AWS Batch provisions the right amount of compute / memory
+- You submit or schedule batch jobs and AWS Batch does the rest!
+- Batch jobs are defined as Docker images and run on ECS
+- Helpful for cost optimizations and focusing less on the infrastructure
+
 # Amazon EC2
+- Create and run virtual servers (highly configurable) in the cloud, EC2 is resizable compute capacity.
+- IaaS
+- "It mainly consists in the capability of :
+    - Renting virtual machines (EC2)
+    - Storing data on virtual drives (EBS)
+    - Distributing load across machines (ELB)
+    - Scaling the services using an auto-scaling group (ASG)"
+- "EC2 user data is used to automate boot tasks such as:
+    - Installing updates
+    - Installing software
+    - Downloading common files from the internet
+    - Anything you can think of
+    - The EC2 User Data Script runs with the root use"
+
 # AWS Elastic Beanstalk
 # Amazon Lightsail
 # AWS Local Zones
@@ -282,21 +438,198 @@
 -------------------------------------------------------
 
 # AWS Auto Scaling
+- Scale multiple resources to meet demand
+- Auto scaling is enabled by Amazon CloudWatch and is available at no additional charge beyond the service fees for CloudWatch and the other AWS resources that you use.
+
 # AWS CloudFormation
+- CloudFormation is a declarative way of outlining your AWS **Infrastructure**, for any resources (most of them are supported)
+- For example, within a CloudFormation **template**, you say:
+    - I want a security group
+    - I want two EC2 instances using this security group
+    - I want an S3 bucket
+    - I want a load balancer (ELB) in front of these machines
+- Then CloudFormation creates those for you, in the right order, with the exact configuration that you specify
+
 # AWS CloudTrail
+- Provides governance, compliance and audit for your AWS Account
+- CloudTrail is enabled by default!
+- Get an history of events / **API call**s made within your AWS Account by:
+    - Console
+    - SDK
+    - CLI
+    - AWS Services
+- Can put logs from CloudTrail into CloudWatch Logs or S3
+- A trail can be applied to All Regions (default) or a single Region.
+- If a resource is deleted in AWS, investigate CloudTrail first!
+
 # Amazon CloudWatch
+## Amazon CloudWatch Metrics
+- CloudWatch provides metrics for every services in AWS
+- Metric is a variable to monitor (CPUUtilization, NetworkIn…)
+- Metrics have timestamps
+- Can create CloudWatch dashboards of metrics
+
+### Important Metrics
+- **EC2 instances**: CPU Utilization, Status Checks, Network (not RAM)
+    - Default metrics every 5 minutes
+    - Option for Detailed Monitoring ($$$): metrics every 1 minute
+- **EBS volumes**: Disk Read/Writes
+- **S3 buckets**: BucketSizeBytes, NumberOfObjects, AllRequests
+- **Billing**: Total Estimated Charge (only in us-east-1)
+- **Service Limits**: how much you’ve been using a service API
+- **Custom metrics**: push your own metrics
+
+### Amazon CloudWatch Alarms
+- Alarms are used to trigger notifications for any metric
+- Alarms actions…
+    - **Auto Scaling**: increase or decrease EC2 instances “desired” count
+    - **EC2 Actions**: stop, terminate, reboot or recover an EC2 instance
+    - **SNS notifications**: send a notification into an SNS topic
+- Various options (sampling, %, max, min, etc…)
+- Can choose the period on which to evaluate an alarm
+- Example: create a billing alarm on the CloudWatch Billing metric
+- Alarm States: OK. INSUFFICIENT_DATA, ALARM
+
+### Amazon CloudWatch Logs
+- CloudWatch Logs can collect log from:
+    - Elastic Beanstalk: collection of logs from application
+    - ECS: collection from containers
+    - AWS Lambda: collection from function logs
+    - CloudTrail based on filter
+    - CloudWatch log agents: on EC2 machines or on-premises servers
+    - Route53: Log DNS queries
+- Enables **real-time monitoring** of logs
+- Adjustable CloudWatch Logs retention
+
+### CloudWatch Logs for EC2
+- By default, no logs from your EC2 instance will go to CloudWatch
+- You need to run a CloudWatch agent on EC2 to push the log files you want
+- Make sure IAM permissions are correct
+- The CloudWatch log agent can be setup on-premises too
+
 # AWS Compute Optimizer
+- **Reduce costs** and **improve performance** by
+recommending optimal AWS resources for your workloads
+- Helps you choose optimal configurations and rightsize your workloads (over/under provisioned)
+- Uses Machine Learning to analyze your **resources’ configurations** and their **utilization CloudWatch metrics**
+- Supported resources
+    - EC2 instances
+    - EC2 Auto Scaling Groups
+    - EBS volumes
+    - Lambda functions
+- Lower your costs by up to 25%
+- Recommendations can be exported to S3
+
 # AWS Config
+- Helps with a**uditing and recording compliance of your AWS resources**
+- Helps **record configurations and changes over time**
+- Possibility of storing the configuration data into S3 (analyzed by Athena)
+- Questions that can be solved by AWS Config:
+    - Is there unrestricted SSH access to my security groups?
+    - Do my buckets have any public access?
+    - How has my ALB configuration changed over time?
+- You can receive alerts (SNS notifications) for any changes
+- AWS Config is a per-region service
+- Can be aggregated across regions and accounts
+
 # AWS Control Tower
+- Easy way to **set up and govern a secure** and **compliant multi-account** AWS environment based on best practices
+- Benefits:
+    - Automate the set up of your environment in a few clicks
+    - Automate ongoing policy management using guardrails
+    - Detect policy violations and remediate them
+    - Monitor compliance through an interactive dashboard
+- AWS Control Tower runs on top of AWS Organizations:
+- It automatically sets up AWS Organizations to organize accounts and implement SCPs (Service Control Policies)
+
 # AWS Health Dashboard
+## AWS Health Dashboard - Service History
+- Shows all regions, all services health
+- Shows historical information for each day
+- Has an RSS feed you can subscribe to
+- Previously called AWS Service Health Dashboard
+
+## AWS Health Dashboard - Your Account
+- Previously called AWS Personal Health Dashboard (PHD)
+- AWS Account Health Dashboard provides **alerts and remediation guidance** when AWS is experiencing **events that may impact you.**
+-  While the Service Health Dashboard displays the general status of AWS services, Account Health Dashboard gives you a **personalized view into the performance and availability of the AWS services underlying your
+AWS resources**.
+- The dashboard displays **relevant and timely information** to help you manage events in progress and provides **proactive notification** to help
+you plan for scheduled activities.
+- Can aggregate data from an entire AWS Organization
+- Global service
+- Shows how AWS outages directly impact you &
+your AWS resources 
+
 # AWS Launch Wizard
+- Easily size, configure, and deploy third-party applications on AWS
+- Launch Wizard estimates the cost of the deployment, lets you modify your resources, and then view the updated cost assessment.
+- It also creates custom AWS CloudFormation templates, which you can reuse and customize for subsequent deployments.
+
 # AWS License Manager
+- Track and manage software licenses across multiple AWS Regions
+
 # AWS Management Console
+- Web-based user interface comprising multiple AWS service consoles
+
 # AWS Organizations
-# AWS Resource Groups and Tag Editor
+- Global Service
+- Allows to **manage multiple AWS accounts**
+- The main account is the master account
+- Cost Benefits:
+    - **Consolidated Billing** across all accounts - single payment method
+    - Pricing benefits from **aggregated usage** (volume discount for EC2, S3…)
+    - Pooling of Reserved EC2 instances for optimal savings
+- API is available to **automate AWS account creation**
+- Restrict account privileges using Service Control Policies (SCP)
+
+# AWS Resource Groups
+- See your resources across the AWS Regions in your AWS account
+
+# AWS Tag Editor
+- Add, edit, or delete tags on multiple AWS resources
+- Tags are used for organizing resources:
+    - EC2: instances, images, load balancers, security groups…
+    - RDS, VPC resources, Route 53, IAM users, etc…
+    - Resources created by CloudFormation are all tagged the same way
+- Free naming, common tags are: Name, Environment, Team …
+- Tags can be used to create **Resource Groups**
+    - Create, maintain, and view a collection of resources that share common tags
+    - Manage these tags using the Tag Editor
+
 # AWS Service Catalog
+- A quick **self-service portal** to launch a set of
+**authorized products** pre-defined by **admins**
+- Includes: virtual machines, databases, storage options, etc…
+
 # AWS Systems Manager
+- Helps you manage your **EC2** and **On-Premises** systems at scale
+- Another *Hybrid AWS service*
+- Get **operational insights** about the state of your infrastructure
+- Suite of 10+ products
+- Most important features are:
+    - Patching automation for enhanced compliance
+    - Run commands across an entire fleet of servers
+    - Store parameter configuration with the SSM Parameter Store
+- Works for Linux, Windows, MacOS, and Raspberry Pi OS (Raspbian)
+
 # AWS Trusted Advisor
+- **Optimize performance** and **security**
+- Recommendation tool which automatically and actively **monitors** your AWS acc to provide actional recommendations across a series of categoris
+
+- Access to the 7 core trusted advisor checks and guidance to provision your resources following best practice to increase performance and improve security
+
+- Think of AWS Trusted Advisor like an automated checklist of best practices on AWS
+
+- The 5 categories of AWS Trusted Advisor:
+    - **Cost Optimization**: How can we save money?
+    - **Performance**: How can we improve the performance?
+    - **Security**: How can we improve security?
+    - **Fault Tolerance**: How can we prevent a disaster or data loss?
+    - **Service Limits**: Are we going to hit the max limit for a service?
+
+
+
 # AWS Well-Architected Tool
 
 -------------------------------------------------------

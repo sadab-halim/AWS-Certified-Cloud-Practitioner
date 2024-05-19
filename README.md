@@ -1286,45 +1286,44 @@ Protects you against Layer 3 (network), 4 (transport) and 7 (app) attacks
 -------------------------------------------------------
 
 # AWS Fargate
-- **serverless** (no EC2 instances), orchestration container service
-- run docker containers on EC2 instances
-- pay for vCPU and memory resources allocated to your applications in your containers
-- same as ECS except you pay-on-demand per running container
-- with ECS you have to keep a EC2 running even if you have no container running
+- **Serverless** *(no EC2 instances)*, orchestration container service
+- Run/Launch docker containers on EC2 instances
+- Pay for vCPU and memory resources allocated to your applications in your containers
+- Same as ECS except *you pay-on-demand per running container*
+- With ECS you have to keep a EC2 running even if you have no container running
 - AWS manages the underlying server, so you don't hae to scale or upgrade the EC2 server
 
 # AWS Lambda
-- **serverless** functions *(virtual - no servers to manage)* service
-- run code *(on-demand)* without thinking about servers *(provisioning or managing)*
-- scaling is automated
-- easy pricing:
-    - pay per request and compute time
-    - free tier of 1,000,000 lambda requests and 400,000 GBs of compute time
-- integrated with the whole AWS suite of services
-- **event-driven**: functions get invoked by AWS when needed
-- easy monitoring through AWS CloudWatch
-- easy to get more resources per functions *(up to 10GB of RAM)*
-- increasing RAM will also improve CPU and network
+- **Serverless** functions *(virtual - no servers to manage)* service
+- Run code *(on-demand)* without thinking about servers *(provisioning or managing)*
+- Scaling is automated
+- Easy pricing:
+    - *Pay per request* and compute time
+    - Free tier of 1,000,000 lambda requests and 400,000 GBs of compute time
+- Integrated with the whole AWS suite of services
+- **Event-Driven**: functions get invoked by AWS when needed
+- Easy monitoring through AWS CloudWatch
+- Easy to get more resources per functions *(up to 10GB of RAM)*
+- Increasing RAM will also improve CPU and network
 
-<br/>
-
-- pay per **calls**:
+## AWS Lambda Pricing
+- Pay per **calls**:
     - first 1,000,000 requests are free
     - $0.20 per 1 million requests thereafter ($0.0000002 per request)
-- pay per **duration**:
+- Pay per **duration**:
     - 400,000 GB - seconds of compute time per month for FREE
     - == 400,000 seconds if function is 1GB RAM
     - == 3,200,000 seconds if function is 128 MB RAM
     - After that $1.00 for 600,000 GB-seconds
-- it is usually very cheap to run AWS Lambda that's why it's very popular
-- **language support**: many programming languages except (arbitrary) Docker
-- **invocation time**: up to 15 mins
-- **lambda billing**: 
+- It's usually very cheap to run AWS Lambda that's why it's very popular
+- **Language support**: many programming languages except (arbitrary) Docker
+- **Invocation time**: up to 15 mins
+- **Lambda billing**: 
     - By the time run x by the RAM provisioned
     - By the no of invocations
-- **use cases**: 
+- **Use cases**: 
     - create thumbnails for images uploaded onto S3
-    - run a serverless cron job
+    - run a *serverless* cron job
 
 -------------------------------------------------------
 

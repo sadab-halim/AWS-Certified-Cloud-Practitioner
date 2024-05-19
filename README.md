@@ -37,13 +37,15 @@
 | [**AWS Marketplace**](#aws-marketplace) | digital catalogue, buy or sell software that runs on AWS |
 
 # Compute
-- AWS Batch
-- Amazon EC2
-- AWS Elastic Beanstalk
-- Amazon Lightsail
-- AWS Local Zones
-- AWS Outposts
-- AWS Wavelength
+| AWS Services | Description |
+| ------------ | ----------- |
+| [**AWS Batch**]() | |
+| [**Amazon EC2**](#amazon-ec2) | |
+| [**AWS Elastic Beanstalk**]() | |
+| [**Amazon Lightsail**]() | |
+| [**AWS Local Zones**]() | |
+| [**AWS Outposts**]() | |
+| [**AWS Wavelength**]() | |
 
 # Containers
 - Amazon Elastic Container Registry (Amazon ECR)
@@ -358,17 +360,18 @@ messages are deleted after they're read by cuss
 -------------------------------------------------------
 
 # AWS Batch
-- Plans, schedules, and execute (runs) your batch computing workloads across the full range of AWS compute services, can utilizie Spot instances to save money
+- **Fully managed** batch processing **at any scale**
 - Efficiently run 100,000s of computing batch jobs on AWS
 - A “batch” job is a job with a start and an end (opposed to continuous
-- Batch will dynamically launch EC2 instances or Spot Instances
+- Batch will dynamically launch **EC2 instances** or **Spot Instances**
 - AWS Batch provisions the right amount of compute / memory
 - You submit or schedule batch jobs and AWS Batch does the rest!
-- Batch jobs are defined as Docker images and run on ECS
+- Batch jobs are defined as **Docker images** and **run on ECS**
 - Helpful for cost optimizations and focusing less on the infrastructure
 
 # Amazon EC2
-- Create and run virtual servers (highly configurable) in the cloud, EC2 is resizable compute capacity.
+- **Create** and **run virtual servers** *(highly configurable)* in the cloud
+- EC2 is **resizable compute capacity**.
 - IaaS
 - "It mainly consists in the capability of :
     - Renting virtual machines (EC2)
@@ -381,6 +384,77 @@ messages are deleted after they're read by cuss
     - Downloading common files from the internet
     - Anything you can think of
     - The EC2 User Data Script runs with the root use"
+
+## Use of Different EC2 Instances Types
+### General Purpose
+- Balance of **compute**, **memory** and **networking** resources
+- Use Cases:
+    - Great for a diversity of workloads such as web servers and code repositories
+
+### Compute Optimized
+- Ideal for **compute bound applications** that benefit from **high performance** processor
+- Use Cases:
+    - scientific modeling
+    - dedicated gaming servers and ad server engines
+    - batch processing workloads
+    - media transcoding
+    - high performance web servers
+    - high perforamce computing (HPC)
+
+### Memory Optimized
+- **Fast performance** for workloads that process **large data sets in memory**
+- Use Cases:
+    - in-memory caches
+    - in-memory databases
+    - real time big data analytics
+    - high performance
+    -  relational/non-relational databases
+    -  distributed web scale cache stored
+    - in-memory databases optimized for BI
+    - applications performing real-time processing for big unstructured data
+
+### Accelerated Optimized
+- Hardware **Accelerators**, or co-processors
+- Use Cases:
+    - Machine Learning
+    - Computational Finance
+    - Seismic Analysis
+    - Speech Recognition
+
+### Storage Optimized
+- High, **Sequential Read** and **Write Access* to very **large data sets** on **local storage**
+- Use Cases:
+    - NoSQL
+    - in-memory or transactional databases
+    - data warehousing
+
+## EC2 Instances Purchasing Options
+- **On-Demand Instances**:
+- **Reserved**: (1 & 3 years)
+    - **Reserved Instances**: long workloads
+    - **Convertible Reserved Instances**: long workloads with flexible instances
+- **Savings Plan** (1 & 3 years): commitment to an amount of usage, long workload
+- **Spot Instances**: short workloads, cheap, can lose instances (less reliable)
+- **Dedicated Hosts**: book an entire physical server, control instance placement
+- **Dedicated Instances**: no other cusomters will share your hardware
+- **Capacity Reservations**: reserve capacity in a specific AZ for any duration
+
+## Which purchasing option is right for me?
+- **On demand**: coming and staying in resort whenever we like, we pay the full price
+- **Reserved**: like planning ahead and if we plan to stay for a long time, we may get a good discount.
+- **Savings Plans**: pay a certain amount per hour for certain period and stay in any room type (e.g.,King, Suite, Sea View, …)
+- **Spot instances**: the hotel allows people to bid for the empty rooms and the highest bidder keeps the rooms. You can get kicked out at any time
+- **Dedicated Hosts**: We book an entire building of the resort
+- **Capacity Reservations**: you book a room for a period with full price even you don’t stay in it
+
+## Shared Responsibility Model for EC2
+| AWS | User |
+| --- | ---- |
+| Infrastructure (global network security) | Security Groups rules |
+| Isolation on physical hosts | OS patches and updates |
+| Replacing faulty hardware | Software and utilities installed on the EC2 instance |
+| Compliance validation | IAM Roles assigned to EC2 & IAM user access management |
+| | Data security on your instance |
 
 # AWS Elastic Beanstalk
 # Amazon Lightsail
@@ -998,13 +1072,13 @@ it)*
 
 ### IAM: Users & Groups
 - IAM = Identity and Access Management, Global service
-- Root account created by default, shouldn’t be used or shared
-- Users are people within your organization, and can be grouped
-- Groups only contain users, not other groups
+- **Root account** created by default, shouldn’t be used or shared
+- **Users** are people within your organization, and can be grouped
+- **Groups** only contain users, not other groups
 - Users don’t have to belong to a group, and user can belong to multiple groups
 
 ### IAM: Permissions
-- Users or Groups can be assigned JSON documents called **policies**
+- **Users or Groups** can be assigned JSON documents called **policies**
 - These policies define the *permissions* of the users
 - In AWS you *apply the least privilege principle*: don’t give more permissions than a user needs
 
@@ -1034,6 +1108,15 @@ it)*
     - Allow all IAM users to change their own passwords
     - Require users to change their password after some time (password expiration)
     - Prevent password re-use
+
+### MFA devices options in AWS
+- Virtual MFA Device: *Support for multiple tokens on a single device*
+    - Google Authenticator (phone only)
+    - Auhty (multi-device)
+- Universal 2nd Factor (U2F) Security Key: *Support for multiple root and IAM users using a single security key*
+    - YubiKey by Yubico (3rd party)
+- Hardware Key Fob MFA Device: Provided by Gemalto (3rd party)
+- Hardware Key Fob MFA Device for AWS GocCloud (US): Provided by SurePassID (3rd Party)
 
 ### IAM Roles for Services
 - Some AWS service will need to perform actions on your behalf
@@ -1483,59 +1566,6 @@ restore, tiered storage
     - Tape Gateway
 
 
-
-
-
-------------------------
-
-# AWS DataSync
-- Move large amount of data from on-premises to AWS
-- Can synchronize to: Amazon S3 (any storage classes – including Glacier), Amazon EFS, Amazon FSx for Windows
-- Replication tasks can be scheduled hourly, daily, weekly
-- The replication tasks are incremental after the first full load
-
-# AWS Fault Injection Simulator (FIS)
-- A fully managed service for **running fault injection experiments** on AWS workloads
-- Based on **Chaos Engineering** – stressing an application by creating disruptive events (e.g., sudden increase in CPU or memory), observing how the system responds, and implementing improvements
-- Helps you uncover hidden bugs and performance bottlenecks
-- Supports the following AWS services: EC2, ECS, EKS, RDS…
-- Use pre-built templates that generate the desired disruptions
-
-# AWS Ground Station
-- Fully managed service that lets you **control satellite communications**, process data, and scale your satellite operations
-- Provides a global network of satellite ground stations near AWS regions
-- Allows you to download satellite data to your AWS VPC within seconds
-- Send satellite data to S3 or EC2 instance
-- Use cases: weather forecasting, surface imaging, communications, video broadcasts
-
-# Amazon Pinpoint
-- **Marketing campaign management** service, *sends targeted email* via SMS, push notifications and voice messages
-- Scalable 2-way (outbound/inbound) marketing
-communications service
-- Supports email, SMS, push, voice, and in-app messaging
-- Ability to segment and personalize messages with the right content to customers
-- Possibility to receive replies
-- Scales to billions of messages per day
-- Use cases: run campaigns by sending marketing, bulk, transactional SMS messages
-
-
-## Versus Amazon SNS or Amazon SES
-- In SNS & SES you managed each message's audience, content, and delivery schedule
-- In Amazon Pinpoint, you create message templates, delivery schedules, highly-targeted segments, and full campaigns
-
-# AWS STS
-- STS stands for Security Token Service
-- Enables you to create **temporary, limited privileges credentials** to access your AWS
-resources
-- Short-term credentials: you configure
-expiration period
-- Use Cases:
-    - **Identity federation**: manage user identities in external systems, and provide them with STS tokens to access AWS resources
-    - **IAM Roles for cross/same account access**
-    - **IAM Roles for Amazon EC2**: provide temporary
-credentials for EC2 instances to access AWS
-resources
-
 --------------------------------
 
 # Domain 3: Cloud Technology and Services
@@ -1551,15 +1581,25 @@ resources
     - Public Cloud
     - Private Cloud
     - Hybrid Cloud
-    - Cross Cloud
-- **Different Deployment Models**:
-    - On-Premises
-    - Cloud
-    - Hybrid
+- **Types of Cloud Computing**:
+    - **IaaS**
+        - Provide building blocks for cloud IT
+        - Provides networking, computers, data storage space
+        - Highest level of flexibility
+        - Easy parallel with traditional on-premises IT
+    - **PaaS**
+        - Removes the need for your organization to manage the underlying infrastructure
+        - Focus on the deployment and management of your applications
+    - **SaaS**
+        - Completed product that is run and managed by the service provider
 - **Different Connectivity Options**:
     - AWS VPN
     - AWS Direct Connect
     - Public Internet
+- **Pricing of the Cloud** - *Quick Overview*
+    - Compute: *pay for compute time*
+    - Storage: *pay for data stored in the cloud*
+    - Data transfer OUT of the Cloud: *Data transfer IN is free*
 
 ## Global Infrastructure - Resources
 - Global Infrastructure is a **globally distributed hardware** and **datacenters** that are **physically networked together** to act os one large source for the end user
@@ -1641,49 +1681,6 @@ resources
 - PoP resources are: a. Edge Locations, b. Regional Edge Caches. PoPs live at the edge/intersections of 2 networks.
 - **Amazon S3 Transfer Acceleration**: allows you to generate a special URL that can be used by end users to upload files to a nearby Edge Location. Once a file is uploaded to an Edge Location, it can move much faster within the AWS Network to reach S3
 
-## Use of Different EC2 Instances Types
-### General Purpose
-- Balance of **compute**, **memory** and **networking** resources
-- Use Cases:
-    - Great for a diversity of workloads such as web servers and code repositories
-
-### Compute Optimized
-- Ideal for **compute bound applications** that benefit from **high performance** processor
-- Use Cases:
-    - scientific modeling
-    - dedicated gaming servers and ad server engines
-    - batch processing workloads
-    - media transcoding
-    - high performance web servers
-    - high perforamce computing (HPC)
-
-### Memory Optimized
-- **Fast performance** for workloads that process **large data sets in memory**
-- Use Cases:
-    - in-memory caches
-    - in-memory databases
-    - real time big data analytics
-    - high performance
-    -  relational/non-relational databases
-    -  distributed web scale cache stored
-    - in-memory databases optimized for BI
-    - applications performing real-time processing for big unstructured data
-
-### Accelerated Optimized
-- Hardware **Accelerators**, or co-processors
-- Use Cases:
-    - Machine Learning
-    - Computational Finance
-    - Seismic Analysis
-    - Speech Recognition
-
-### Storage Optimized
-- High, **Sequential Read** and **Write Access* to very **large data sets** on **local storage**
-- Use Cases:
-    - NoSQL
-    - in-memory or transactional databases
-    - data warehousing
-
 
 --------------------------------------
 
@@ -1733,7 +1730,7 @@ resources
 - **Internet Gateway**: enables access to the internet
 - **Subnets** a logical **partition** of an **IP network** into multiple, **smaller network segments**
 - **NACLs**: acts as firewall at the **subnet** level
-- **Security Groups** acts as firewall at the **instance** level
+- **Security Groups** acts as firewall at the **instance** level, they control how traffic is allowed into or out of the EC2 instances
 - **AWS PrivateLinks (VPC Endpoint Services)**: 
     - Most secure & scalable way to expose a service to 1000s of VPCs
     - Does not require VPC peering, internet gateway, NAT, route tables…
@@ -1845,3 +1842,310 @@ resources
 - **Services, not Servers**:
     - Don't use just EC2
     - Use managed services
+
+    ----------------------------------
+
+# Domain 4: Account Management, Billing and Support
+
+## EC2 Pricing Models - Introduction
+### On-Demand *(Least Commitment)*
+- Low cost and flexible
+- Only pay per hour or the *second
+- Short-term, spiky, unpredictable workloads
+- Cannot be interrupted
+- For first time apps
+
+### Spot *(upto 90% -- Biggest Savings)*
+- Request spare computing capacity
+- Flexible start and end times
+- Can handle interruptions (server randomly stopping and starting)
+- For non-critical background jobs
+
+### Reserved *(upto 75% off -- Best Long Term)*
+- Steady state or predictable usage
+- Commit an EC2 over a 1 or 3 year term
+- Can resell unused reserved instances
+
+### Dedicated *(Most Expensive)*
+- Dedicated servers
+- Can be on-demand or reserved or spot
+- When you need a guarantee of isolate hardware (enterprise requirements)
+
+### AWS Savings Plan
+- AWS Savings Plan is another way to save but can be used for more than just EC2
+
+## EC2 Pricing Models - Detailed
+### On-Demand
+- Minimum of 60s
+- Pay per seconds (Linux/Windows) or per hour (other)
+
+### Spot
+- Upto **90% discount** comprated to on-demand on hourly rate
+- Bid for unused capacity
+
+### Dedicated
+- On-demand
+- Reservation for 1 year or 3 years commitment
+
+### Reserved
+- Upto **75% discount** compared to on-demand on hourly rate
+- 1 or 3 years commitment
+- All upfront, partual upfront, no upfront
+
+### AWS Savings Plan
+- Commit a certain $ amount per hour for 1 or 3 years
+- Easiest way to setup long-term commitments on AWS
+- **EC2 Savings Plan**
+    - Up to **72% discount** compared to On-Demand
+    - **Commit to usage of individual instance families in a region (e.g. C5 or M5)**
+    - Regardless of AZ, size (m5.xl to m5.4xl), OS (Linux/Windows) or tenancy
+    - All upfront, partial upfront, no upfront
+- **Compute Savings Plan**
+    - Up to **66% discount** compared to On-Demand
+    - Regardless of Family, Region, size, OS, tenancy, compute options
+    - Compute Options: EC2, Fargate, Lambda
+- **Machine Learning Savings Plan**: SageMaker…
+- Setup from the AWS Cost Explorer console
+
+## AWS Support Plans
+### Basic
+- Email Support only for Billing and Account
+- 7 Trusted Advisor Checks
+- $0 USD/month
+
+### Developer
+- Tech Support via Email **~24 hours** until reply
+- No third party request
+- General Guidance <24 hrs
+- System Impaired < 12 hrs
+- 7 Trusted Advisor Checks
+- *$29 USD/month
+
+### Business
+- Tech Support via Email ~24 hours until reply
+- Tech Support via **Chat, Phone Anytime 24/7**
+- General Guidance <24 hrs
+- System Impaired < 12 hrs
+- Production System Impaired < 4hrs
+- Production System DOWN! < 1hrs
+- All Trusted Advisor Checks
+- *$100 USD/month
+
+### Enterprise
+- Tech Support via Email **~24 hours** until reply
+- Tech Support via Chat, Phone Anytime 24/7
+- General Guidance <24 hrs
+- System Impaired < 12 hrs
+- Production System Impaired < 4hrs
+- Production System DOWN! < 1hrs
+- Business Critical System DOWN! < 15m
+- Personal Concierge
+- TAM
+- All Trusted Advisor Checks
+- *$15,000 USD/month
+
+## AWS Technical Account Manager
+- A TAM provides both **proactive guidance** and **reactive support** to help you succeed with your AWS journey
+- TAMs are only available at the Enterprise Support Tier
+
+## AWS Consolidated Billing
+- AWS Consolidated Billing is a feature of AWS Organizations that allows you to **pay for multiple AWS accounts with one bill**
+- For billing AWS treats all the accounts in an organization as if they were one account
+- You can designate one master account that pays the charges of all other member accounts
+Consolidated billing is offered at no additional cost!
+- Use Cost Explorer to visualize usage for consolidate billing
+- You can combine the usage across all accoutns in the organization to share the volume pricing discounts
+
+## Compute Pricing -- Lambda & ECS
+### Lambda
+- Pay per call
+- Pay per duration
+
+### ECS
+- EC2 Launch Type Model: No additional fees, you pay for AWS resources stored and created in your application
+
+### Fargate
+- Fargate Launch Type Model: Pay for vCPU and memory resources allocated to your applications in your containers
+
+## Storage Pricing - S3
+- Number and size of objects: Price can be tiered (based on volume)
+- Number and type of requests
+- Data transfer OUT of the S3 region
+- S3 Transfer Acceleration
+- Lifecycle transitions
+- Similar service: EFS (pay per use, has infrequent access & lifecycle rules)
+
+## Storage Pricing - EBS
+- Volume type (based on performance)
+- Storage volume in GB per month provisionned
+- IOPS:
+    - General Purpose SSD: Included
+    - Provisioned IOPS SSD: Provisionned amount in IOPS
+    - Magnetic: Number of requests
+- Snapshots:
+    - Added data cost per GB per month
+- Data transfer:
+    - Outbound data transfer are tiered for volume discounts
+    - Inbound is free
+
+## Database Pricing - RDS
+- Per hour billing
+- Database characteristics:
+    - Engine
+    - Size
+    - Memory class
+- Purchase type:
+    - On-demand
+    - Reserved instances (1 or 3 years) with required up-front
+- Backup Storage: There is no additional charge for backup storage up to 100% of your total database storage for a region
+- Additional storage (per GB per month)
+- Number of input and output requests per month
+- Deployment type (storage and I/O are variable):
+    - Single AZ
+    - Multiple AZs
+- Data transfer:
+    - Outbound data transfer are tiered for volume discounts
+    - Inbound is free
+
+## Content Delivery - CloudFront
+- Pricing is different across different geographic regions
+- Aggregated for each edge location, then applied to your bill
+- Data Transfer Out (volume discount)
+- Number of HTTP/HTTPS requests
+
+## Networking Costs in AWS per GB - Simplified
+- Use Private IP instead of Public IP for good savings and better network performance
+- Use same AZ for maximum savings *(at the cost of high availability)*
+
+## AWS Compute Optimizer
+- **Reduce costs** and **improve performance** by recommending optimal AWS resources for your
+workloads
+- Helps you choose optimal configurations and rightsize your workloads (over/under provisioned)
+- Uses Machine Learning to analyze your **resources’ configurations** and their **utilization CloudWatch metrics**
+- Supported resources
+    - EC2 instances
+    - EC2 Auto Scaling Groups
+    - EBS volumes
+    - Lambda functions
+- Lower your costs by up to 25%
+- Recommendations can be exported to S3
+
+## Billing and Costing Tools
+- Estimating costs in the cloud
+    - **Pricing Calculator**: Estimate the cost for your solution architecture
+- Tracking costs in the cloud
+    - Billing Dashboard
+    - Cost Allocation Tags
+    - Cost and Usage Reports
+    - Cost Explorer
+- Monitoring against costs plans
+    - Billing Alarms
+    - Budgets
+
+## Cost Allocation Tags
+- Use **cost allocation tags** to track your AWS costs on a detailed level
+- AWS generated tags
+    - Automatically applied to the resource you create
+    - Starts with Prefix aws: (e.g. aws: createdBy)
+- **User-defined tags**
+    - Defined by the user
+    - Starts with prefix **user:**
+
+## Tagging and Resource Groups
+- **Tags** are used for organizing resources:
+    - EC2: instances, images, load balancers, security groups…
+    - RDS, VPC resources, Route 53, IAM users, etc…
+    - Resources created by CloudFormation are all tagged the same way
+- Free naming, common tags are: Name, Environment, Team …
+- Tags can be used to create **Resource Groups**
+    - Create, maintain, and view a collection of resources that share common tags
+    - Manage these tags using the Tag Editor
+
+## Cost and Usage Reports
+- Dive deeper into your AWS costs and usage
+- The AWS Cost & Usage Report contains **the most comprehensive set of AWS cost and usage data available**, including additional metadata about AWS services, pricing, and reservations *(e.g., Amazon EC2, Reserved Instances (RIs)).*
+- The AWS Cost & Usage Report lists AWS usage for each service category used by an account and its IAM users in hourly or daily line items, as well as any tags that you have activated for cost allocation purposes.
+- Can be integrated with Athena, Redshift or QuickSight
+
+## Cost Explorer
+- Visualize, understand, and manage your AWS costs and usage over time
+- Create custom reports that analyze cost and usage data.
+- Analyze your data at a high level: total costs and usage across all accounts
+- Or Monthly, hourly, resource level granularity
+- Choose an optimal **Savings Plan** (to lower prices on your bill)
+- **Forecast usage up to 12 months based on previous usage**
+
+## Billing Alarms in CloudWatch
+- **Billing data metric is stored** in ***CloudWatch us-east-1***
+- Billing data are for overall *worldwide* AWS costs
+- It’s for actual cost, not for projected costs
+- Intended a simple alarm (not as powerful as AWS Budgets)
+
+## AWS Budgets
+- Create budget and **send alarms when costs exceeds the budget**
+- 4 types of budgets: Usage, Cost, Reservation, Savings Plans
+- For Reserved Instances (RI)
+    - Track utilization
+    - Supports EC2, ElastiCache, RDS, Redshift
+- Up to 5 SNS notifications per budget
+- Can filter by: Service, Linked Account, Tag, Purchase Option, Instance Type, Region, Availability Zone, API Operation, etc…
+- Same options as AWS Cost Explorer!
+- 2 budgets are free, then $0.02/day/budget
+
+## AWS Cost Anomaly Detection
+- **Continuously monitor your cost and usage using ML to detect unusual spends**
+- It learns your unique, historic spend patterns to detect one-time cost spike and/or continuous cost increases (you don’t need to define thresholds)
+- Monitor AWS services, member accounts, cost allocation tags, or cost categories
+- Sends you the anomaly detection report with root-cause analysis
+- Get notified with individual alerts or daily/weekly summary (using SNS)
+
+------------------------------------------------------------------------
+
+# Miscellaneous
+# AWS DataSync
+- Move large amount of data from on-premises to AWS
+- Can synchronize to: Amazon S3 (any storage classes – including Glacier), Amazon EFS, Amazon FSx for Windows
+- Replication tasks can be scheduled hourly, daily, weekly
+- The replication tasks are incremental after the first full load
+
+# AWS Fault Injection Simulator (FIS)
+- A fully managed service for **running fault injection experiments** on AWS workloads
+- Based on **Chaos Engineering** – stressing an application by creating disruptive events (e.g., sudden increase in CPU or memory), observing how the system responds, and implementing improvements
+- Helps you uncover hidden bugs and performance bottlenecks
+- Supports the following AWS services: EC2, ECS, EKS, RDS…
+- Use pre-built templates that generate the desired disruptions
+
+# AWS Ground Station
+- Fully managed service that lets you **control satellite communications**, process data, and scale your satellite operations
+- Provides a global network of satellite ground stations near AWS regions
+- Allows you to download satellite data to your AWS VPC within seconds
+- Send satellite data to S3 or EC2 instance
+- Use cases: weather forecasting, surface imaging, communications, video broadcasts
+
+# Amazon Pinpoint
+- **Marketing campaign management** service, *sends targeted email* via SMS, push notifications and voice messages
+- Scalable 2-way (outbound/inbound) marketing
+communications service
+- Supports email, SMS, push, voice, and in-app messaging
+- Ability to segment and personalize messages with the right content to customers
+- Possibility to receive replies
+- Scales to billions of messages per day
+- Use cases: run campaigns by sending marketing, bulk, transactional SMS messages
+
+
+## Versus Amazon SNS or Amazon SES
+- In SNS & SES you managed each message's audience, content, and delivery schedule
+- In Amazon Pinpoint, you create message templates, delivery schedules, highly-targeted segments, and full campaigns
+
+# AWS STS
+- STS stands for Security Token Service
+- Enables you to create **temporary, limited privileges credentials** to access your AWS
+resources
+- Short-term credentials: you configure
+expiration period
+- Use Cases:
+    - **Identity federation**: manage user identities in external systems, and provide them with STS tokens to access AWS resources
+    - **IAM Roles for cross/same account access**
+    - **IAM Roles for Amazon EC2**: provide temporary
+credentials for EC2 instances to access AWS
+resources

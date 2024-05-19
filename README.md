@@ -99,8 +99,8 @@
 # IoT
 | AWS Services | Description |
 | ------------ | ----------- |
-| [**AWS IoT Core**](#aws-iot-core) | connect devices ot the AWS cloud over MQTT, HTTPS, and LoRaWAN |
-| [**AWS IoT Greengrass**](#aws-iot-greengrass) | local compute, messaging, and sync for devices |
+| [**AWS IoT Core**](#aws-iot-core) | Connect devices ot the AWS cloud over MQTT, HTTPS, and LoRaWAN |
+| **AWS IoT Greengrass** | Local compute, messaging, and sync for devices |
 
 # ML & AI
 | AWS Services | Description |
@@ -189,8 +189,8 @@
 # Serverless
 | AWS Services | Description |
 | ------------ | ----------- |
-| [**AWS Fargate**](#aws-fargate) | serverless, orchestration container service |
-| [**AWS Lambda**](#aws-lambda) | serverless functions service |
+| [**AWS Fargate**](#aws-fargate) | Serverless, Orchestration Container Service |
+| [**AWS Lambda**](#aws-lambda) | Serverless Functions Service |
 
 
 # Storage
@@ -546,16 +546,11 @@ messages are deleted after they're read by cuss
 -------------------------------------------------------
 
 # AWS IoT Core
-- IoT stands for “Internet of Things” – the network of internet-connected devices that are able to collect and transfer data
 - AWS IoT Core allows you to **easily connect IoT devices to the AWS Cloud**
 - **Serverless, secure & scalable** to billions of devices and trillions of messages
-- Your applications can communicate with your devices even when they aren’t connected
+- Your *applications* can *communicate* with your *devices* even when they *aren’t connected*
 - Integrates with a lot of AWS services (Lambda, S3, SageMaker, etc.)
-- Build IoT applications that gather, process,
-analyze, and act on data
-
-# AWS IoT Greengrass
-- Local compute, messaging, and sync for devices
+- Build IoT applications that *gather, process, analyze, and act on data*
 
 -------------------------------------------------------
 

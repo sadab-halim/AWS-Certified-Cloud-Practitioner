@@ -588,8 +588,9 @@ analyze, and act on data
 - Then CloudFormation creates those for you, in the right order, with the exact configuration that you specify
 
 # AWS CloudTrail
+- AWS CloudTrail is a service that **enables governance, compliance, operational auditing**, and **risk auditing** of your AWS account
 - Provides governance, compliance and audit for your AWS Account
-- CloudTrail is enabled by default!
+- CloudTrail is enabled by default and it collect logs for **last 90 days** via **Event History**
 - Get an history of events / **API call**s made within your AWS Account by:
     - Console
     - SDK
@@ -598,6 +599,8 @@ analyze, and act on data
 - Can put logs from CloudTrail into CloudWatch Logs or S3
 - A trail can be applied to All Regions (default) or a single Region.
 - If a resource is deleted in AWS, investigate CloudTrail first!
+- Use Cases: **monitors API calls** and **actions** made on an AWS account, identify which **users** & **accounts** made the call to AWS 
+- To analyze a trail, you'd have to use **Amazon Athena**
 
 # Amazon CloudWatch
 ## Amazon CloudWatch Metrics
@@ -1499,8 +1502,7 @@ restore, tiered storage
 - Use pre-built templates that generate the desired disruptions
 
 # AWS Ground Station
-- Fully managed service that lets you control
-satellite communications, process data, and scale your satellite operations
+- Fully managed service that lets you **control satellite communications**, process data, and scale your satellite operations
 - Provides a global network of satellite ground stations near AWS regions
 - Allows you to download satellite data to your AWS VPC within seconds
 - Send satellite data to S3 or EC2 instance
@@ -1533,3 +1535,313 @@ expiration period
     - **IAM Roles for Amazon EC2**: provide temporary
 credentials for EC2 instances to access AWS
 resources
+
+--------------------------------
+
+# Domain 3: Cloud Technology and Services
+- **AWS OpsWorks**: is a **configuration management service** that also provides managed instances of the managed s/w **Chef & Puppet**
+- **AWS QuickStarts**: **pre-made templates/packages** that can launch/configure your workload on AWS
+- **AWS AppRunner**: fully managed service, easy for devs, deploy containerized web apps and APIs, at scale, no prior exp, at production
+- **AWS Copilot**: **CLI**, enables customer to **quickly launch** and **manage containerized apps** on AWS
+- **Ways to access AWS Services**: 
+    - AWS Management Console
+    - AWS CLI
+    - AWS SDK
+- **Types of Cloud Deployment Models**: 
+    - Public Cloud
+    - Private Cloud
+    - Hybrid Cloud
+    - Cross Cloud
+- **Different Deployment Models**:
+    - On-Premises
+    - Cloud
+    - Hybrid
+- **Different Connectivity Options**:
+    - AWS VPN
+    - AWS Direct Connect
+    - Public Internet
+
+## Global Infrastructure - Resources
+- Global Infrastructure is a **globally distributed hardware** and **datacenters** that are **physically networked together** to act os one large source for the end user
+- **6 Resources for Global Infrastructure**:
+    - **32** Launched Regions
+    - **102** Availability Zones
+    - **115** Direct Connection Locations
+    - **550+** PoP
+    - Local Zones
+    - **29** Wavelength Zones
+
+### Global Infrastructure - Regions
+- Regions are geographically distinct locations consisting of one or more AZs. 
+- AWS First Region: US-East 1 (N Virigina)
+- Every region is physically isolated from & independent of every other regions in terms of location, power, water supply
+- Each region has generally **3 AZs**. 
+- All your billing information appears in US-East-1 (North Virginia)
+- When you choose a region there are 4 factors you need to consider:
+    - What regulatory compliace does this region meet?
+    - What is the cost of AWS services in this region?
+    - What AWS services are available in this region?
+    - What is the distance or latency to my end-users?
+
+### Global Infrastructure - Regional vs Global Services
+- **Regional Services**:
+    - AWS scopes their AWS Management Console on a selected Region. 
+    - This will determine where an AWS service will be launched and what will be seen within an AWS service's console. 
+    - You generally don't explicitly set the Region for a service at the time of creation.
+
+- **Global Services**:
+    - Some AWS services operate across multiple regions and the region will be fixed to "Global". E.g. Amazon S3, CloudFront, Route53, IAM
+    - For these global services at the time of creation:
+        - a. Their is no concept of region e.g. IAM User
+        - b. A single region must be explicitly choosen e.g. S3 Bucket
+        - c. A group of regions are choosen e.g. CloudFront Distribution
+
+## Global Infrastructure - Availability Zone
+- An **Availability Zone (AZ)** is a physical location made up of one or more datacenter
+- A **datacenter** is a secured building that contains hundreds of thosands of computers
+- A region will *generally contain 3 AZs
+- Datacenters within a region will isolate from each other (diff buildings) But they will be close enough to provide low-latency (<10 ms)
+
+- **High Availability**: Its common practice to run workloads in at least 3 AZs to ensure services remain available in case one or two datacenters fail.
+- AZs are represented by a region code, followed by a letter identifier, e.g. us-east-1a
+
+- **Remember**: A subnet is associated with an AZ. You never choose the AZ when launching resources, you choose the subnet which is associated to the AZ. The US-East-1 region has 6 AZs (the most AZ of any region)
+
+- **Connection**: All AZs in an AWS region are interconnected with high-bandwidth, low-latency networing, over fully redundant, dedicated metro fiber providing high-throughput, low-latency networking between. All traffic b/w AZ is encrypted. AZs are within 100 km (60 miles) of each other.
+
+## Global Infrastructure - Fault Tolerance
+- **Fault Domain**: 
+    - A fault domain is a section of a network that is vulnerable to damage if a critical device or system fails. 
+    - The purpose of fault domain is that if a failure occurs it'll not cascade outside that domain, limiting the damage possible. 
+    - You can have fault domains nested inside fault domains.
+- **Fault Level**: A fault level is a collection of fault domains
+- An AWS Region would be a **Fault Level**
+- A Availability Zone would be a **Fault Domain**
+- Each Amazon Region is designed to be completely isolated from the other Amazon Regions. *(this achieves the greated possible fault tolerance and stability)*
+- Each AZ is isolated, but the AZ in a Region are connected through low-latency links. Each AZ is designed as an independent **failure zone.**
+- **Failure Zone**:
+    - a. AZs are physically separated within a typical metropolitann region and are located in lower risk flood plains
+    - b. Discrete uninterruptible power supply (UPS) and onsite backup generation facilities
+    - c. Data centers located in different AZs are designed to be supplied by independent substances to reduce the risk of an event on the power grid impacting more than one AZ
+    - d. AZs are all redundantly connected to multiple tier-1 transit providers
+- **Multi-AZ for High Availability**: If an application is partitioned across AZs, companies are better isolated and protected from issues such as power outages, lightning strikes, tornadoes, earthquakes, and more.
+
+## AWS Global Network
+- The AWS Global Network represents the interconnections b/w AWS Global Infrastructure.
+- Commonly referred to as the "The Backbone of AWS". 
+- Think of it as a private expressway, where things can move very fast between datacenters
+- Edge Locations can act as on and off ramps to the AWS Global  Network
+- **Amazon CloudFront**: uses edge locations as an off-ramp, to provide at the Edge storage and compute near the end user.
+- **AWS Global Network & AWS S3 Acceleration**: uses edge locations as an on-ramp, to quickly reach AWS resources in other regions by traversing the fast AWS Global Network
+- **VPC Endpoints**: ensuring your resources stay within the AWS Network and do not traverse over the public internet.
+
+## Global Infrastructure - Points of Presence (PoP)
+- Points of Presence is an intermediate location b/w an AWS region and the end userm and this location could be a datacenter or collection of hardware. 
+- For AWS a PoP is a data center owned by AWS or a trusted partner that is utilized by AWS Services related for content delivery or expediated upload.
+- PoP resources are: a. Edge Locations, b. Regional Edge Caches. PoPs live at the edge/intersections of 2 networks.
+- **Amazon S3 Transfer Acceleration**: allows you to generate a special URL that can be used by end users to upload files to a nearby Edge Location. Once a file is uploaded to an Edge Location, it can move much faster within the AWS Network to reach S3
+
+## Use of Different EC2 Instances Types
+### General Purpose
+- Balance of **compute**, **memory** and **networking** resources
+- Use Cases:
+    - Great for a diversity of workloads such as web servers and code repositories
+
+### Compute Optimized
+- Ideal for **compute bound applications** that benefit from **high performance** processor
+- Use Cases:
+    - scientific modeling
+    - dedicated gaming servers and ad server engines
+    - batch processing workloads
+    - media transcoding
+    - high performance web servers
+    - high perforamce computing (HPC)
+
+### Memory Optimized
+- **Fast performance** for workloads that process **large data sets in memory**
+- Use Cases:
+    - in-memory caches
+    - in-memory databases
+    - real time big data analytics
+    - high performance
+    -  relational/non-relational databases
+    -  distributed web scale cache stored
+    - in-memory databases optimized for BI
+    - applications performing real-time processing for big unstructured data
+
+### Accelerated Optimized
+- Hardware **Accelerators**, or co-processors
+- Use Cases:
+    - Machine Learning
+    - Computational Finance
+    - Seismic Analysis
+    - Speech Recognition
+
+### Storage Optimized
+- High, **Sequential Read** and **Write Access* to very **large data sets** on **local storage**
+- Use Cases:
+    - NoSQL
+    - in-memory or transactional databases
+    - data warehousing
+
+
+--------------------------------------
+
+# Domain 2: Security and Compliance
+## Shared Responsibility Model
+### Customer (IN)
+- **Conf of Managed Services or Third-Party Software**:
+    - Platforms
+    - Applications
+    - IAM
+
+- **Conf of Virtual Infrastructure & Systems**:
+    - Operating System
+    - Network
+    - Firewall
+
+- **Security Conf Data**:
+    - Client-Side Data Encryption
+    - Server-Side Encryption
+    - Networking Traffic Protection
+    - Customer Data
+
+### AWS (OF)
+- **Software**:
+    - Compute
+    - Storage
+    - Databases
+    - Networking
+
+- **Hardware**:
+    - Regions
+    - Availability Zones
+    - Edge Locations
+    - Physical Security
+
+## Types of Cloud Computing Responsibility *(Bold CSP is responsible)*
+- **On-Premises**: Applications, Data, Runtime, Middleware, OS, Virtualization, Servers, Storage, Networking
+- **IaaS**: Applications, Data, Runtime, Middleware, OS, **Virtualization, Servers, Storage, Networking**
+- **PaaS**: Applications, Data, **Runtime, Middleware, OS, Virtualization, Servers, Storage, Networking**
+- **SaaS**: **Applications, Data, Runtime, Middleware, OS, Virtualization, Servers, Storage, Networking**
+
+## Networking Terminologies
+- **VPC**: a **logically isolated section** of the AWS cloud where you can l**aunch AWS resources**
+- **Region**: the **geographical location** of your network
+- **AZ**: the **datacenter** of your AWS resources
+- **Route Table**: determine where network traffic from your subnets are directed
+- **Internet Gateway**: enables access to the internet
+- **Subnets** a logical **partition** of an **IP network** into multiple, **smaller network segments**
+- **NACLs**: acts as firewall at the **subnet** level
+- **Security Groups** acts as firewall at the **instance** level
+- **AWS PrivateLinks (VPC Endpoint Services)**: 
+    - Most secure & scalable way to expose a service to 1000s of VPCs
+    - Does not require VPC peering, internet gateway, NAT, route tables…
+    - Requires a network load balancer (Service VPC) and ENI (Customer VPC)
+
+## Security Groups vs NACLs
+- **NACLs**: Acts as virtual firewall at the **subnet** level, you can create **allow** and **deny** rules
+- **Security Groups**: Acts as virtual firewall at the **instance** level, implicitly **denies all traffic**, u can create **only allow** rules
+
+## In-Transit vs At-Rest Encryption
+- **Encryption in Transit**: Data that is secure when moving between locations, Alogirhtms: **TLS, SSL**
+- **Encryption at Rest**: Data that is secure when residing on storage or witihin a database, Algorithms: **AES, RSA**
+
+## AWS Account Root User
+- AWS Account Root User is a special user who is created at the time of AWS account creation
+- **AWS Account** - the account which holds all your AWS resources
+- **AWS Account -- Root User** - a special account with full access that cannot be deleted
+- **AWS Account -- User** - a user for common tasks that is assigned permissions
+- The Root User account uses an Email and Password to login
+- A regular user has to provide the Account ID / Alias, Username and Password
+- The Root User account cannot be deleted
+- The Root User account has full permissions to the account and its permissions cannot be limited
+- You cannot use IAM policies to explicitly deny the root user access to resources
+- You can only use an AWS Organizations Service Control Policy (SCP) to limit the permissions of the root user (Imp)
+- There can be only one Root user per AWS account
+- The root user is used for very specific and specialized tasks that are infrequently or rarely performed
+- An AWS Root Account should not be used for daily or common tasks
+- Its strongly recommended to never use Root User Access Keys
+- Its strongly recommended to turn on MFA for the Root User
+
+-------------------------------------
+
+# Domain 1: Cloud Concepts
+## Cloud Architecture Terminologies
+- **Availability**: your ability to ensure a service remains available e.g. **Highly Available (HA)**
+- **Scalability**: your ability to **grow rapidly** or unimpeded
+- **Elasticity**: your ability to **shrink** and **grow** to meet the demand
+- **Fault Tolerance**: your ability to **prevent a failure**
+- **Durability**: your ability to **recover from a failure** e.g. **Highly Durable (DR)**
+
+## High Availability
+- your ability for your service to **remain available** by ensuring there is **no single point of failure** and/or ensure a certain level of performance
+- **Elastic Load Balancer**: 
+    - A load balancer allows you to **evenly distribute traffic to multiple servers in one datacenter**. 
+    - If a datacenter or server becomes unavailable **(unhealthy)** the load balancer will route the traffic to only advailable datacenters with servers.
+- running your workload across multiple **Availability Zones** ensures that if 1 or 2 **AZs** become unavailable your service / applications remains available.
+
+## High Scalability
+- your ability to **increase your capacity** based on the increasing demand of traffic, memory and computing power
+- **Types of Scaling**:
+    - **Vertical Scaling**: Scaling Up - upgrade to a bigger server
+    - **Horizontal Scaling**: Scaling Out - add more servers of the same size
+
+## High Elasticity
+- your ability to **automatically** increase or decrease your capacity based on the current demand of traffic, memory and computing power
+- **Auto Scaling Groups**: is an AWS feature that will automatically add or remove servers based on scaling rules you define based on metrics
+- **Types of Horizontal Scaling**:
+    - **Scaling Out**: add more servers of the same size
+    - **Scaling In**: removing underutilized servers of the same size
+- **Vertical Scaling**: is generally hard for traditional architecture so u'll usually only see horizontal scaling described with Elasiticy
+
+## High Fault Tolerant
+- your ability for your service to ensure there is **no single point of failure**. Preventing the **chance of failure**.
+- **Fail-overs**: is when you have a plan to **shift trafic** to a redundant system in case the primary system fails
+- **RDS Multi-AZ**: is when you run a duplicate standby database in another Availability Zone in case your primary database fails
+- **Exampple**: having a copy (secondary) of your database where all ongoing changes are synced. The secondary system is not in-use until a fail over occurs and it becomes the primary database.
+
+## High Durability
+- your ability to **recover** from a disaster and to prevent **the loss of data**. solutions that recover from a disaster is known as **Disaster Recovery (DR)**
+
+## Business Continuity Plan (BCP)
+- BCP is a document that oulines how a business will continue operating **during an unplanned disruption in services**
+- **Recovery Point Objective (RPO)**: the maximum acceptable amount of data loss after an unplanned data-loss incident, expressed as an amount of time, *how much data are you willing to lose?*
+- **Recovery Time Objective (RPO)**: the maximum amount of downtime your business can tolerate without incurring a significant financial loss, *how much time are you willing to go down?*
+
+## AWS Well-Architected Framework (General Definitions) - 6 Pillars
+- **Operational Excellence**: run and monitor systems
+- **Security**: protect data and systems, mitigate risk
+- **Reliability**: mitigate and recover from disruptions
+- **Performance Efficiency**: use computing resources effectively
+- **Cost Optimization**: get the lowest price
+
+<br/>
+
+- **Component**: code, configuration and AWS resource against a requirement
+- **Workload**: a set of components that work together to deliver business value
+- **Milestones**: key changes of your architecture through product life cycle
+- **Architecture**: how componenets work together in a workload
+- **Technology Portfolio**: a collection of workloads required for the business to operate
+
+## Well-Architecting Framework General Guiding Principles
+- Stop guessing your capacity needs
+- Test systems at production scale
+- Automate to make architectural experimentation easier
+- Allow for evolutionary architectures
+    - Design based on changing requirements
+- Drive architectures using data
+- Improve through game days
+    - Simulate applications for flashy sale days
+
+## AWS Cloud Best Practices - Design Principles
+- **Scalability**: vertical & horizontal
+- **Disposable Resources**: servers should be disposable & easily configured
+- **Automation**: Serverless, Infrastructure as a Service, Auto Scaling…
+- **Loose Coupling**:
+    - Monolith are applications that do more and more over time, become bigger
+    - Break it down into smaller, loosely coupled components
+    - A change or a failure in one component should not cascade to other components
+- **Services, not Servers**:
+    - Don't use just EC2
+    - Use managed services

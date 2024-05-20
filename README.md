@@ -39,24 +39,28 @@
 # Compute
 | AWS Services | Description |
 | ------------ | ----------- |
-| [**AWS Batch**]() | |
-| [**Amazon EC2**](#amazon-ec2) | |
-| [**AWS Elastic Beanstalk**]() | |
-| [**Amazon Lightsail**]() | |
-| [**AWS Local Zones**]() | |
-| [**AWS Outposts**]() | |
-| [**AWS Wavelength**]() | |
+| [**AWS Batch**](#aws-batch) | plans, schedules, and execute (**runs**) your **batch computing workloads** across the full range of AWS compute services, can utilizie *Spot instances* to save money |
+| [**Amazon EC2**](#amazon-ec2) | **create** and **run** **virtual servers** *(highly configurable)* in the cloud, *EC2 is resizable compute capacity*. |
+| [**AWS Elastic Beanstalk**](#aws-elastic-beanstalk) | run and **manage web apps**, easily **deploy web-apps** without worrying about setting up, similar to heroku, health-monitoring |
+| [**Amazon Lightsail**](#amazon-lightsail) | **launch** and **manage** *virtual private servers*, "friendly" version of EC2 |
+| [**AWS Local Zones**](#aws-local-zones) | run latency sensitive applications closer to **end users**, **edge datacenters** located **outside** of an **AWS region** |
+| **AWS Outposts** | **run** AWS infrastructure **on-premises**, physical rack of servers running AWS infrastructure on your physical location |
+| **AWS Wavelength** | deliver ultra-low latency applications for edge-computing on **5G** devices, build and launch your apps in a **telecom** datacenter |
 
 # Containers
-- Amazon Elastic Container Registry (Amazon ECR)
-- Amazon Elastic Container Service (Amazon ECS)
-- Amazon Elastic Kubernetes Service (Amazon EKS)
+| AWS Services | Description |
+| ------------ | ----------- |
+| **Amazon Elastic Container Registry (Amazon ECR)** | easily store, manage, and **deploy container images**, **repository** for container images |
+| **Amazon Elastic Container Service (Amazon ECS)** | highly secure, reliable, and scalable way to **run containers**, *container orchestration service*, *docker* |
+| **Amazon Elastic Kubernetes Service (Amazon EKS)** | **run kubernetes** on AWS without operating your own Kubernetes clusters, *fully managed* Kubernetes service |
 
 # Customer Engagement
-- AWS Activate for Startups
-- AWS IQ
-- AWS Managed Services (AMS)
-- AWS Support
+| AWS Services | Description |
+| ------------ | ----------- |
+| **AWS Activate for Startups** | AWS activate provides startups **free tools, resources** and more to quickly get started | 
+| **AWS IQ** | find **AWS Ceritified third-party experts** for on-demand project work |
+| **AWS Managed Services (AMS)** | infrastructure operations management for AWS |
+| **AWS Support** | learn about the components and features that AWS Support provides |
 
 # Databases
 | AWS Services | Description |
@@ -72,17 +76,17 @@
 # Developer Tools
 | AWS Services | Description |
 | ------------ | ----------- |
-| [**AWS AppConfig**](#aws-appconfig) | quickly deploy application configurations to applications of any size |
-| [**AWS CLI**](#aws-cli) | command line interface tool to manage AWS services |
-| [**AWS Cloud9**](#aws-cloud9) | write, run, and debug code on a cloud IDE |
-| [**AWS CloudShell**](#aws-cloudshell) | command line access to AWS resources and tools directly from a browser |
-| [**AWS CodeArtifact**](#aws-codeartifact) | artifact management for software development |
-| [**AWS CodeBuild**](#aws-codebuild) | fully managed service, build and test code |
-| [**AWS CodeCommit**](#aws-codecommit) | store code in private git repositories |
-| [**AWS CodeDeploy**](#aws-codedeploy) | automate code deployments |
-| [**AWS CodePipeline**](#aws-codepipeline) | release software using continuous delivery |
-| [**AWS CodeStar**](#aws-codestar) | develop and deploy AWS applications |
-| [**AWS X-Ray**](#aws-x-ray) | analyze and debug applications; distributed tracing system |
+| **AWS AppConfig** | quickly deploy application configurations to applications of any size |
+| **AWS CLI** | command line interface tool to manage AWS services |
+| **AWS Cloud9** | write, run, and debug code on a cloud IDE |
+| **AWS CloudShell** | command line access to AWS resources and tools directly from a browser |
+| **AWS CodeArtifact** | artifact management for software development |
+| **AWS CodeBuild** | fully managed service, build and test code |
+| **AWS CodeCommit** | store code in private git repositories |
+| **AWS CodeDeploy** | automate code deployments |
+| **AWS CodePipeline** | release software using continuous delivery |
+| **AWS CodeStar** | develop and deploy AWS applications |
+| **AWS X-Ray** | analyze and debug applications; distributed tracing system |
 
 # End-User Computing
 | AWS Services | Description |
@@ -146,7 +150,7 @@
 | ------------ | ----------- |
 | [**AWS Application Discovery Service**](#aws-application-discovery-service) | discover on-premises applications to *streamline migration* |
 | [**AWS Application Migration Service**](#aws-application-migration-service) | automate application migration and modernization |
-| **AWS Database Migration Service (AWS DMS) | migrate databases with minimal downtime, u can mirate from: a. on-premise db to AWS, b. from 2 db in different or same AWS accounts using diff SQL engines, c. from a SQL to NoSQL db |
+| **AWS Database Migration Service (AWS DMS)** | migrate databases with minimal downtime, u can mirate from: a. on-premise db to AWS, b. from 2 db in different or same AWS accounts using diff SQL engines, c. from a SQL to NoSQL db |
 | [**AWS Migration Hub**](#aws-migration-hub) | *track migrations* from a single place |
 | [**AWS Schema Conversion Tool (AWS SCT)**](#aws-schema-conversion-tool-aws-sct) | convert *source database schema* and most code to *target-compatible format* |
 | [**AWS Snow Family**](#aws-snow-family) | *move* **petabytes** of *data to and from AWS*, or process data at the edge |
@@ -457,23 +461,36 @@ messages are deleted after they're read by cuss
 | | Data security on your instance |
 
 # AWS Elastic Beanstalk
+- Elastic Beanstalk is a developer centric view of **deploying an application** on AWS
+- It uses all the component’s we’ve seen before: EC2, ASG, ELB, RDS, etc…
+- We still have *full control over the configuration*
+- Beanstalk = **Platform as a Service (PaaS)**
+- Beanstalk is **free** but you *pay for the underlying instances*
+
 # Amazon Lightsail
+- Virtual servers, storage, databases, and networking
+- Low & predictable pricing
+- Simpler alternative to using EC2, RDS, ELB, EBS, Route 53…
+- Great for people with *little cloud experience!*
+- Can setup notifications and monitoring of your Lightsail resources
+- Use cases:
+    - Simple web applications (has templates for LAMP, Nginx, MEAN, Node.js…)
+    - Websites (templates for WordPress, Magento, Plesk, Joomla)
+    - Dev / Test environment
+- Has high availability but no auto-scaling, limited AWS integrations
+- *when u need to launch a Linux or Win server but don't have much AWS knowledge*
+
 # AWS Local Zones
-# AWS Outposts
-# AWS Wavelength
-
--------------------------------------------------------
-
-# Amazon Elastic Container Registry (Amazon ECR)
-# Amazon Elastic Container Service (Amazon ECS)
-# Amazon Elastic Kubernetes Service (Amazon EKS)
-
--------------------------------------------------------
-
-# AWS Activate for Startups
-# AWS IQ
-# AWS Managed Services (AMS)
-# AWS Support
+Places AWS compute, storage, database,
+and other selected AWS services *closer to end users to run latency-sensitive applications*
+- Extend your VPC to more locations –
+“Extension of an AWS Region”
+- Compatible with EC2, RDS, ECS, EBS,
+ElastiCache, Direct Connect …
+- Example:
+    - AWS Region: N. Virginia (us-east-1)
+    - AWS Local Zones: Boston, Chicago, Dallas, Houston, Miami, …
+- *When u need faster computing, storage and databases in  a populated areas that are outside of an AWS Region*
 
 -------------------------------------------------------
 
@@ -566,20 +583,6 @@ level: **DAX** is *only used* for and is
 - Fully Managed, highly available with replication across 3 AZ
 - DocumentDB *storage automatically grows in increments of 10GB*
 - Automatically scales to workloads with millions of requests per seconds
-
--------------------------------------------------------
-
-# AWS AppConfig
-# AWS CLI
-# AWS Cloud9
-# AWS CloudShell
-# AWS CodeArtifact
-# AWS CodeBuild
-# AWS CodeCommit
-# AWS CodeDeploy
-# AWS CodePipeline
-# AWS CodeStar
-# AWS X-Ray
 
 -------------------------------------------------------
 
